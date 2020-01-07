@@ -1,5 +1,5 @@
-﻿#!/usr/bin/env python
-# -*- coding: utf8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 #soft banc de test version : dev (version à indiquer)
 
