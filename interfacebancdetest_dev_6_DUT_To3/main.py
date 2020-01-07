@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 #soft banc de test version : dev (version à indiquer)
@@ -1421,7 +1421,11 @@ class Voie1234(Screen):
         # Logger.warning('bus: /n')
         trame_bus+=str('\n')
 
-        arduino1.write(str(trame_bus).encode())
+        #trame_bus_string = str(trame_bus)
+
+        #trame_bus_encode = trame_bus_string.encode()
+
+        arduino1.write(str(trame_bus).encode('utf-8'))
 
         Logger.warning('trame envoyé: {}'.format(trame_bus))
 
@@ -1445,7 +1449,11 @@ class Voie1234(Screen):
     def stopacq(self):
         passerelle.start_stop = 0
         Logger.warning('stopacq: simulation arreté ')
-        arduino1.write(str("p\n"))
+
+        str_P_antislash = str("p\n")
+        str_P_antislash_encode = str_P_antislash.encode()
+
+        arduino1.write(str(str_P_antislash).encode('utf-8'))
         statut=0
         self.rect_dut_1.source = "images/ledred.png"
         self.rect_dut_2.source = "images/ledred.png"
@@ -2323,6 +2331,8 @@ if __name__ == "__main__":
     Logger.warning('DATE ET HEURE DE LANCEMENT DE L ACQUISITION: {}'.format((datetime.now())))
     try:
         arduino1 = serial.Serial('/dev/ttyACM0',115200,timeout = 10)
+        arduino1.flush()
+
         Logger.warning('arduino: Communication lancé')
 
     except:
