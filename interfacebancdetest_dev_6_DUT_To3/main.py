@@ -51,18 +51,20 @@ date = str(datetime.now())
 date_titre=str(datetime.now().year)+'-'+str(datetime.now().month)+'-'+str(datetime.now().day)+'-'+str(datetime.now().hour)+'-'+str(datetime.now().minute)+'-'+str(datetime.now().second)
 #adresseUSB='/media/pi/DATA3/' #utiliser une expression régulière ? * sinon voir ou est tout le temps monté la clé usb ls usb -> liste tous les ports
 # autre solution : démonter tous avant l'insertion de la clé usb puis remonter tous
-adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
-try:
-    adresseUSB=adresseUSB.split(" ")[2]+'/'
-except IndexError:
-    Logger.warning('adresseUSB: impossible d\'accéder au chemin de la clé USB :  vérifier que la clé USB est bien branché')
-    exit()
-Logger.warning('adresseUSB: {}'.format(adresseUSB))
-try:
-    os.mkdir(adresseUSB+date_titre)
-except OSError:
-    Logger.warning('fichier: impossible de créer un fichier à l adresse selectionné : vérifier que la clé USB est bien branché')
-    exit()
+# adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
+# try:
+#     adresseUSB=adresseUSB.split(" ")[2]+'/'
+# except IndexError:
+#     Logger.warning('adresseUSB: impossible d\'accéder au chemin de la clé USB :  vérifier que la clé USB est bien branché')
+#     exit()
+# Logger.warning('adresseUSB: {}'.format(adresseUSB))
+# try:
+#     os.mkdir(adresseUSB+date_titre)
+# except OSError:
+#     Logger.warning('fichier: impossible de créer un fichier à l adresse selectionné : vérifier que la clé USB est bien branché')
+#     exit()
+
+adresseUSB='/media/pi/ASLAM/'
 
 #date au format que l'on souhaite avoir dans le titre 
 file1='/data_dut_1_'
@@ -2305,7 +2307,7 @@ class SetCourantMax(Screen):
        
 
     def incrementCourantMax(self):
-        if(passerelle.amperage_max < 10.5):
+        if(passerelle.amperage_max <= 10.00):
             passerelle.amperage_max += 0.5
             self.label_courant_max.text = str(passerelle.amperage_max)
             passerelle.update_amperage_max = 1
