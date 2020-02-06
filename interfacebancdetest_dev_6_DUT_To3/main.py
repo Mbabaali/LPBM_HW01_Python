@@ -122,7 +122,7 @@ except IOError :
 date = str(datetime.now())
 
 # Ecriture label colonne ficher excel        
-print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out1)
+print(";".join(["date-time", "VASLAalue", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out1)
 print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out2)
 print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out3)
 print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out4)
@@ -1334,7 +1334,7 @@ class Voie1234(Screen):
 
         f_acquisition_list=list(str(passerelle.f_acquisition))
 
-        amperage_max_list = list(str(passerelle.amperage_max))
+        amperage_max_list = str(passerelle.amperage_max)
 
 
         while(len(time_awake_list_1)!=6):
