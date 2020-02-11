@@ -144,6 +144,7 @@ class cycle:
         self.time_sleep_s=time_sleep_s
         self.time_sleep_m=time_sleep_m
         self.time_sleep_h=time_sleep_h
+        self.nb_repetition=1
 class graph:
     def __init__(self):
         self.y_low_min_uA=60
@@ -1332,6 +1333,10 @@ class Voie1234(Screen):
 
         f_acquisition_list=list(str(passerelle.f_acquisition))
 
+        nb_rep_list_1=list(str(passerelle.cycle1.nb_repetition))
+        nb_rep_list_2=list(str(passerelle.cycle2.nb_repetition))
+        nb_rep_list_3=list(str(passerelle.cycle3.nb_repetition))
+
         amperage_max_list = list(str(passerelle.amperage_max))
 
 
@@ -1352,6 +1357,17 @@ class Voie1234(Screen):
 
         while(len(f_acquisition_list)!=3):
             f_acquisition_list.insert(0,0)
+        
+        while(len(nb_rep_list_1)!=2):
+            nb_rep_list_1.insert(0,0)
+
+        while(len(nb_rep_list_2)!=2):
+            nb_rep_list_2.insert(0,0)
+
+        while(len(nb_rep_list_3)!=2):
+            nb_rep_list_3.insert(0,0)
+        
+        
 
         Logger.warning('startacq: time_awake 1 : {}'.format(time_awake_list_1))
         Logger.warning('startacq: time_sleep 1 : {}'.format(time_sleep_list_1))
@@ -1400,15 +1416,22 @@ class Voie1234(Screen):
             trame_bus+=str(chiffre)
             #Logger.warning('bus: {}'.format(chiffre))
 
-        for chiffre in f_acquisition_list:
-            #arduino1.write(str(chiffre))
-            trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
+        # for chiffre in f_acquisition_list:
+        #     #arduino1.write(str(chiffre))
+        #     trame_bus+=str(chiffre)
+        #     #Logger.warning('bus: {}'.format(chiffre))
 
 
         #arduino1.write(str(passerelle.etat_start))
         trame_bus+=str(passerelle.etat_start)
         Logger.warning('bus: {}'.format(passerelle.etat_start))
+
+        for chiffre in nb_rep_list_1:
+            trame_bus+=str(chiffre)
+        for chiffre in nb_rep_list_2:
+            trame_bus+=str(chiffre)
+        for chiffre in nb_rep_list_3:
+            trame_bus+=str(chiffre)
 
 
         for chiffre in amperage_max_list:
@@ -1439,6 +1462,11 @@ class Voie1234(Screen):
               else : 
                   Logger.warning('liaison à l\'arduino: en attente de la communication...')
                   Logger.warning('startacq: date : {} ; ligne n°{}: valeur de msg : {}'.format(str(datetime.now()),inspect.currentframe().f_lineno, msg))
+                  ok=False
+                  cpt_erreur+=1
+                  if cpt_erreur>5:
+                    Logger.warning('l864: pb, renvoie de la trame')
+                    arduino1.write(str(trame_bus))
         #       #Logger.warning('message: msg : {}'.format(msg))        
 
         
@@ -1773,6 +1801,11 @@ class afficherParametres(Screen):
 
         self.label_s_frequency.text=str(passerelle.f_acquisition)+ " S."
 
+        self.label_nb_rep_cycle1.text=str(passerelle.cycle1.nb_repetition)+" rep"
+        self.label_nb_rep_cycle2.text=str(passerelle.cycle2.nb_repetition)+" rep"
+        self.label_nb_rep_cycle3.text=str(passerelle.cycle3.nb_repetition)+" rep"
+
+
         if(passerelle.etat_start==1):
             self.label_etat_init.text="On"
         elif(passerelle.etat_start==0):
@@ -1953,6 +1986,20 @@ class SetCycle1(Screen):
                 passerelle.f_acquisition-=5
             self.label_s_frequency.text=str(passerelle.f_acquisition)
 
+    def incrementnbrep(self):
+        if(passerelle.cycle1.nb_repetition<99):
+            passerelle.cycle1.nb_repetition+=1
+        else:
+            passerelle.cycle1.nb_repetition=1
+        self.label_nb_cycle.text=str(passerelle.cycle1.nb_repetition) 
+
+    def decrementnbrep(self):
+        if(passerelle.cycle1.nb_repetition>1):
+            passerelle.cycle1.nb_repetition-=1
+        else:
+            passerelle.cycle1.nb_repetition=99
+        self.label_nb_cycle.text=str(passerelle.cycle1.nb_repetition)
+
 class SetCycle2(Screen):
     alarmawake = NumericProperty(1.1)
     alarmsleep = NumericProperty(200)
@@ -2100,6 +2147,20 @@ class SetCycle2(Screen):
             passerelle.cycle2.time_sleep_h =50
             self.label_h_sleep.text = str(passerelle.cycle2.time_sleep_h)
             passerelle.update_alarm = 1
+    
+    def incrementnbrep(self):
+        if(passerelle.cycle2.nb_repetition<99):
+            passerelle.cycle2.nb_repetition+=1
+        else:
+            passerelle.cycle2.nb_repetition=1
+        self.label_nb_cycle.text=str(passerelle.cycle2.nb_repetition) 
+
+    def decrementnbrep(self):
+        if(passerelle.cycle2.nb_repetition>1):
+            passerelle.cycle2.nb_repetition-=1
+        else:
+            passerelle.cycle2.nb_repetition=99
+        self.label_nb_cycle.text=str(passerelle.cycle2.nb_repetition)
 
 class SetCycle3(Screen):
     alarmawake = NumericProperty(1.1)
@@ -2247,6 +2308,20 @@ class SetCycle3(Screen):
             passerelle.cycle3.time_sleep_h =50
             self.label_h_sleep.text = str(passerelle.cycle3.time_sleep_h)
             passerelle.update_alarm = 1
+
+    def incrementnbrep(self):
+        if(passerelle.cycle3.nb_repetition<99):
+            passerelle.cycle3.nb_repetition+=1
+        else:
+            passerelle.cycle3.nb_repetition=1
+        self.label_nb_cycle.text=str(passerelle.cycle3.nb_repetition) 
+
+    def decrementnbrep(self):
+        if(passerelle.cycle3.nb_repetition>1):
+            passerelle.cycle3.nb_repetition-=1
+        else:
+            passerelle.cycle3.nb_repetition=99
+        self.label_nb_cycle.text=str(passerelle.cycle3.nb_repetition)
 
 
 class SetAlarm(Screen):
