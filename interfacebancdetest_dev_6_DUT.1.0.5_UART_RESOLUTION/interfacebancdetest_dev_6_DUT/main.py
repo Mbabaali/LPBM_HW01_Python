@@ -1761,6 +1761,16 @@ class afficherParametres(Screen):
         self.add_widget(self.label_etat_init_text)
         self.add_widget(self.label_etat_init)
 
+        self.label_nb_rep_cycle1=Label(text="N/A1", font_size='25sp', size=(100, 50), pos=(330, -100))
+        self.add_widget(self.label_nb_rep_cycle1)
+
+        self.label_nb_rep_cycle2=Label(text="N/A2", font_size='25sp', size=(100, 50), pos=(330, -150))
+        self.add_widget(self.label_nb_rep_cycle2)
+
+        self.label_nb_rep_cycle3=Label(text="N/A3", font_size='25sp', size=(100, 50), pos=(330, -200))
+        self.add_widget(self.label_nb_rep_cycle3)
+
+
 
                
 

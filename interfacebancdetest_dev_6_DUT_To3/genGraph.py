@@ -4,7 +4,6 @@ import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import csv
-import seaborn as sns
 from datetime import datetime
 import sys
 import pandas as pd
