@@ -2204,7 +2204,7 @@ class SetCycle3(Screen):
         self.label_h_sleep = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.55, 'center_y': 0.63})
         self.add_widget(self.label_h_sleep)
 
-        self.label_nb_cycle = Label(text="1", font_size='40sp', size=(100, 50), pos=(-220, -157))
+        self.label_nb_cycle = Label(text="1", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.37, 'center_y':0.24})
         self.add_widget(self.label_nb_cycle)
 
     def incrementtimeawake_s(self):
