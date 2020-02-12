@@ -1851,6 +1851,9 @@ class SetCycle1(Screen):
         self.label_h_sleep = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.6, 'center_y':0.63})
         self.add_widget(self.label_h_sleep)
 
+        self.label_nb_cycle = Label(text="1", font_size='40sp', size=(100, 50), pos=(-220, -157))
+        self.add_widget(self.label_nb_cycle)
+
         self.label_s_frequency = Label(text="1", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.23, 'center_y':0.23})
         self.add_widget(self.label_s_frequency)
         
@@ -2037,7 +2040,9 @@ class SetCycle2(Screen):
         self.label_h_sleep = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.55, 'center_y': 0.63})
         self.add_widget(self.label_h_sleep)
         
-
+        self.label_nb_cycle = Label(text="1", font_size='40sp', size=(100, 50), pos=(-220, -157))
+        self.add_widget(self.label_nb_cycle)
+        
     def incrementtimeawake_s(self):
         if(passerelle.cycle2.time_awake_s<60):
             passerelle.cycle2.time_awake_s += 5
@@ -2198,6 +2203,9 @@ class SetCycle3(Screen):
 
         self.label_h_sleep = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.55, 'center_y': 0.63})
         self.add_widget(self.label_h_sleep)
+
+        self.label_nb_cycle = Label(text="1", font_size='40sp', size=(100, 50), pos=(-220, -157))
+        self.add_widget(self.label_nb_cycle)
 
     def incrementtimeawake_s(self):
         if(passerelle.cycle3.time_awake_s<60):
