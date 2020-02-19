@@ -1062,7 +1062,8 @@ class Voie1234(Screen):
 
 
             if(statut=='1'):
-                print('passerelle.U1onMax' + type(passerelle.U1onMax) + 'U1: ' + type(U1))
+                print(type(passerelle.U1onMax))
+                print(type(U1))
                 if(passerelle.U1onMax<U1):
                     passerelle.U1onMax=U1
                     passerelle.A1onMax=A1
