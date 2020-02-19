@@ -494,7 +494,7 @@ class Voie1234(Screen):
             #Récupération des données Serial
             ####################################################################################
             inbox = arduino1.readline().decode('utf-8')
-            inbox = inbox.string
+        
             #Logger.warning('timer: valeur : {}'.format(inbox))
             #Logger.warning('timer: nombre de deux points : {}'.format(inbox.count(':')))
             # if(inbox.count(':')!=13):
