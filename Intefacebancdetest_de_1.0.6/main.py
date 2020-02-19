@@ -530,6 +530,20 @@ class Voie1234(Screen):
             alarm_awake_mA=passerelle.alarm_awake*1000
             alarm_sleep_mA=float(passerelle.alarm_sleep)/1000
             #Logger.warning('alarme awake : {} mA ; alarme sleep : {} '.format(alarm_awake_mA, alarm_sleep_mA))
+            float(A1)
+            float(A2)
+            float(A3)
+            float(A4)
+            float(A5)
+            float(A6)
+
+            float(W1)
+            float(W2)
+            float(W3)
+            float(W4)
+            float(W5)
+            float(W6)
+
             print('U1 = ')
             print(U1)
             print(type(U1))
@@ -537,6 +551,10 @@ class Voie1234(Screen):
             print('A1 = ')
             print(A1)
             print(type(A1))
+
+            print('W1 = ')
+            print(W1)
+            print(type(W1))
 
             if(U1=='0'):
                 A1_mA=float(A1)/1000
@@ -550,7 +568,7 @@ class Voie1234(Screen):
             else:
                 A1_mA=0
                 W1_mA=0
-                Logger.warning("conversion mA: Probleme de conversion : valeur de U1 : {}".format(U1))
+                Logger.warning("conversion mA: Probleme de conversion valeur de U1 : {}".format(U1))
 
             if(U2=='0'):
                 A2_mA=float(A2)/1000
@@ -564,7 +582,7 @@ class Voie1234(Screen):
             else:
                 A2_mA=0
                 W2_mA=0
-                Logger.warning("conversion mA: Problème de conversion valeur de U2 : {}".format(U2))
+                Logger.warning("conversion mA: Probleme de conversion valeur de U2 : {}".format(U2))
             
             if(U3=='0'):
                 A3_mA=float(A3)/1000
@@ -578,7 +596,7 @@ class Voie1234(Screen):
             else:
                 A3_mA=0
                 W3_mA=0
-                Logger.warning("conversion mA: Problème de conversion valeur de U3 : {}".format(U3))
+                Logger.warning("conversion mA: Probleme de conversion valeur de U3 : {}".format(U3))
             
             if(U4=='0'):
                 A4_mA=float(A4)/1000
@@ -592,7 +610,7 @@ class Voie1234(Screen):
             else:
                 A4_mA=0
                 W4_mA=0
-                Logger.warning("conversion mA: Problème de conversion valeur de U4 : {}".format(U4))
+                Logger.warning("conversion mA: Probleme de conversion valeur de U4 : {}".format(U4))
 
             if(U5=='0'):
                 A5_mA=float(A5)/1000
@@ -606,7 +624,7 @@ class Voie1234(Screen):
             else:
                 A5_mA=0
                 W5_mA=0
-                Logger.warning("conversion mA: Problème de conversion valeur de U5 : {}".format(U5))
+                Logger.warning("conversion mA: Probleme de conversion valeur de U5 : {}".format(U5))
             
             if(U6=='0'):
                 A6_mA=float(A6)/1000
@@ -620,7 +638,7 @@ class Voie1234(Screen):
             else:
                 A6_mA=0
                 W6_mA=0
-                Logger.warning("conversion mA: Problème de conversion valeur de U6 : {}".format(U6))
+                Logger.warning("conversion mA: Probleme de conversion valeur de U6 : {}".format(U6))
 
             ####################################
 
