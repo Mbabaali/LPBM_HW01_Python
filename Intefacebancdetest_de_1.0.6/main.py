@@ -514,7 +514,7 @@ class Voie1234(Screen):
                 statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6,bullshit = 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
                 Logger.warning("debug arduino: {}".format(inbox))
             else:   
-                statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6, bullshit = inbox.split(":")
+                statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6, bullshit = float(inbox.split(":"))
                 Logger.info("debug arduino: {}".format(inbox))
 
             ####################################################################################
@@ -1062,8 +1062,6 @@ class Voie1234(Screen):
 
 
             if(statut=='1'):
-                print(type(passerelle.U1onMax))
-                print(type(U1))
                 if(passerelle.U1onMax<U1):
                     passerelle.U1onMax=U1
                     passerelle.A1onMax=A1
