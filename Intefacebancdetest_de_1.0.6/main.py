@@ -1473,8 +1473,8 @@ class Voie1234(Screen):
     def stopacq(self):
         passerelle.start_stop = 0
         Logger.warning('stopacq: simulation arreté ')
-        arduino1.write(str("p\n").encode('utf-8')
-        self.statut = 0
+        arduino1.write(str("p\n").encode('utf-8'))
+        statut = 0 #Ici erreurdd
         self.rect_dut_1.source = "images/ledred.png"
         self.rect_dut_2.source = "images/ledred.png"
         self.rect_dut_3.source = "images/ledred.png"
