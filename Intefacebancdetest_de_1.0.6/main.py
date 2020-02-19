@@ -530,8 +530,14 @@ class Voie1234(Screen):
             alarm_awake_mA=passerelle.alarm_awake*1000
             alarm_sleep_mA=float(passerelle.alarm_sleep)/1000
             #Logger.warning('alarme awake : {} mA ; alarme sleep : {} '.format(alarm_awake_mA, alarm_sleep_mA))
-            print('Valeur de A1 = ' + A1 + ' type de A1 = ' + type(A1) + ' A1 en float: ' + float(A1))
-            print('Valeur de U1 est de: ' + U1 + 'Le type de U1 est de : ' + type(U1))
+            print('U1 = ')
+            print(U1)
+            print(type(U1))
+
+            print('A1 = ')
+            print(A1)
+            print(type(A1))
+
             if(U1=='0'):
                 A1_mA=float(A1)/1000
                 W1_mA=float(W1)/1000
