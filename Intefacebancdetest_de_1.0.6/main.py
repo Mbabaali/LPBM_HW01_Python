@@ -494,6 +494,7 @@ class Voie1234(Screen):
             #Récupération des données Serial
             ####################################################################################
             inbox = arduino1.readline().decode('utf-8')
+            inbox = inbox.string
             #Logger.warning('timer: valeur : {}'.format(inbox))
             #Logger.warning('timer: nombre de deux points : {}'.format(inbox.count(':')))
             # if(inbox.count(':')!=13):
@@ -1061,6 +1062,7 @@ class Voie1234(Screen):
 
 
             if(statut=='1'):
+                print('passerelle.U1onMax' + type(passerelle.U1onMax) + 'U1: ' + type(U1))
                 if(passerelle.U1onMax<U1):
                     passerelle.U1onMax=U1
                     passerelle.A1onMax=A1
