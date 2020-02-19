@@ -1505,7 +1505,7 @@ class Voie1234(Screen):
 
 
         Logger.warning('stopacq: simulation arreté ')
-        arduino1.write(str("p\n").encode('utf-8')
+        arduino1.write(str("p\n").encode('utf-8'))
         out1.close()
         Logger.warning('fermerBanc: out1 fermé')
         out2.close()
