@@ -560,6 +560,9 @@ class Voie1234(Screen):
             if(U1== 0):
                 A1_mA=(A1)/1000
                 W1_mA=(W1)/1000
+
+                Logger.warning("U1 vaut 0")
+
             elif(U1== 1):
                 A1_mA=(A1)
                 W1_mA=(W1)
