@@ -517,13 +517,13 @@ class Voie1234(Screen):
             else:   
                 statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6, bullshit = inbox.split(":")
                 Logger.info("debug arduino: {}".format(inbox))
-                U1 = int(U1)
-                U2 = int(U2)
-                U3 = int(U3)
-                U4 = int(U4)
-                U5 = int(U5)
-                U6 = int(U6)
-                statut = int(statut)
+                # U1 = int(U1)
+                # U2 = int(U2)
+                # U3 = int(U3)
+                # U4 = int(U4)
+                # U5 = int(U5)
+                # U6 = int(U6)
+                # statut = int(statut)
 
             ####################################################################################
             ####Conversion de la mesure en mA pour pouvoir la comparer aux alarmes sleep et awake
@@ -531,19 +531,19 @@ class Voie1234(Screen):
             alarm_awake_mA=passerelle.alarm_awake*1000
             alarm_sleep_mA=float(passerelle.alarm_sleep)/1000
             #Logger.warning('alarme awake : {} mA ; alarme sleep : {} '.format(alarm_awake_mA, alarm_sleep_mA))
-            A1 = float(A1)
-            A2 = float(A2)
-            A3 = float(A3)
-            A4 = float(A4)
-            A5 = float(A5)
-            A6 = float(A6)
+            # A1 = float(A1)
+            # A2 = float(A2)
+            # A3 = float(A3)
+            # A4 = float(A4)
+            # A5 = float(A5)
+            # A6 = float(A6)
 
-            W1 = float(W1)
-            W2 = float(W2)
-            W3 = float(W3)
-            W4 = float(W4)
-            W5 = float(W5)
-            W6 = float(W6)
+            # W1 = float(W1)
+            # W2 = float(W2)
+            # W3 = float(W3)
+            # W4 = float(W4)
+            # W5 = float(W5)
+            # W6 = float(W6)
 
             print('U1 = ')
             print(U1)
