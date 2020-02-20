@@ -558,84 +558,84 @@ class Voie1234(Screen):
             # print(type(W1))
 
             if(U1== 0):
-                A1_mA=float(A1)/1000
-                W1_mA=float(W1)/1000
+                A1_mA=(A1)/1000
+                W1_mA=(W1)/1000
             elif(U1== 1):
-                A1_mA=float(A1)
-                W1_mA=float(W1)
+                A1_mA=(A1)
+                W1_mA=(W1)
             elif(U1==2):
-                A1_mA=float(A1)*1000
-                W1_mA=float(W1)*1000
+                A1_mA=(A1)*1000
+                W1_mA=(W1)*1000
             else:
                 A1_mA=0
                 W1_mA=0
                 Logger.warning("conversion mA: Probleme de conversion valeur de U1 : {}".format(U1))
 
             if(U2==0):
-                A2_mA=float(A2)/1000
-                W2_mA=float(W2)/1000
+                A2_mA=(A2)/1000
+                W2_mA=(W2)/1000
             elif(U2==1):
-                A2_mA=float(A2)
-                W2_mA=float(W2)
+                A2_mA=(A2)
+                W2_mA=(W2)
             elif(U2==2):
-                A2_mA=float(A2)*1000
-                W2_mA=float(W2)*1000
+                A2_mA=(A2)*1000
+                W2_mA=(W2)*1000
             else:
                 A2_mA=0
                 W2_mA=0
                 Logger.warning("conversion mA: Probleme de conversion valeur de U2 : {}".format(U2))
             
             if(U3==0):
-                A3_mA=float(A3)/1000
-                W3_mA=float(W3)/1000
+                A3_mA=(A3)/1000
+                W3_mA=(W3)/1000
             elif(U3==1):
-                A3_mA=float(A3)
-                W3_mA=float(W3)
+                A3_mA=(A3)
+                W3_mA=(W3)
             elif(U3==2):
-                A3_mA=float(A3)*1000
-                W3_mA=float(W3)*1000
+                A3_mA=(A3)*1000
+                W3_mA=(W3)*1000
             else:
                 A3_mA=0
                 W3_mA=0
                 Logger.warning("conversion mA: Probleme de conversion valeur de U3 : {}".format(U3))
             
             if(U4==0):
-                A4_mA=float(A4)/1000
-                W4mA=float(W4)/1000
+                A4_mA=(A4)/1000
+                W4mA=(W4)/1000
             elif(U4==1):
-                A4_mA=float(A4)
-                W4_mA=float(W4)
+                A4_mA=(A4)
+                W4_mA=(W4)
             elif(U4==2):
-                A4_mA=float(A4)*1000
-                W4_mA=float(W4)*1000
+                A4_mA=(A4)*1000
+                W4_mA=(W4)*1000
             else:
                 A4_mA=0
                 W4_mA=0
                 Logger.warning("conversion mA: Probleme de conversion valeur de U4 : {}".format(U4))
 
             if(U5==0):
-                A5_mA=float(A5)/1000
-                W5_mA=float(W5)/1000
+                A5_mA=(A5)/1000
+                W5_mA=(W5)/1000
             elif(U5==1):
-                A5_mA=float(A5)
-                W5_mA=float(W5)
+                A5_mA=(A5)
+                W5_mA=(W5)
             elif(U5==2):
-                A5_mA=float(A5)*1000
-                W5_mA=float(W5)*1000
+                A5_mA=(A5)*1000
+                W5_mA=(W5)*1000
             else:
                 A5_mA=0
                 W5_mA=0
                 Logger.warning("conversion mA: Probleme de conversion valeur de U5 : {}".format(U5))
             
             if(U6==0):
-                A6_mA=float(A6)/1000
-                W6mA=float(W6)/1000
+                A6_mA=(A6)/1000
+                W6mA=(W6)/1000
             elif(U6==1):
-                A6_mA=float(A6)
-                W6_mA=float(W6)
+                A6_mA=(A6)
+                W6_mA=(W6)
             elif(U6==2):
-                A6_mA=float(A6)*1000
-                W6_mA=float(W6)*1000
+                A6_mA=(A6)*1000
+                W6_mA=(W6)*1000
             else:
                 A6_mA=0
                 W6_mA=0
