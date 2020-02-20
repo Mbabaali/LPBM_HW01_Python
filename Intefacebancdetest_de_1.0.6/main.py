@@ -545,25 +545,25 @@ class Voie1234(Screen):
             # W5 = float(W5)
             # W6 = float(W6)
 
-            print('U1 = ')
-            print(U1)
-            print(type(U1))
+            # print('U1 = ')
+            # print(U1)
+            # print(type(U1))
 
-            print('A1 = ')
-            print(A1)
-            print(type(A1))
+            # print('A1 = ')
+            # print(A1)
+            # print(type(A1))
 
-            print('W1 = ')
-            print(W1)
-            print(type(W1))
+            # print('W1 = ')
+            # print(W1)
+            # print(type(W1))
 
-            if(U1=='0'):
+            if(U1== 0):
                 A1_mA=float(A1)/1000
                 W1_mA=float(W1)/1000
-            elif(U1=='1'):
+            elif(U1== 1):
                 A1_mA=float(A1)
                 W1_mA=float(W1)
-            elif(U1=='2'):
+            elif(U1==2):
                 A1_mA=float(A1)*1000
                 W1_mA=float(W1)*1000
             else:
@@ -571,13 +571,13 @@ class Voie1234(Screen):
                 W1_mA=0
                 Logger.warning("conversion mA: Probleme de conversion valeur de U1 : {}".format(U1))
 
-            if(U2=='0'):
+            if(U2==0):
                 A2_mA=float(A2)/1000
                 W2_mA=float(W2)/1000
-            elif(U2=='1'):
+            elif(U2==1):
                 A2_mA=float(A2)
                 W2_mA=float(W2)
-            elif(U2=='2'):
+            elif(U2==2):
                 A2_mA=float(A2)*1000
                 W2_mA=float(W2)*1000
             else:
@@ -585,13 +585,13 @@ class Voie1234(Screen):
                 W2_mA=0
                 Logger.warning("conversion mA: Probleme de conversion valeur de U2 : {}".format(U2))
             
-            if(U3=='0'):
+            if(U3==0):
                 A3_mA=float(A3)/1000
                 W3_mA=float(W3)/1000
-            elif(U3=='1'):
+            elif(U3==1):
                 A3_mA=float(A3)
                 W3_mA=float(W3)
-            elif(U3=='2'):
+            elif(U3==2):
                 A3_mA=float(A3)*1000
                 W3_mA=float(W3)*1000
             else:
@@ -599,13 +599,13 @@ class Voie1234(Screen):
                 W3_mA=0
                 Logger.warning("conversion mA: Probleme de conversion valeur de U3 : {}".format(U3))
             
-            if(U4=='0'):
+            if(U4==0):
                 A4_mA=float(A4)/1000
                 W4mA=float(W4)/1000
-            elif(U4=='1'):
+            elif(U4==1):
                 A4_mA=float(A4)
                 W4_mA=float(W4)
-            elif(U4=='2'):
+            elif(U4==2):
                 A4_mA=float(A4)*1000
                 W4_mA=float(W4)*1000
             else:
@@ -613,13 +613,13 @@ class Voie1234(Screen):
                 W4_mA=0
                 Logger.warning("conversion mA: Probleme de conversion valeur de U4 : {}".format(U4))
 
-            if(U5=='0'):
+            if(U5==0):
                 A5_mA=float(A5)/1000
                 W5_mA=float(W5)/1000
-            elif(U5=='1'):
+            elif(U5==1):
                 A5_mA=float(A5)
                 W5_mA=float(W5)
-            elif(U5=='2'):
+            elif(U5==2):
                 A5_mA=float(A5)*1000
                 W5_mA=float(W5)*1000
             else:
@@ -627,13 +627,13 @@ class Voie1234(Screen):
                 W5_mA=0
                 Logger.warning("conversion mA: Probleme de conversion valeur de U5 : {}".format(U5))
             
-            if(U6=='0'):
+            if(U6==0):
                 A6_mA=float(A6)/1000
                 W6mA=float(W6)/1000
-            elif(U6=='1'):
+            elif(U6==1):
                 A6_mA=float(A6)
                 W6_mA=float(W6)
-            elif(U6=='2'):
+            elif(U6==2):
                 A6_mA=float(A6)*1000
                 W6_mA=float(W6)*1000
             else:
