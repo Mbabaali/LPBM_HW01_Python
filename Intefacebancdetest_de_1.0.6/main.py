@@ -569,10 +569,10 @@ class Voie1234(Screen):
             elif(U1==2):
                 A1_mA=(A1)*1000
                 W1_mA=(W1)*1000
-            else:
-                A1_mA=0
-                W1_mA=0
-                Logger.warning("conversion mA: Probleme de conversion valeur de U1 : {}".format(U1))
+            # else:
+            #     A1_mA=0
+            #     W1_mA=0
+            #     Logger.warning("conversion mA: Probleme de conversion valeur de U1 : {}".format(U1))
 
             if(U2==0):
                 A2_mA=(A2)/1000
