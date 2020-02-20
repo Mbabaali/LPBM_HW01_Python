@@ -9,7 +9,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 from datetime import datetime
 import sys
-#import pandas as pd
+import pandas as pd
 
 plt.rcParams["figure.figsize"] = (70,12)
 
