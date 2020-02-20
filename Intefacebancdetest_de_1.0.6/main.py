@@ -493,8 +493,7 @@ class Voie1234(Screen):
             ####################################################################################
             #Récupération des données Serial
             ####################################################################################
-            inbox = arduino1.readline()
-            inbox = inbox.decode('ascii')
+            inbox = arduino1.readline().decode('ascii')
         
             #Logger.warning('timer: valeur : {}'.format(inbox))
             #Logger.warning('timer: nombre de deux points : {}'.format(inbox.count(':')))
@@ -1491,8 +1490,8 @@ class Voie1234(Screen):
         msg="rien reçu"
         while(ok==False):
           while(arduino1.inWaiting()):
-              msg=str(arduino1.readline())
-              msg = msg.decode('ascii')
+              msg=str(arduino1.readline().decode('ascii'))
+        
 
               if (msg=='ok\n'):
                   Logger.warning('liaison à l\'arduino : communication ok')
