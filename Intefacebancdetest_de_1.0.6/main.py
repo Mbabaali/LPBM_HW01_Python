@@ -1097,12 +1097,12 @@ class Voie1234(Screen):
 
 
             if(statut=='1'):
-                U1 = int(U1)
-                U2 = int(U2)
-                U3 = int(U3)
-                U4 = int(U4)
-                U5 = int(U5)
-                U6 = int(U6)
+                # U1 = int(U1)
+                # U2 = int(U2)
+                # U3 = int(U3)
+                # U4 = int(U4)
+                # U5 = int(U5)
+                # U6 = int(U6)
 
                 if(passerelle.U1onMax<U1):
                     passerelle.U1onMax=U1
