@@ -515,6 +515,12 @@ class Voie1234(Screen):
                 Logger.warning("debug arduino: {}".format(inbox))
             else:   
                 statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6, bullshit = inbox.split(":")
+                U1 = int(U1)
+                U2 = int(U2)
+                U3 = int(U3)
+                U4 = int(U4)
+                U5 = int(U5)
+                U6 = int(U6)
                 Logger.info("debug arduino: {}".format(inbox))
                 # U1 = int(U1)
                 # U2 = int(U2)
@@ -1097,12 +1103,7 @@ class Voie1234(Screen):
 
 
             if(statut=='1'):
-                U1 = int(U1)
-                U2 = int(U2)
-                U3 = int(U3)
-                U4 = int(U4)
-                U5 = int(U5)
-                U6 = int(U6)
+                
                 print('type(passerelle.U1onMax): ')
                 print(type(passerelle.U1onMax))
 
