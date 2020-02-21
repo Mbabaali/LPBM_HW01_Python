@@ -493,7 +493,7 @@ class Voie1234(Screen):
             ####################################################################################
             #Récupération des données Serial
             ####################################################################################
-            inbox = arduino1.readline().decode('ascii')
+            inbox = arduino1.readline().decode('utf-8')
         
             #Logger.warning('timer: valeur : {}'.format(inbox))
             #Logger.warning('timer: nombre de deux points : {}'.format(inbox.count(':')))
@@ -1487,7 +1487,7 @@ class Voie1234(Screen):
         # Logger.warning('bus: /n')
         trame_bus+=str('\n')
 
-        arduino1.write(str(trame_bus).encode('ascii'))
+        arduino1.write(str(trame_bus).encode('utf-8'))
 
         Logger.warning('trame envoyé: {}'.format(trame_bus))
 
@@ -1497,7 +1497,7 @@ class Voie1234(Screen):
         msg="rien reçu"
         while(ok==False):
           while(arduino1.inWaiting()):
-              msg=str(arduino1.readline().decode('ascii'))
+              msg=str(arduino1.readline().decode('utf-8'))
         
 
               if (msg=='ok\n'):
@@ -1510,14 +1510,14 @@ class Voie1234(Screen):
                   cpt_erreur+=1
                   if cpt_erreur>5:
                     Logger.warning('l864: pb, renvoie de la trame')
-                    arduino1.write(str(trame_bus).encode('ascii'))
+                    arduino1.write(str(trame_bus).encode('utf-8'))
         #       #Logger.warning('message: msg : {}'.format(msg))        
 
         
     def stopacq(self):
         passerelle.start_stop = 0
         Logger.warning('stopacq: simulation arreté ')
-        arduino1.write(str("p\n").encode('ascii'))
+        arduino1.write(str("p\n").encode('utf-8'))
         statut = 0 #Ici erreurdd
         self.rect_dut_1.source = "images/ledred.png"
         self.rect_dut_2.source = "images/ledred.png"
@@ -1530,7 +1530,7 @@ class Voie1234(Screen):
         msg="rien reçu"
         while(ok==False):
           while(arduino1.inWaiting()):
-              msg=str(arduino1.readline().decode('ascii'))
+              msg=str(arduino1.readline().decode('utf-8'))
 
               if (msg=='ok\n'):
                   Logger.warning('liaison à l\'arduino : communication ok, acquisition stopé')
@@ -1549,7 +1549,7 @@ class Voie1234(Screen):
 
 
         Logger.warning('stopacq: simulation arreté ')
-        arduino1.write(str("p\n").encode('ascii'))
+        arduino1.write(str("p\n").encode('utf-8'))
         out1.close()
         Logger.warning('fermerBanc: out1 fermé')
         out2.close()
