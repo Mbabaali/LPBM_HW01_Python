@@ -1103,7 +1103,11 @@ class Voie1234(Screen):
                 # U4 = int(U4)
                 # U5 = int(U5)
                 # U6 = int(U6)
+                print('type(passerelle.U1onMax): ')
                 print(type(passerelle.U1onMax))
+
+                print('type(U1: ')
+                print(type(U1))
                 if(passerelle.U1onMax<U1):
                     passerelle.U1onMax=U1
                     passerelle.A1onMax=A1
