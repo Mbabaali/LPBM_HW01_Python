@@ -1114,7 +1114,7 @@ class Voie1234(Screen):
                     passerelle.W1onMax=W1
                     passerelle.updateMax=True
                 else :
-                    if((passerelle.A1onMax<A1) and (passerelle.U1onMax==U1)):
+                    if((passerelle.A1onMax<int(U1)) and (passerelle.U1onMax==int(U1))):
                         passerelle.A1onMax=A1
                         passerelle.updateMax=True
                     if((passerelle.W1onMax<W1) and (passerelle.U1onMax==U1)):
