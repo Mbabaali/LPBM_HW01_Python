@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: latin-1 -
+# -*- coding: utf-8 -
 
 #soft banc de test version : dev (version à indiquer)
 from __future__ import division
@@ -1270,7 +1270,7 @@ class Voie1234(Screen):
                 self.rect_dut_3.source = "images/ledred.png"
                 self.rect_dut_4.source = "images/ledred.png"
                 self.rect_dut_5.source = "images/ledred.png"
-                self.rect_dut_5.source = "images/ledred.png"
+                self.rect_dut_6.source = "images/ledred.png"
                 
         if(statut == '1'):
                 self.rect_dut_1.source = "images/ledgreen.png"
