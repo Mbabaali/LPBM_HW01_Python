@@ -329,7 +329,7 @@ class Voie1234(Screen):
         self.add_widget(self.courant6)
         # self.puissance6 = Label(text="puissance6", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.35})
         # self.add_widget(self.puissance6)
-  
+
         
         
 ################################################################################################
@@ -411,62 +411,62 @@ class Voie1234(Screen):
         #Label value max channel 1
         self.maxAOn1 = Label(text="0.1 A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.623})
         self.add_widget(self.maxAOn1)
-        self.maxWOn1 = Label(text="1W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.52})
-        self.add_widget(self.maxWOn1)
+        # self.maxWOn1 = Label(text="1W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.52})
+        # self.add_widget(self.maxWOn1)
         self.maxAoff1 = Label(text="1mA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16, 'center_y':0.623})
         self.add_widget(self.maxAoff1)
-        self.maxWoff1 = Label(text="1mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16, 'center_y':0.52})
-        self.add_widget(self.maxWoff1)
+        # self.maxWoff1 = Label(text="1mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16, 'center_y':0.52})
+        # self.add_widget(self.maxWoff1)
 
         #Label value max channel 2
         self.maxAOn2 = Label(text="0.2A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.623})
         self.add_widget(self.maxAOn2)
-        self.maxWOn2 = Label(text="2W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.52})
-        self.add_widget(self.maxWOn2)
+        # self.maxWOn2 = Label(text="2W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.52})
+        # self.add_widget(self.maxWOn2)
         self.maxAoff2 = Label(text="2mA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.5, 'center_y':0.623})
         self.add_widget(self.maxAoff2)
-        self.maxWoff2 = Label(text="2MW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.5, 'center_y':0.52})
-        self.add_widget(self.maxWoff2)
+        # self.maxWoff2 = Label(text="2MW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.5, 'center_y':0.52})
+        # self.add_widget(self.maxWoff2)
 
         #Label value max channel 3
         self.maxAOn3 = Label(text="0.3A", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.73, 'center_y':0.623})
         self.add_widget(self.maxAOn3)
-        self.maxWOn3 = Label(text="3W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.52})
-        self.add_widget(self.maxWOn3)
+        # self.maxWOn3 = Label(text="3W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.52})
+        # self.add_widget(self.maxWOn3)
         self.maxAoff3 = Label(text="3mA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.84, 'center_y':0.623})
         self.add_widget(self.maxAoff3)
-        self.maxWoff3 = Label(text="3mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.84, 'center_y':0.52})
-        self.add_widget(self.maxWoff3)
+        # self.maxWoff3 = Label(text="3mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.84, 'center_y':0.52})
+        # self.add_widget(self.maxWoff3)
 
         #Label value max channel 4
         self.maxAOn4 = Label(text="0.4A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.15})
         self.add_widget(self.maxAOn4)
-        self.maxWOn4 = Label(text="4W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.05})
-        self.add_widget(self.maxWOn4)
+        # self.maxWOn4 = Label(text="4W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.05})
+        # self.add_widget(self.maxWOn4)
         self.maxAoff4 = Label(text="4mA", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.16, 'center_y':0.15})
         self.add_widget(self.maxAoff4)
-        self.maxWoff4 = Label(text="4mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16, 'center_y':0.05})
-        self.add_widget(self.maxWoff4)
+        # self.maxWoff4 = Label(text="4mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16, 'center_y':0.05})
+        # self.add_widget(self.maxWoff4)
 
         #Label value max channel 5
         self.maxAOn5 = Label(text="0.5A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.15})
         self.add_widget(self.maxAOn5)
-        self.maxWOn5 = Label(text="5W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.05})
-        self.add_widget(self.maxWOn5)
+        # self.maxWOn5 = Label(text="5W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.05})
+        # self.add_widget(self.maxWOn5)
         self.maxAoff5 = Label(text="5mA", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.5, 'center_y':0.15})
         self.add_widget(self.maxAoff5)
-        self.maxWoff5 = Label(text="5mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.5, 'center_y':0.05})
-        self.add_widget(self.maxWoff5)
+        # self.maxWoff5 = Label(text="5mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.5, 'center_y':0.05})
+        # self.add_widget(self.maxWoff5)
 
         #Label value max channel 6
         self.maxAOn6 = Label(text="0.6A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.15})
         self.add_widget(self.maxAOn6)
-        self.maxWOn6 = Label(text="6W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.05})
-        self.add_widget(self.maxWOn6)
+        # self.maxWOn6 = Label(text="6W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.05})
+        # self.add_widget(self.maxWOn6)
         self.maxAoff6 = Label(text="6mA", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.84, 'center_y':0.15})
         self.add_widget(self.maxAoff6)
-        self.maxWoff6 = Label(text="6mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.84, 'center_y':0.05})
-        self.add_widget(self.maxWoff6)
+        # self.maxWoff6 = Label(text="6mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.84, 'center_y':0.05})
+        # self.add_widget(self.maxWoff6)
 
 
        
