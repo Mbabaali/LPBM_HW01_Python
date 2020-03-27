@@ -50,15 +50,18 @@
     # Création de l'écran d'affichage principal
     name: "voie1234"
     # Création des cadres pour chacunes des voies
-    canvas.before:        
+    canvas.before:   
+
         ##Separateur DUT
+        ## 1ère ligne verticale
         Rectangle:
             pos: self.width/3 - 2,0
             size: 4, self.height
+        ## 2ème ligne verticale
         Rectangle:
             pos: self.width/3 *2,0
             size: 4, self.height
-
+        ## Ligne Horizontale qui découpe le home screen en 2
         Rectangle:
             pos: 0, (self.height/2)-30
             size: (self.width, 5)
