@@ -37,7 +37,7 @@
         Rectangle:
             pos: 0, 0
             size: 800, 480
-            source: "images/screenFaurecia.png"
+            source: "images/screenparrot.png"
     # Label pour afficher le nom du dispositif
     Label:
         id: label_text
@@ -50,173 +50,152 @@
     # Création de l'écran d'affichage principal
     name: "voie1234"
     # Création des cadres pour chacunes des voies
-    canvas.before:   
-
+    canvas.before:        
         ##Separateur DUT
-        ## 1ère ligne verticale
         Rectangle:
             pos: self.width/3 - 2,0
             size: 4, self.height
-        ## 2ème ligne verticale
         Rectangle:
             pos: self.width/3 *2,0
             size: 4, self.height
-        ## Ligne Horizontale qui découpe le home screen en 2
+
         Rectangle:
             pos: 0, (self.height/2)-30
-            size: (self.width, 5)
+            size: (self.width, 4)
 
 
         ##Separateur Sleep/ON du haut (horizontale)
+
         Rectangle:
-            pos: 0, (self.height*3/4)
+            pos: 0, (self.height*3/4)-30
             size: self.width, 1
 
         Rectangle:
-            pos: 0, (self.height*3/4) - 40
+            pos: 0, (self.height*3/4)-60
             size: self.width, 1
 
-        ## Séparateur Horizontale du haut alarme 
-        Rectangle:
-            pos: 0, (self.height*3/4) - 120
-            size: self.width, 1
+        ###Separateur Sleep/ON du bas (horizontale)
 
         Rectangle:
-            pos: 0, (self.height*3/4)-150
+            pos: 0, (self.height/4)
             size: self.width, 1
 
-
-#         ###Separateur Sleep/ON du bas (horizontale)
-
-#         Rectangle:
-#             pos: 0, (self.height/4)
-#             size: self.width, 1
-
-#         Rectangle:
-#             pos: 0, (self.height/4)-30
-#             size: self.width, 1
-
-          # Separateur alarme 
-#         Rectangle:
-#             pos: 0, (self.height/4)
-#             size: self.width, 1
-
-#         Rectangle:
-#             pos: 0, (self.height/4)-30
-#             size: self.width, 1
+        Rectangle:
+            pos: 0, (self.height/4)-30
+            size: self.width, 1
         
 
-# #########################################################################
-# #########################################################################
-#         #séparateur sleep/on/alarm (verticale)
-#         #DUT 1
+#########################################################################
+#########################################################################
+        #séparateur sleep/on/alarm (verticale)
+        #DUT 1
 
-#         Rectangle:
-#             pos: self.width/9,(self.height/2)-30
-#             size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width/9,(self.height/2)-30
+            size: 1, (self.height/4)
 
-#         # Rectangle:
-#         #     pos: self.width*2/9,(self.height/2)-30
-#         #     size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width*2/9,(self.height/2)-30
+            size: 1, (self.height/4)
 
-#         #DUT2
+        #DUT2
 
-#         Rectangle:
-#             pos: self.width*4/9,(self.height/2)-30
-#             size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width*4/9,(self.height/2)-30
+            size: 1, (self.height/4)
 
-#         Rectangle:
-#             pos: self.width*5/9,(self.height/2)-30
-#             size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width*5/9,(self.height/2)-30
+            size: 1, (self.height/4)
 
-#         #DUT3
+        #DUT3
 
-#         Rectangle:
-#             pos: self.width*7/9,(self.height/2)-30
-#             size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width*7/9,(self.height/2)-30
+            size: 1, (self.height/4)
 
-#         Rectangle:
-#             pos: self.width*8/9,(self.height/2)-30
-#             size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width*8/9,(self.height/2)-30
+            size: 1, (self.height/4)
 
-#         # DUT 4
+        # DUT 4
 
-#         Rectangle:
-#             pos: self.width/9,0
-#             size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width/9,0
+            size: 1, (self.height/4)
 
-#         Rectangle:
-#             pos: self.width*2/9,0
-#             size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width*2/9,0
+            size: 1, (self.height/4)
 
-#         #DUT5
+        #DUT5
 
-#         Rectangle:
-#             pos: self.width*4/9,0
-#             size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width*4/9,0
+            size: 1, (self.height/4)
 
-#         Rectangle:
-#             pos: self.width*5/9,0
-#             size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width*5/9,0
+            size: 1, (self.height/4)
 
-#         #DUT6
+        #DUT6
 
-#         Rectangle:
-#             pos: self.width*7/9,0
-#             size: 1, (self.height/4)
+        Rectangle:
+            pos: self.width*7/9,0
+            size: 1, (self.height/4)
 
-#         Rectangle:
-#             pos: self.width*8/9,0
-#             size: 1, (self.height/4)
-
-
-#         #Separateur alarme (vertical)
-#         Rectangle:
-#             pos: self.width*5/18,0
-#             size: 1, (self.height/4)-30
-#         Rectangle:
-#             pos: self.width*11/18,0
-#             size: 1, (self.height/4)-30
-#         Rectangle:
-#             pos: self.width*17/18,0
-#             size: 1, (self.height/4)-30
-
-#         Rectangle:
-#             pos: self.width*5/18,(self.height/2)-30
-#             size: 1, (self.height/4)-30
-#         Rectangle:
-#             pos: self.width*11/18,(self.height/2)-30
-#             size: 1, (self.height/4)-30
-#         Rectangle:
-#             pos: self.width*17/18,(self.height/2)-30
-#             size: 1, (self.height/4)-30
-
-#         #separateur alarme (horizontale)
-
-#         Rectangle:
-#             pos: self.width*2/9, (self.height/8)-20
-#             size: self.width/9, 1
-
-#         Rectangle:
-#             pos: self.width*5/9, (self.height/8)-20
-#             size: self.width/9, 1
-
-#         Rectangle:
-#             pos: self.width*8/9, (self.height/8)-20
-#             size: self.width/9, 1
+        Rectangle:
+            pos: self.width*8/9,0
+            size: 1, (self.height/4)
 
 
-#         Rectangle:
-#             pos: self.width*2/9, (self.height*5/8)-40
-#             size: self.width/9, 1
+        #Separateur alarme (vertical)
+        Rectangle:
+            pos: self.width*5/18,0
+            size: 1, (self.height/4)-30
+        Rectangle:
+            pos: self.width*11/18,0
+            size: 1, (self.height/4)-30
+        Rectangle:
+            pos: self.width*17/18,0
+            size: 1, (self.height/4)-30
 
-#         Rectangle:
-#             pos: self.width*5/9, (self.height*5/8)-40
-#             size: self.width/9, 1
+        Rectangle:
+            pos: self.width*5/18,(self.height/2)-30
+            size: 1, (self.height/4)-30
+        Rectangle:
+            pos: self.width*11/18,(self.height/2)-30
+            size: 1, (self.height/4)-30
+        Rectangle:
+            pos: self.width*17/18,(self.height/2)-30
+            size: 1, (self.height/4)-30
 
-#         Rectangle:
-#             pos: self.width*8/9, (self.height*5/8)-40
-#             size: self.width/9, 1
+        #separateur alarme (horizontale)
+
+        Rectangle:
+            pos: self.width*2/9, (self.height/8)-20
+            size: self.width/9, 1
+
+        Rectangle:
+            pos: self.width*5/9, (self.height/8)-20
+            size: self.width/9, 1
+
+        Rectangle:
+            pos: self.width*8/9, (self.height/8)-20
+            size: self.width/9, 1
+
+
+        Rectangle:
+            pos: self.width*2/9, (self.height*5/8)-40
+            size: self.width/9, 1
+
+        Rectangle:
+            pos: self.width*5/9, (self.height*5/8)-40
+            size: self.width/9, 1
+
+        Rectangle:
+            pos: self.width*8/9, (self.height*5/8)-40
+            size: self.width/9, 1
 
 
 
@@ -265,49 +244,37 @@
 ############################################################################
 #####################LABELS STATUS DUT######################################
 ############################################################################
-    ## Label Status de chaque Dut
-    ## DUT1 status
-    # Label: 
-    #     id: label_text
-    #     text: "Status:"
-    #     font_size: "25dp"
-    #     pos_hint: {'center_x': 0.07, 'center_y':0.82}
-
-    # ## DUT2 status
-    # Label: 
-    #     id: label_text
-    #     text: "Status:"
-    #     font_size: "25dp"
-    #     pos_hint: {'center_x': 0.736, 'center_y':0.82}
-    
-    # ## DUT3 status 
-    # Label: 
-    #     id: label_text
-    #     text: "Status:"
-    #     font_size: "25dp"
-    #     pos_hint: {'center_x': 0.403, 'center_y':0.37}
-    
-    
-    # # # DUT4 status
-    # # Label: 
-    # #     id: label_text
-    # #     text: "Status:"
-    # #     font_size: "25dp"
-    # #     pos_hint: {'center_x': 0.403, 'center_y':0.82}
-    
-    # ## DUT5 status
-    # Label: 
-    #     id: label_text
-    #     text: "Status:"
-    #     font_size: "25dp"
-    #     pos_hint: {'center_x': 0.736, 'center_y':0.37}
-
-    # # DUT6 status
-    # Label: 
-    #     id: label_text
-    #     text: "Status:"
-    #     font_size: "25dp"
-    #     pos_hint: {'center_x': 0.07, 'center_y':0.37}
+    # Label Status de chaque Dut
+    Label: 
+        id: label_text
+        text: "Status:"
+        font_size: "25dp"
+        pos_hint: {'center_x': 0.07, 'center_y':0.82}
+    Label: 
+        id: label_text
+        text: "Status:"
+        font_size: "25dp"
+        pos_hint: {'center_x': 0.403, 'center_y':0.82}
+    Label: 
+        id: label_text
+        text: "Status:"
+        font_size: "25dp"
+        pos_hint: {'center_x': 0.736, 'center_y':0.82}
+    Label: 
+        id: label_text
+        text: "Status:"
+        font_size: "25dp"
+        pos_hint: {'center_x': 0.403, 'center_y':0.37}
+    Label: 
+        id: label_text
+        text: "Status:"
+        font_size: "25dp"
+        pos_hint: {'center_x': 0.736, 'center_y':0.37}
+    Label: 
+        id: label_text
+        text: "Status:"
+        font_size: "25dp"
+        pos_hint: {'center_x': 0.07, 'center_y':0.37}
     
     
 # ############################################################################
@@ -315,20 +282,20 @@
 ############################################################################
    
     # Label de l'unité alarme pour le Channel 1
-    # Label:
-    #     id: label_text
-    #     text: "Alarm"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.28, 'center_y':0.695}
-    # Label:
-    #     id: label_text
-    #     text: "On"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.25, 'center_y':0.655}
-    # Label:
-    #     id: label_text
-    #     text: "Sleep"
-    #     font_size: "20dp"
+    Label:
+        id: label_text
+        text: "Alarm"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.28, 'center_y':0.695}
+    Label:
+        id: label_text
+        text: "On"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.25, 'center_y':0.655}
+    Label:
+        id: label_text
+        text: "Sleep"
+        font_size: "20dp"
         pos_hint: {'center_x': 0.305, 'center_y':0.655}
     Label:
         id: label_text
@@ -341,22 +308,22 @@
         font_size: "20dp"
         pos_hint: {'center_x': 0.305, 'center_y':0.565}
 
-    ## Label de l'unité alarme pour le Channel 2
-    # Label:
-    #     id: label_text
-    #     text: "Alarm"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.615, 'center_y':0.695}
-    # Label:
-    #     id: label_text
-    #     text: "On"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.585, 'center_y':0.655}
-    # Label:
-    #     id: label_text
-    #     text: "Sleep"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.640, 'center_y':0.655}
+    # Label de l'unité alarme pour le Channel 2
+    Label:
+        id: label_text
+        text: "Alarm"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.615, 'center_y':0.695}
+    Label:
+        id: label_text
+        text: "On"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.585, 'center_y':0.655}
+    Label:
+        id: label_text
+        text: "Sleep"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.640, 'center_y':0.655}
     Label:
         id: label_text
         text: "errors"
@@ -369,21 +336,21 @@
         pos_hint: {'center_x': 0.640, 'center_y':0.565}
 
     # # Label de l'unité alarme pour le Channel 3
-    # Label:
-    #     id: label_text
-    #     text: "Alarm"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.947, 'center_y':0.695}
-    # Label:
-    #     id: label_text
-    #     text: "On"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.917, 'center_y':0.655}
-    # Label:
-    #     id: label_text
-    #     text: "Sleep"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.980, 'center_y':0.655}
+    Label:
+        id: label_text
+        text: "Alarm"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.947, 'center_y':0.695}
+    Label:
+        id: label_text
+        text: "On"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.917, 'center_y':0.655}
+    Label:
+        id: label_text
+        text: "Sleep"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.980, 'center_y':0.655}
     Label:
         id: label_text
         text: "errors"
@@ -396,21 +363,21 @@
         pos_hint: {'center_x': 0.980, 'center_y':0.565}
 
     # # Label de l'unité alarme pour le Channel 4
-    # Label:
-    #     id: label_text
-    #     text: "Alarm"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.28, 'center_y':0.230}
-    # Label:
-    #     id: label_text
-    #     text: "On"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.25, 'center_y':0.190}
-    # Label:
-    #     id: label_text
-    #     text: "Sleep"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.305, 'center_y':0.190}
+    Label:
+        id: label_text
+        text: "Alarm"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.28, 'center_y':0.230}
+    Label:
+        id: label_text
+        text: "On"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.25, 'center_y':0.190}
+    Label:
+        id: label_text
+        text: "Sleep"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.305, 'center_y':0.190}
     Label:
         id: label_text
         text: "errors"
@@ -422,23 +389,22 @@
         font_size: "20dp"
         pos_hint: {'center_x': 0.305, 'center_y':0.09}
     
-
     #  # Label de l'unité alamre pour le channel 5 
-    # Label:
-    #     id: label_text
-    #     text: "Alarm"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.615, 'center_y':0.230}
-    # Label:
-    #     id: label_text
-    #     text: "On"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.585, 'center_y':0.190}
-    # Label:
-    #     id: label_text
-    #     text: "Sleep"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.640, 'center_y':0.190}
+    Label:
+        id: label_text
+        text: "Alarm"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.615, 'center_y':0.230}
+    Label:
+        id: label_text
+        text: "On"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.585, 'center_y':0.190}
+    Label:
+        id: label_text
+        text: "Sleep"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.640, 'center_y':0.190}
     Label:
         id: label_text
         text: "errors"
@@ -451,21 +417,21 @@
         pos_hint: {'center_x': 0.640, 'center_y':0.09}
 
  #  # Label de l'unité alamre pour le channel 6 
-    # Label:
-    #     id: label_text
-    #     text: "Alarm"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.947, 'center_y':0.230}
-    # Label:
-    #     id: label_text
-    #     text: "On"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.917, 'center_y':0.190}
-    # Label:
-    #     id: label_text
-    #     text: "Sleep"
-    #     font_size: "20dp"
-    #     pos_hint: {'center_x': 0.980, 'center_y':0.190}
+    Label:
+        id: label_text
+        text: "Alarm"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.947, 'center_y':0.230}
+    Label:
+        id: label_text
+        text: "On"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.917, 'center_y':0.190}
+    Label:
+        id: label_text
+        text: "Sleep"
+        font_size: "20dp"
+        pos_hint: {'center_x': 0.980, 'center_y':0.190}
     Label:
         id: label_text
         text: "errors"
@@ -485,36 +451,36 @@
         id: label_text
         text: "On (max.)"
         font_size: "20dp"
-        pos_hint: {'center_x': 0.05, 'center_y':0.720}
+        pos_hint: {'center_x': 0.05, 'center_y':0.695}
     Label:
         id: label_text
         text: "Sleep (max.)"
         font_size: "20dp"
-        pos_hint: {'center_x': 0.26, 'center_y':0.720}
+        pos_hint: {'center_x': 0.16, 'center_y':0.695}
 
     # Channel 2
     Label:
         id: label_text
         text: "On (max.)"
         font_size: "20dp"
-        pos_hint: {'center_x': 0.39, 'center_y':0.720}
+        pos_hint: {'center_x': 0.39, 'center_y':0.695}
     Label:
         id: label_text
         text: "Sleep (max.)"
         font_size: "20dp"
-        pos_hint: {'center_x': 0.60, 'center_y':0.720}
+        pos_hint: {'center_x': 0.50, 'center_y':0.695}
 
     # Channel 3
     Label:
         id: label_text
         text: "On (max.)"
         font_size: "20dp"
-        pos_hint: {'center_x': 0.73, 'center_y':0.720}
+        pos_hint: {'center_x': 0.73, 'center_y':0.695}
     Label:
         id: label_text
         text: "Sleep (max.)"
         font_size: "20dp"
-        pos_hint: {'center_x': 0.94, 'center_y':0.720}
+        pos_hint: {'center_x': 0.84, 'center_y':0.695}
 
     # Channel 4
     Label:
@@ -568,7 +534,7 @@
             ActionView:
                 use_separator: True
                 ActionPrevious:
-                    title: 'Low Power Bench Marking'
+                    title: 'Faurecia Clarion Electronics'
                     with_previous: False
 
                 ActionOverflow:
