@@ -367,7 +367,7 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff3)
         
         #Label compteur alarme Channel 3
-        self.cptalarmeon3 = Label(text="33", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.917, 'center_y':0.52})
+        self.cptalarmeon3 = Label(text="33", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.73, 'center_y':0.52})
         self.add_widget(self.cptalarmeon3)
         self.cptalarmeoff3 = Label(text="333", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.980, 'center_y':0.52})
         self.add_widget(self.cptalarmeoff3)
@@ -403,7 +403,7 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff6)
         
         #Label compteur alarme Channel 6
-        self.cptalarmeon6 = Label(text="66", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.917, 'center_y':0.05})
+        self.cptalarmeon6 = Label(text="66", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.05})
         self.add_widget(self.cptalarmeon6)
         self.cptalarmeoff6 = Label(text="666", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.980, 'center_y':0.05})
         self.add_widget(self.cptalarmeoff6)
