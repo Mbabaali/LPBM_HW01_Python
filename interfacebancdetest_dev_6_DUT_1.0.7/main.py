@@ -413,7 +413,7 @@ class Voie1234(Screen):
         self.add_widget(self.maxAOn1)
         # self.maxWOn1 = Label(text="1W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.52})
         # self.add_widget(self.maxWOn1)
-        self.maxAoff1 = Label(text="1mA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16, 'center_y':0.623})
+        self.maxAoff1 = Label(text="1mA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16+0.1, 'center_y':0.623})
         self.add_widget(self.maxAoff1)
         # self.maxWoff1 = Label(text="1mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16, 'center_y':0.52})
         # self.add_widget(self.maxWoff1)
