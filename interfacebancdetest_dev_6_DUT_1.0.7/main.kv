@@ -915,10 +915,6 @@
                 ActionButton:
                     text: 'Back'
                     on_release: root.manager.current = "voie1234"
-        Image:
-            source:"images/cycleReg.jpg"
-            size_hint_x: 0.4
-            allow_stretch: True
 
         FloatLayout:
             Button:
@@ -941,6 +937,12 @@
                 pos_hint: {'center_x': .75+0.09, 'center_y':.7}
                 font_size: 30
                 on_release: root.manager.current="afficherParametres"
+            
+            Image:
+            source:"images/cycleReg.jpg"
+            size_hint_x: 0.4
+            allow_stretch: True
+            
             # Button:
             #     text: 'test '
             #     size_hint: 0.4, 0.3
