@@ -916,6 +916,11 @@
                     text: 'Back'
                     on_release: root.manager.current = "voie1234"
         FloatLayout:
+            canvas:
+                Rectangle:
+                    source: 'images/cycleReg.png'
+                    size: self.size
+                    pos: self.pos
             Button:
                 text: 'Régler Alarme'
                 size_hint: 0.3, 0.1
