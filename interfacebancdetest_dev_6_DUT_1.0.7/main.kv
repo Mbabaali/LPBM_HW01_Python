@@ -915,16 +915,11 @@
                 ActionButton:
                     text: 'Back'            
                     on_release: root.manager.current = "voie1234"
-        FloatLayout:
-            # Image:
-            #     source: 'images/cycleReg.png'
-            #     size_hint_x: 0.4
-            #     allow_stretch: True
-                    
+        FloatLayout:        
             Button:
                 text: 'Régler Alarme'
                 size: 0.3, 0.1
-                pos: {'center_x': .5, 'center_y':.7}
+                pos: {'center_x': 0.5, 'center_y':0.7}
                 font_size: 30
                 on_release: root.manager.current="setAlarm"
             
