@@ -898,7 +898,12 @@
 ############################################################################
 
 <Setup2>:
-    name: "setup2"    
+    name: "setup2"   
+
+    Image:
+                source:"images/cycleReg.png"
+                size_hint_x: 0.3
+                allow_stretch: True 
 
     BoxLayout:
         orientation: 'vertical'
@@ -938,10 +943,6 @@
                 font_size: 30
                 on_release: root.manager.current="afficherParametres"
             
-            Image:
-                source:"images/cycleReg.png"
-                size_hint_x: 0.3
-                allow_stretch: True
 
             
         
