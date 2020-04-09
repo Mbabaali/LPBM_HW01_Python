@@ -913,13 +913,13 @@
                     text: ' '
                     icon: "images/parrotparrot.png"
                 ActionButton:
-                    text: 'Back'            
+                    text: 'Back'
                     on_release: root.manager.current = "voie1234"
-        FloatLayout:        
+        FloatLayout:
             Button:
                 text: 'Régler Alarme'
-                size: 0.3, 0.1
-                pos: {'center_x': 0.5, 'center_y':0.7}
+                size_hint: 0.3, 0.1
+                pos_hint: {'center_x': .5, 'center_y':.7}
                 font_size: 30
                 on_release: root.manager.current="setAlarm"
             
