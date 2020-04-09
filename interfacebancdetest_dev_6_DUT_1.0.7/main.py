@@ -343,7 +343,7 @@ class Voie1234(Screen):
         #Label compteur alarme Channel 1
         self.cptalarmeon1 = Label(text="11", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.52})
         self.add_widget(self.cptalarmeon1)
-        self.cptalarmeoff1 = Label(text="111", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.305-0.05, 'center_y':0.52})
+        self.cptalarmeoff1 = Label(text="111", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.305-0.06, 'center_y':0.52})
         self.add_widget(self.cptalarmeoff1)
 
         
