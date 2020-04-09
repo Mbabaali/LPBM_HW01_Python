@@ -913,14 +913,14 @@
                     text: ' '
                     icon: "images/parrotparrot.png"
                 ActionButton:
-                    text: 'Back'
+                    text: 'Back'            
                     on_release: root.manager.current = "voie1234"
         FloatLayout:
             canvas:
                 Rectangle:
                     source: 'images/cycleReg.png'
                     size_hint: 0.3, 0.7
-                    pos_hint: {'center_x': .25-0.09, 'center_y':.7}
+                    pos_hint: 'center_x': .25-0.09, 'center_y':.7
             Button:
                 text: 'Régler Alarme'
                 size: 0.3, 0.1
