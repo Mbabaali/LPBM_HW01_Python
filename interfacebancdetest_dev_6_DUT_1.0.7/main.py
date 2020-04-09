@@ -354,7 +354,7 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff2)
         
         #Label compteur alarme Channel 2
-        self.cptalarmeon2 = Label(text="22", font_size='20sp', pos_hint={'center_x': 0.585, 'center_y':0.52})
+        self.cptalarmeon2 = Label(text="22", font_size='20sp', pos_hint={'center_x': 0.39, 'center_y':0.52})
         self.add_widget(self.cptalarmeon2)
         self.cptalarmeoff2 = Label(text="222", font_size='20sp', pos_hint={'center_x': 0.640, 'center_y':0.52})
         self.add_widget(self.cptalarmeoff2)
@@ -379,7 +379,7 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff4)
         
         #Label compteur alarme Channel 4
-        self.cptalarmeon4 = Label(text="44", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.25, 'center_y':0.05})
+        self.cptalarmeon4 = Label(text="44", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.05})
         self.add_widget(self.cptalarmeon4)
         self.cptalarmeoff4 = Label(text="444", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.305, 'center_y':0.05})
         self.add_widget(self.cptalarmeoff4)
@@ -391,7 +391,7 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff5)
         
         #Label compteur alarme Channel 5
-        self.cptalarmeon5 = Label(text="55", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.585, 'center_y':0.05})
+        self.cptalarmeon5 = Label(text="55", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.05})
         self.add_widget(self.cptalarmeon5)
         self.cptalarmeoff5 = Label(text="555", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.640, 'center_y':0.05})
         self.add_widget(self.cptalarmeoff5)
