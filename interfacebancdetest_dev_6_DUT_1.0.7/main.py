@@ -341,7 +341,7 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff1)
         
         #Label compteur alarme Channel 1
-        self.cptalarmeon1 = Label(text="11", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.52})
+        self.cptalarmeon1 = Label(text="11", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05+0.03, 'center_y':0.52})
         self.add_widget(self.cptalarmeon1)
         self.cptalarmeoff1 = Label(text="111", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.305-0.045, 'center_y':0.52})
         self.add_widget(self.cptalarmeoff1)
@@ -354,7 +354,7 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff2)
         
         #Label compteur alarme Channel 2
-        self.cptalarmeon2 = Label(text="22", font_size='20sp', pos_hint={'center_x': 0.39, 'center_y':0.52})
+        self.cptalarmeon2 = Label(text="22", font_size='20sp', pos_hint={'center_x': 0.39+0.03, 'center_y':0.52})
         self.add_widget(self.cptalarmeon2)
         self.cptalarmeoff2 = Label(text="222", font_size='20sp', pos_hint={'center_x': 0.640-0.045, 'center_y':0.52})
         self.add_widget(self.cptalarmeoff2)
@@ -367,7 +367,7 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff3)
         
         #Label compteur alarme Channel 3
-        self.cptalarmeon3 = Label(text="33", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.73, 'center_y':0.52})
+        self.cptalarmeon3 = Label(text="33", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.73+0.03, 'center_y':0.52})
         self.add_widget(self.cptalarmeon3)
         self.cptalarmeoff3 = Label(text="333", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.980-0.045, 'center_y':0.52})
         self.add_widget(self.cptalarmeoff3)
@@ -379,7 +379,7 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff4)
         
         #Label compteur alarme Channel 4
-        self.cptalarmeon4 = Label(text="44", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.05})
+        self.cptalarmeon4 = Label(text="44", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05+0.03, 'center_y':0.05})
         self.add_widget(self.cptalarmeon4)
         self.cptalarmeoff4 = Label(text="444", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.305-0.045, 'center_y':0.05})
         self.add_widget(self.cptalarmeoff4)
@@ -391,7 +391,7 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff5)
         
         #Label compteur alarme Channel 5
-        self.cptalarmeon5 = Label(text="55", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.05})
+        self.cptalarmeon5 = Label(text="55", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39+0.03, 'center_y':0.05})
         self.add_widget(self.cptalarmeon5)
         self.cptalarmeoff5 = Label(text="555", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.640-0.045, 'center_y':0.05})
         self.add_widget(self.cptalarmeoff5)
@@ -403,13 +403,13 @@ class Voie1234(Screen):
         # self.add_widget(self.alarmeoff6)
         
         #Label compteur alarme Channel 6
-        self.cptalarmeon6 = Label(text="66", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.05})
+        self.cptalarmeon6 = Label(text="66", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73+0.03, 'center_y':0.05})
         self.add_widget(self.cptalarmeon6)
         self.cptalarmeoff6 = Label(text="666", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.980-0.045, 'center_y':0.05})
         self.add_widget(self.cptalarmeoff6)
 
         #Label value max channel 1
-        self.maxAOn1 = Label(text="0.1 A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.623})
+        self.maxAOn1 = Label(text="0.1 A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05+0.03, 'center_y':0.623})
         self.add_widget(self.maxAOn1)
         # self.maxWOn1 = Label(text="1W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.52})
         # self.add_widget(self.maxWOn1)
@@ -419,7 +419,7 @@ class Voie1234(Screen):
         # self.add_widget(self.maxWoff1)
 
         #Label value max channel 2
-        self.maxAOn2 = Label(text="0.2A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.623})
+        self.maxAOn2 = Label(text="0.2A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39+0.03, 'center_y':0.623})
         self.add_widget(self.maxAOn2)
         # self.maxWOn2 = Label(text="2W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.52})
         # self.add_widget(self.maxWOn2)
@@ -429,7 +429,7 @@ class Voie1234(Screen):
         # self.add_widget(self.maxWoff2)
 
         #Label value max channel 3
-        self.maxAOn3 = Label(text="0.3A", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.73, 'center_y':0.623})
+        self.maxAOn3 = Label(text="0.3A", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.73+0.03, 'center_y':0.623})
         self.add_widget(self.maxAOn3)
         # self.maxWOn3 = Label(text="3W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.52})
         # self.add_widget(self.maxWOn3)
@@ -439,7 +439,7 @@ class Voie1234(Screen):
         # self.add_widget(self.maxWoff3)
 
         #Label value max channel 4
-        self.maxAOn4 = Label(text="0.4A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.15})
+        self.maxAOn4 = Label(text="0.4A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05+0.03, 'center_y':0.15})
         self.add_widget(self.maxAOn4)
         # self.maxWOn4 = Label(text="4W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.05})
         # self.add_widget(self.maxWOn4)
@@ -449,7 +449,7 @@ class Voie1234(Screen):
         # self.add_widget(self.maxWoff4)
 
         #Label value max channel 5
-        self.maxAOn5 = Label(text="0.5A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.15})
+        self.maxAOn5 = Label(text="0.5A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39+0.03, 'center_y':0.15})
         self.add_widget(self.maxAOn5)
         # self.maxWOn5 = Label(text="5W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.05})
         # self.add_widget(self.maxWOn5)
@@ -459,7 +459,7 @@ class Voie1234(Screen):
         # self.add_widget(self.maxWoff5)
 
         #Label value max channel 6
-        self.maxAOn6 = Label(text="0.6A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.15})
+        self.maxAOn6 = Label(text="0.6A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73+0.03, 'center_y':0.15})
         self.add_widget(self.maxAOn6)
         # self.maxWOn6 = Label(text="6W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.05})
         # self.add_widget(self.maxWOn6)
