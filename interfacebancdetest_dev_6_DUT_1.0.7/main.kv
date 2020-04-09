@@ -898,16 +898,11 @@
 ############################################################################
 
 <Setup2>:
-    name: "setup2"   
-
-    Image:
-        source:"images/cycleReg.png"
-        size_hint_x: 0.3
-        allow_stretch: True 
+    name: "setup2"    
 
     BoxLayout:
         orientation: 'vertical'
-        ActionBar:s
+        ActionBar:
             ActionView:
                 use_separator: True
                 ActionPrevious:
@@ -921,7 +916,9 @@
                     text: 'Back'
                     on_release: root.manager.current = "voie1234"
 
-        BoxLayout:
+        FloatLayout:
+            padding: 3
+
             Button:
                 text: 'Régler Alarme'
                 size_hint: 0.3, 0.1
@@ -943,6 +940,10 @@
                 font_size: 30
                 on_release: root.manager.current="afficherParametres"
             
+            Image:
+                source:"images/cycleReg.png"
+                size_hint_x: 0.3
+                allow_stretch: True
 
             
         
