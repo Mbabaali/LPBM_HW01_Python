@@ -56,12 +56,12 @@ date_titre=str(datetime.now().year)+'-'+str(datetime.now().month)+'-'+str(dateti
 adresseUSB = str(os.path.split(os.getcwd()))
   
 
-try:
-    adresseUSB=adresseUSB.split(" ")[2]+'/'
-except IndexError:
-    Logger.warning('adresseUSB: impossible d\'accéder au chemin de la clé USB :  vérifier que la clé USB est bien branché')
-    exit()
-Logger.warning('adresseUSB: {}'.format(adresseUSB))
+# try:
+#     adresseUSB=adresseUSB.split(" ")[2]+'/'
+# except IndexError:
+#     Logger.warning('adresseUSB: impossible d\'accéder au chemin de la clé USB :  vérifier que la clé USB est bien branché')
+#     exit()
+# Logger.warning('adresseUSB: {}'.format(adresseUSB))
 try:
     os.mkdir(adresseUSB+date_titre)
 except OSError:
