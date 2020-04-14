@@ -53,15 +53,15 @@ date_titre=str(datetime.now().year)+'-'+str(datetime.now().month)+'-'+str(dateti
 # autre solution : démonter tous avant l'insertion de la clé usb puis remonter tous
 #adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
 
-adresseUSB = str(os.path.split(os.getcwd()))
+adresseUSB = str(os.path.realpath(__file__))
   
 
-# try:
-#     adresseUSB=adresseUSB.split(" ")[2]+'/'
-# except IndexError:
-#     Logger.warning('adresseUSB: impossible d\'accéder au chemin de la clé USB :  vérifier que la clé USB est bien branché')
-#     exit()
-# Logger.warning('adresseUSB: {}'.format(adresseUSB))
+try:
+    adresseUSB=adresseUSB.split(" ")[2]+'/'
+except IndexError:
+    Logger.warning('adresseUSB: impossible d\'accéder au chemin de la clé USB :  vérifier que la clé USB est bien branché')
+    exit()
+Logger.warning('adresseUSB: {}'.format(adresseUSB))
 try:
     os.mkdir(adresseUSB+date_titre)
 except OSError:
