@@ -53,21 +53,8 @@ date_titre=str(datetime.now().year)+'-'+str(datetime.now().month)+'-'+str(dateti
 # autre solution : démonter tous avant l'insertion de la clé usb puis remonter tous
 #adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
 
-
-# Directory 
-directory = "save_file"
-adresseUSB = directory
+adresseUSB = str(os.popen(str(os.getcwd)).readlines())
   
-# Parent Directory path 
-parent_dir = str(os.getcwd())
-
-path = os.path.join(parent_dir, directory)
-
-try: 
-    os.makedirs(path, exist_ok = True) 
-    print("Directory '%s' created successfully" % directory) 
-except OSError as error: 
-    print("Directory '%s' can not be created" % directory) 
 
 try:
     adresseUSB=adresseUSB.split(" ")[2]+'/'
