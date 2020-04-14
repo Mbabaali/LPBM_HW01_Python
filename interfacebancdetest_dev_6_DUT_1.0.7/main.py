@@ -54,6 +54,7 @@ date_titre=str(datetime.now().year)+'-'+str(datetime.now().month)+'-'+str(dateti
 #adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
 
 adresseUSB = str(os.path.realpath(__file__))
+Logger.warning('adresseUSB: {}'.format(adresseUSB))
   
 
 try:
