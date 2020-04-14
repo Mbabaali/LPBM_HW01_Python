@@ -52,7 +52,22 @@ date_titre=str(datetime.now().year)+'-'+str(datetime.now().month)+'-'+str(dateti
 #adresseUSB='/media/pi/DATA3/' #utiliser une expression régulière ? * sinon voir ou est tout le temps monté la clé usb ls usb -> liste tous les ports
 # autre solution : démonter tous avant l'insertion de la clé usb puis remonter tous
 #adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
-adresseUSB = str(os.getcwd())
+
+
+# Directory 
+directory = "save_file"
+adresseUSB = directory
+  
+# Parent Directory path 
+parent_dir = str(os.getcwd())
+
+path = os.path.join(parent_dir, directory)
+
+try: 
+    os.makedirs(path, exist_ok = True) 
+    print("Directory '%s' created successfully" % directory) 
+except OSError as error: 
+    print("Directory '%s' can not be created" % directory) 
 
 try:
     adresseUSB=adresseUSB.split(" ")[2]+'/'
