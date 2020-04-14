@@ -124,20 +124,20 @@ except IOError :
 # Récupération de l'heure
 date = str(datetime.now())
 
-# Ecriture label colonne ficher excel        
-print >> out1, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
-print >> out2, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
-print >> out3, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
-print >> out4, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
-print >> out55, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
-print >> out66, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
+# # Ecriture label colonne ficher excel        
+# print >> out1, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
+# print >> out2, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
+# print >> out3, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
+# print >> out4, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
+# print >> out55, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
+# print >> out66, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
 
-print >> out5, ";".join(["date-time","Value", "Unit", "State"])
-print >> out6, ";".join(["date-time","Value", "Unit", "State"])
-print >> out7, ";".join(["date-time","Value", "Unit", "State"])
-print >> out8, ";".join(["date-time","Value", "Unit", "State"])
-print >> out555, ";".join(["date-time","Value", "Unit", "State"])
-print >> out666, ";".join(["date-time","Value", "Unit", "State"])
+# print >> out5, ";".join(["date-time","Value", "Unit", "State"])
+# print >> out6, ";".join(["date-time","Value", "Unit", "State"])
+# print >> out7, ";".join(["date-time","Value", "Unit", "State"])
+# print >> out8, ";".join(["date-time","Value", "Unit", "State"])
+# print >> out555, ";".join(["date-time","Value", "Unit", "State"])
+# print >> out666, ";".join(["date-time","Value", "Unit", "State"])
 
 class cycle:
     def __init__(self, time_awake, time_awake_s, time_awake_m, time_awake_h, time_sleep, time_sleep_s, time_sleep_m, time_sleep_h):
