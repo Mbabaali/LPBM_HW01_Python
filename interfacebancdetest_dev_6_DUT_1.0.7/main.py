@@ -53,7 +53,7 @@ date_titre=str(datetime.now().year)+'-'+str(datetime.now().month)+'-'+str(dateti
 # autre solution : démonter tous avant l'insertion de la clé usb puis remonter tous
 #adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
 
-adresseUSB = str(os.popen(os.getcwd()).readlines())
+adresseUSB = os.path.split(os.getcwd())
   
 
 try:
