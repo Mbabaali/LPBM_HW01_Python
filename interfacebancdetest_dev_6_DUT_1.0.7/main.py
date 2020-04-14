@@ -53,21 +53,21 @@ date_titre=str(datetime.now().year)+'-'+str(datetime.now().month)+'-'+str(dateti
 # autre solution : démonter tous avant l'insertion de la clé usb puis remonter tous
 #adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
 
-adresseUSB = str(os.path.realpath(__file__))
-Logger.warning('adresseUSB: {}'.format(adresseUSB))
+# adresseUSB = str(os.path.realpath(__file__))
+# Logger.warning('adresseUSB: {}'.format(adresseUSB))
   
 
-try:
-    adresseUSB=adresseUSB.split(" ")[2]+'/'
-except IndexError:
-    Logger.warning('adresseUSB: impossible d\'accéder au chemin de la clé USB :  vérifier que la clé USB est bien branché')
-    exit()
-Logger.warning('adresseUSB: {}'.format(adresseUSB))
-try:
-    os.mkdir(adresseUSB+date_titre)
-except OSError:
-    Logger.warning('fichier: impossible de créer un fichier à l adresse selectionné : vérifier que la clé USB est bien branché')
-    exit()
+# try:
+#     adresseUSB=adresseUSB.split(" ")[2]+'/'
+# except IndexError:
+#     Logger.warning('adresseUSB: impossible d\'accéder au chemin de la clé USB :  vérifier que la clé USB est bien branché')
+#     exit()
+# Logger.warning('adresseUSB: {}'.format(adresseUSB))
+# try:
+#     os.mkdir(adresseUSB+date_titre)
+# except OSError:
+#     Logger.warning('fichier: impossible de créer un fichier à l adresse selectionné : vérifier que la clé USB est bien branché')
+#     exit()
 
 #date au format que l'on souhaite avoir dans le titre 
 file1='/data_dut_1_'
@@ -87,19 +87,19 @@ file666='/data_dut_6_err_'
 
 extension='.csv'
 
-chemin1=adresseUSB+date_titre+file1+date_titre+extension
-chemin2=adresseUSB+date_titre+file2+date_titre+extension
-chemin3=adresseUSB+date_titre+file3+date_titre+extension
-chemin4=adresseUSB+date_titre+file4+date_titre+extension
-chemin55=adresseUSB+date_titre+file55+date_titre+extension
-chemin66=adresseUSB+date_titre+file66+date_titre+extension
+chemin1=date_titre+file1+date_titre+extension
+chemin2=date_titre+file2+date_titre+extension
+chemin3=date_titre+file3+date_titre+extension
+chemin4=date_titre+file4+date_titre+extension
+chemin55=date_titre+file55+date_titre+extension
+chemin66=date_titre+file66+date_titre+extension
 
-chemin5=adresseUSB+date_titre+file5+date_titre+extension
-chemin6=adresseUSB+date_titre+file6+date_titre+extension
-chemin7=adresseUSB+date_titre+file7+date_titre+extension
-chemin8=adresseUSB+date_titre+file8+date_titre+extension
-chemin555=adresseUSB+date_titre+file555+date_titre+extension
-chemin666=adresseUSB+date_titre+file666+date_titre+extension
+chemin5=date_titre+file5+date_titre+extension
+chemin6=date_titre+file6+date_titre+extension
+chemin7=date_titre+file7+date_titre+extension
+chemin8=date_titre+file8+date_titre+extension
+chemin555=date_titre+file555+date_titre+extension
+chemin666=date_titre+file666+date_titre+extension
 
 
 try :   
