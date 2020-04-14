@@ -52,7 +52,8 @@ date_titre=str(datetime.now().year)+'-'+str(datetime.now().month)+'-'+str(dateti
 #adresseUSB='/media/pi/DATA3/' #utiliser une expression régulière ? * sinon voir ou est tout le temps monté la clé usb ls usb -> liste tous les ports
 # autre solution : démonter tous avant l'insertion de la clé usb puis remonter tous
 #adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
-adresseUSB = os.getcwd()
+adresseUSB = str(os.getcwd())
+
 try:
     adresseUSB=adresseUSB.split(" ")[2]+'/'
 except IndexError:
