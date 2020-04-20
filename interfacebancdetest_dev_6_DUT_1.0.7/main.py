@@ -2263,6 +2263,12 @@ class SetCycle2(Screen):
         else:
             passerelle.cycle2.nb_repetition=99
         self.label_nb_cycle.text=str(passerelle.cycle2.nb_repetition)
+    
+    def validationCycle2(self):
+        if (passerelle.nobmre_de_cycle != 2):
+            self.manager.current = 'setCycle3'
+        else:
+            self.manager.current = 'setCourantMax'
 
 class SetCycle3(Screen):
     alarmawake = NumericProperty(1.1)
@@ -2427,6 +2433,12 @@ class SetCycle3(Screen):
         else:
             passerelle.cycle3.nb_repetition=99
         self.label_nb_cycle.text=str(passerelle.cycle3.nb_repetition)
+    
+    def validationCycle3(self):
+        if (passerelle.nobmre_de_cycle != 3):
+            self.manager.current = 'setCycle4'
+        else:
+            self.manager.current = 'setCourantMax'
 
 
 class SetCycle4(Screen):
@@ -2592,6 +2604,12 @@ class SetCycle4(Screen):
         else:
             passerelle.cycle4.nb_repetition=99
         self.label_nb_cycle.text=str(passerelle.cycle4.nb_repetition)
+    
+    def validationCycle4(self):
+        if (passerelle.nobmre_de_cycle != 3):
+            self.manager.current = 'setCycle5'
+        else:
+            self.manager.current = 'setCourantMax'
 
 
 class SetCycle5(Screen):
@@ -2757,6 +2775,12 @@ class SetCycle5(Screen):
         else:
             passerelle.cycle5.nb_repetition=99
         self.label_nb_cycle.text=str(passerelle.cycle5.nb_repetition)
+    
+    def validationCycle5(self):
+        if (passerelle.nobmre_de_cycle != 5):
+            self.manager.current = 'setCycle5'
+        else:
+            self.manager.current = 'setCourantMax'
 
 
 class SetAlarm(Screen):

@@ -22,6 +22,8 @@
     SetCycle1:
     SetCycle2:
     SetCycle3:
+    SetCycle4:
+    SetCycle5:
     SetAlarm:
     SetCourantMax:
     SetNombreDeCycle:
@@ -1356,12 +1358,12 @@
                     title: 'Operating cycle Mode (ON/OFF) n°2'
                     with_previous: False
                 ActionOverflow:
+                # ActionButton:
+                #     text: ' '
+                #     icon: "images/parrotparrot.png"
                 ActionButton:
-                    text: ' '
-                    icon: "images/parrotparrot.png"
-                ActionButton:
-                    text: 'Back'
-                    on_release: root.manager.current = "setCourantMax"
+                    text: 'Validation Cycle 2'
+                    on_release: root.validationCycle2()#root.manager.current = "setCourantMax"
 
         FloatLayout:
             Button:
@@ -1546,12 +1548,12 @@
                     title: 'Operating cycle Mode (ON/OFF) n°3'
                     with_previous: False
                 ActionOverflow:
-                ActionButton:
-                    text: ' '
-                    icon: "images/parrotparrot.png"
+                # ActionButton:
+                #     text: ' '
+                #     icon: "images/parrotparrot.png"
                 ActionButton:
                     text: 'Back'
-                    on_release: root.manager.current = "setCourantMax"
+                    on_release: root.validationCycle3()#root.manager.current = "setCourantMax"
 
         FloatLayout:
             Button:
@@ -1664,6 +1666,382 @@
                 pos_hint: {'center_x': .75, 'center_y':.30}
                 font_size: 30
                 on_release: root.manager.current="setCycle2"
+
+
+<SetCycle4>:
+    name: "setCycle4"
+    canvas.before:
+        Rectangle:
+            pos: self.center_x - 2, self.height*3/8
+            size: 4, self.height*5/8
+        Rectangle:
+            pos: 0, self.height*3/8
+            size: self.width, 4  
+    # Label de chacune des sections
+    Label:
+        id: label_text
+        text: 'Time awake'
+        font_size: "30dp"
+        pos_hint: {'center_x': .25, 'center_y':.85}
+    Label:
+        id: label_text
+        text: 'Time sleep'
+        font_size: "30dp"
+        pos_hint: {'center_x': .75, 'center_y':.85}
+    Label:
+        id: label_text
+        text: 'Sec.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .425, 'center_y':.63}  
+
+    Label:
+        id: label_text
+        text: 'Min.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .275, 'center_y':.63}   
+    Label:
+        id: label_text
+        text: 'H.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .125, 'center_y':.63}   
+
+
+    Label:
+        id: label_text
+        text: 'Sec.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .925, 'center_y':.63}  
+
+    Label:
+        id: label_text
+        text: 'Min.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .775, 'center_y':.63}   
+
+    Label:
+        id: label_text
+        text: 'H.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .625, 'center_y':.63}  
+    
+    BoxLayout:
+        orientation: 'vertical'
+        ActionBar:
+            ActionView:
+                use_separator: True
+                ActionPrevious:
+                    title: 'Operating cycle Mode (ON/OFF) n°4'
+                    with_previous: False
+                ActionOverflow:
+                # ActionButton:
+                #     text: ' '
+                #     icon: "images/parrotparrot.png"
+                ActionButton:
+                    text: 'Validation Cycle 2'
+                    on_release: root.validationCycle4()#root.manager.current = "setCourantMax"
+
+        FloatLayout:
+            Button:
+                text: '+'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .35, 'center_y':.8}
+                font_size: 30
+                on_press: root.incrementtimeawake_s()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .35, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimeawake_s()
+
+            #Bouton +/- pour Time Awake Minutes
+            Button:
+                text: '+'
+                pos_hint: {'center_x': .2, 'center_y':.8}
+                size_hint: 0.06, 0.1
+                font_size: 30
+                on_press: root.incrementtimeawake_min()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .2, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimeawake_min()
+
+            #Bouton +/- pour Time Awake heures
+            Button:
+                text: '+'
+                pos_hint: {'center_x': .05, 'center_y':.8}
+                size_hint: 0.06, 0.1
+                font_size: 30
+                on_press: root.incrementtimeawake_h()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .05, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimeawake_h()
+               
+
+            # Bouton +/- pour Time sleep secondes
+            Button:
+                text: '+'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .85, 'center_y':.8}
+                font_size: 30
+                on_press: root.incrementtimesleep_s()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .85, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimesleep_s()
+
+            # Bouton +/- pour Time sleep minutes
+            Button:
+                text: '+'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .70, 'center_y':.8}
+                font_size: 30
+                on_press: root.incrementtimesleep_min()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .70, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimesleep_min()
+
+            # Bouton +/- pour Time sleep heures
+            Button:
+                text: '+'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .55, 'center_y':.8}
+                font_size: 30
+                on_press: root.incrementtimesleep_h()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .55, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimesleep_h()
+            
+            # Nombre de répetition
+            Label:
+                id: label_text
+                text: 'Total test cycle number (repetition)'
+                font_size: "20dp"
+                pos_hint: {'center_x': .37, 'center_y':.35}
+
+            Button:
+                text: '-'
+                size_hint: 0.07, 0.1
+                pos_hint: {'center_x': .30, 'center_y':.25}
+                font_size: 40
+                on_press: root.decrementnbrep()
+            Button:
+                text: '+'
+                size_hint: 0.07, 0.1
+                pos_hint: {'center_x': .43, 'center_y':.25}
+                font_size: 40                
+                on_press: root.incrementnbrep()
+
+            Button:
+                text: 'Cycle Suivant'
+                size_hint: 0.4, 0.10
+                pos_hint: {'center_x': .75, 'center_y':.16}
+                font_size: 30
+                on_release: root.manager.current="setCycle5"
+
+            Button:
+                text: 'Cycle Précédent'
+                size_hint: 0.4, 0.10
+                pos_hint: {'center_x': .75, 'center_y':.30}
+                font_size: 30
+                on_release: root.manager.current="setCycle3"
+    
+
+<SetCycle5>:
+    name: "setCycle5"
+    canvas.before:
+        Rectangle:
+            pos: self.center_x - 2, self.height*3/8
+            size: 4, self.height*5/8
+        Rectangle:
+            pos: 0, self.height*3/8
+            size: self.width, 4  
+    # Label de chacune des sections
+    Label:
+        id: label_text
+        text: 'Time awake'
+        font_size: "30dp"
+        pos_hint: {'center_x': .25, 'center_y':.85}
+    Label:
+        id: label_text
+        text: 'Time sleep'
+        font_size: "30dp"
+        pos_hint: {'center_x': .75, 'center_y':.85}
+    Label:
+        id: label_text
+        text: 'Sec.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .425, 'center_y':.63}  
+
+    Label:
+        id: label_text
+        text: 'Min.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .275, 'center_y':.63}   
+    Label:
+        id: label_text
+        text: 'H.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .125, 'center_y':.63}   
+
+
+    Label:
+        id: label_text
+        text: 'Sec.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .925, 'center_y':.63}  
+
+    Label:
+        id: label_text
+        text: 'Min.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .775, 'center_y':.63}   
+
+    Label:
+        id: label_text
+        text: 'H.'
+        font_size: "35dp"
+        pos_hint: {'center_x': .625, 'center_y':.63}
+    BoxLayout:
+        orientation: 'vertical'
+        ActionBar:
+            ActionView:
+                use_separator: True
+                ActionPrevious:
+                    title: 'Operating cycle Mode (ON/OFF) n°5'
+                    with_previous: False
+                ActionOverflow:
+                # ActionButton:
+                #     text: ' '
+                #     icon: "images/parrotparrot.png"
+                ActionButton:
+                    text: 'Back'
+                    on_release: root.validationCycle5()#root.manager.current = "setCourantMax"
+
+        FloatLayout:
+            Button:
+                text: '+'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .35, 'center_y':.8}
+                font_size: 30
+                on_press: root.incrementtimeawake_s()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .35, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimeawake_s()
+
+            #Bouton +/- pour Time Awake Minutes
+            Button:
+                text: '+'
+                pos_hint: {'center_x': .2, 'center_y':.8}
+                size_hint: 0.06, 0.1
+                font_size: 30
+                on_press: root.incrementtimeawake_min()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .2, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimeawake_min()
+
+            #Bouton +/- pour Time Awake heures
+            Button:
+                text: '+'
+                pos_hint: {'center_x': .05, 'center_y':.8}
+                size_hint: 0.06, 0.1
+                font_size: 30
+                on_press: root.incrementtimeawake_h()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .05, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimeawake_h()
+               
+
+            # Bouton +/- pour Time sleep secondes
+            Button:
+                text: '+'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .85, 'center_y':.8}
+                font_size: 30
+                on_press: root.incrementtimesleep_s()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .85, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimesleep_s()
+
+            # Bouton +/- pour Time sleep minutes
+            Button:
+                text: '+'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .70, 'center_y':.8}
+                font_size: 30
+                on_press: root.incrementtimesleep_min()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .70, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimesleep_min()
+
+            # Bouton +/- pour Time sleep heures
+            Button:
+                text: '+'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .55, 'center_y':.8}
+                font_size: 30
+                on_press: root.incrementtimesleep_h()
+            Button:
+                text: '-'
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': .55, 'center_y':.55}
+                font_size: 30
+                on_press: root.decrementtimesleep_h()
+            
+            # Nombre de répetition
+            Label:
+                id: label_text
+                text: 'Total test cycle number (repetition)'
+                font_size: "20dp"
+                pos_hint: {'center_x': .37, 'center_y':.35}
+
+            Button:
+                text: '-'
+                size_hint: 0.07, 0.1
+                pos_hint: {'center_x': .30, 'center_y':.25}
+                font_size: 40
+                on_press: root.decrementnbrep()
+            Button:
+                text: '+'
+                size_hint: 0.07, 0.1
+                pos_hint: {'center_x': .43, 'center_y':.25}
+                font_size: 40                
+                on_press: root.incrementnbrep()
+
+            Button:
+                text: 'Cycle Précédent'
+                size_hint: 0.4, 0.2
+                pos_hint: {'center_x': .75, 'center_y':.30}
+                font_size: 30
+                on_release: root.manager.current="setCycle3"
 
 
 
