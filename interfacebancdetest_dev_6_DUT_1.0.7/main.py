@@ -2098,7 +2098,7 @@ class SetCycle1(Screen):
         if (passerelle.nobmre_de_cycle != 1):
             self.manager.current = 'setCycle2'
         else:
-            self.manager.current = 'SetCourantMax'
+            self.manager.current = 'setCourantMax'
 
 class SetCycle2(Screen):
     alarmawake = NumericProperty(1.1)
