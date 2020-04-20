@@ -941,13 +941,14 @@
                 font_size: 25
                 on_release: root.manager.current="afficherParametres"
             
-            
-            Image:
-                source:"images/cycleReg.png"
-                pos_hint: {'left':1, 'top': 1}
-                size_hint_x: 0.25
-                #pos: 0.79, 0.68
-                allow_stretch: True
+            BoxLayout:
+                orientation:
+                    Image:
+                        source:"images/cycleReg.png"
+                        pos_hint: {'left':12, 'top': 1}
+                        size_hint_x: 0.25
+                        #pos: 0.79, 0.68
+                        allow_stretch: True
 
                 
         
