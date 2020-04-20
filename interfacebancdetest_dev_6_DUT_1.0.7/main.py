@@ -2814,7 +2814,7 @@ class SetCourantMax(Screen):
 
 
 class SetNombreDeCycle(Screen):
-    amperagemax = NumericProperty(2)
+    nobmre_de_cycle = NumericProperty(2)
     timeacq = NumericProperty(150)
     
     def __init__(self, **kwargs):
@@ -2826,7 +2826,7 @@ class SetNombreDeCycle(Screen):
        
 
     def incrementCycle(self):
-        if(passerelle.nobmre_de_cycle <= 5):
+        if(passerelle.nobmre_de_cycle < 5):
             passerelle.nobmre_de_cycle += 1
             self.label_nobmre_de_cycle.text = str(passerelle.nobmre_de_cycle)
             passerelle.update_nobmre_de_cycle = 1
