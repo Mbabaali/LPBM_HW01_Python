@@ -2606,7 +2606,7 @@ class SetCycle4(Screen):
         self.label_nb_cycle.text=str(passerelle.cycle4.nb_repetition)
     
     def validationCycle4(self):
-        if (passerelle.nobmre_de_cycle != 3):
+        if (passerelle.nobmre_de_cycle != 4):
             self.manager.current = 'setCycle5'
         else:
             self.manager.current = 'setCourantMax'
