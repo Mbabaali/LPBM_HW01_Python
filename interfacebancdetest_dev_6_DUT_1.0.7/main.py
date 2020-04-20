@@ -2818,7 +2818,7 @@ class SetNombreDeCycle(Screen):
     timeacq = NumericProperty(150)
     
     def __init__(self, **kwargs):
-        super(SetCourantMax, self).__init__(**kwargs)
+        super(SetNombreDeCycle, self).__init__(**kwargs)
         
         self.label_nobmre_de_cycle = Label(text="2.0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.48, 'center_y':0.5})
         self.add_widget(self.label_nobmre_de_cycle)
