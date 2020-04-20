@@ -942,14 +942,22 @@
                 on_release: root.manager.current="afficherParametres"
             
             BoxLayout:
-                orientation:
+                #orientation:
 
                 Image:
                     source:"images/cycleReg.png"
                     #pos_hint: {'left':12, 'top': 1}
                     size_hint_x: 0.15
                     size_hint_y: 0.25
-                    pos: .50, 0.73
+                    pos: self.pos
+                    allow_stretch: True
+                
+                Image:
+                    source:"images/depassement_seuil.png"
+                    #pos_hint: {'left':12, 'top': 1}
+                    size_hint_x: 0.15
+                    size_hint_y: 0.25
+                    pos: self.pos
                     allow_stretch: True
 
                 
