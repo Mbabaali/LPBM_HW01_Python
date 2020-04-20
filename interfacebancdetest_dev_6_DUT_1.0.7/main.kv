@@ -1936,7 +1936,7 @@
     name: "SetNombreDeCycle"  
     Label:
         id: label_text
-        text: 'Courant Max'
+        text: 'Number Of Operating Cycle'
         font_size: "30dp"
         pos_hint: {'center_x': 0.5, 'center_y':0.7}
 
@@ -1958,7 +1958,7 @@
             on_press: root.incrementCycle()
         Button:
             text: '-'
-            size_hint: 0.06, 0.1
+            size_hint: 0.08, 0.1
             pos_hint: {'center_x': 0.4, 'center_y':0.5}
             font_size: 30
             on_press: root.decrementCycle()
@@ -1972,9 +1972,9 @@
                     title: 'Number Of Operating cycle Mode (ON/OFF)'
                     with_previous: False
                 ActionOverflow:
-                ActionButton:
-                    text: ' '
-                    icon: "images/parrotparrot.png"
+                # ActionButton:
+                #     text: ' '
+                #     icon: "images/parrotparrot.png"
                 ActionButton:
                     text: 'Valider'
                     on_release: root.manager.current = "SetCycle1"
