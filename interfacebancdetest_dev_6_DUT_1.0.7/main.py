@@ -2814,7 +2814,7 @@ class SetCourantMax(Screen):
 
 
 class SetNombreDeCycle(Screen):
-    nobmre_de_cycle = NumericProperty(2)
+    nobmre_de_cycle = NumericProperty(1)
     timeacq = NumericProperty(150)
     
     def __init__(self, **kwargs):
