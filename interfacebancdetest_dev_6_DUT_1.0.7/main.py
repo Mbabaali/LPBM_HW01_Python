@@ -2618,7 +2618,7 @@ class SetCycle5(Screen):
     timeacq = NumericProperty(150)
     
     def __init__(self, **kwargs):
-        super(SetCycle4, self).__init__(**kwargs)
+        super(SetCycle5, self).__init__(**kwargs)
         
 
         self.label_sec_awake = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.35, 'center_y': 0.63})
