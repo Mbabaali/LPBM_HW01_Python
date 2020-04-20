@@ -150,6 +150,7 @@ class cycle:
         self.time_sleep_m=time_sleep_m
         self.time_sleep_h=time_sleep_h
         self.nb_repetition=1
+
 class graph:
     def __init__(self):
         self.y_low_min_uA=60
@@ -169,11 +170,18 @@ class passerelle(Screen):
     cycle1=cycle(0, 25, 0, 0, 0, 25, 0, 0)
     cycle2=cycle(0,0,0,0,0,0,0,0)
     cycle3=cycle(0,0,0,0,0,0,0,0)
+    cycle4=cycle(0,0,0,0,0,0,0,0)
+    cycle5=cycle(0,0,0,0,0,0,0,0)
+
     alarm_awake = 1.1 #seuil en amper qui activera l'alarme lorsque que l'équipement sera allumé
     alarm_sleep = 200 #seuil en uA qui active l'alarme à l'état sleep
 
     amperage_max = 2.0
     update_amperage_max=0
+
+    # Nombre de cycle d"fini par l'utilisateur
+    nobmre_de_cycle = 1
+    update_nobmre_de_cycle=0
     
     time_awake = 0 #duréée en secondes pendant lequel l'équipement est allumé
 
@@ -1315,6 +1323,16 @@ class Voie1234(Screen):
         passerelle.cycle3.time_awake=passerelle.cycle3.time_awake_s+passerelle.cycle3.time_awake_m*60+passerelle.cycle3.time_awake_h*3600
         passerelle.cycle3.time_sleep=passerelle.cycle3.time_sleep_s+passerelle.cycle3.time_sleep_m*60+passerelle.cycle3.time_sleep_h*3600
 
+        passerelle.cycle4.time_awake=passerelle.cycle3.time_awake_s+passerelle.cycle3.time_awake_m*60+passerelle.cycle3.time_awake_h*3600
+        passerelle.cycle3.time_sleep=passerelle.cycle3.time_sleep_s+passerelle.cycle3.time_sleep_m*60+passerelle.cycle3.time_sleep_h*3600
+
+        passerelle.cycle4.time_awake=passerelle.cycle4.time_awake_s+passerelle.cycle4.time_awake_m*60+passerelle.cycle4.time_awake_h*3600
+        passerelle.cycle4.time_sleep=passerelle.cycle4.time_sleep_s+passerelle.cycle4.time_sleep_m*60+passerelle.cycle4.time_sleep_h*3600
+
+        passerelle.cycle5.time_awake=passerelle.cycle5.time_awake_s+passerelle.cycle5.time_awake_m*60+passerelle.cycle4.time_awake_h*3600
+        passerelle.cycle5.time_sleep=passerelle.cycle5.time_sleep_s+passerelle.cycle5.time_sleep_m*60+passerelle.cycle5.time_sleep_h*3600
+
+
 
         Logger.warning('startacq: lancement acquisition avec comme setup')
         Logger.warning('startacq: valeur de time_awake 1 : {}'.format(passerelle.cycle1.time_awake))
@@ -1336,11 +1354,19 @@ class Voie1234(Screen):
         time_awake_list_3 = list(str(passerelle.cycle3.time_awake))
         time_sleep_list_3 = list(str(passerelle.cycle3.time_sleep))   
 
+        time_awake_list_4 = list(str(passerelle.cycle4.time_awake))
+        time_sleep_list_4 = list(str(passerelle.cycle4.time_sleep))   
+
+        time_awake_list_5 = list(str(passerelle.cycle5.time_awake))
+        time_sleep_list_3 = list(str(passerelle.cycle5.time_sleep))   
+
         f_acquisition_list=list(str(passerelle.f_acquisition))
 
         nb_rep_list_1=list(str(passerelle.cycle1.nb_repetition))
         nb_rep_list_2=list(str(passerelle.cycle2.nb_repetition))
         nb_rep_list_3=list(str(passerelle.cycle3.nb_repetition))
+        nb_rep_list_4=list(str(passerelle.cycle4.nb_repetition))
+        nb_rep_list_5=list(str(passerelle.cycle5.nb_repetition))
 
         amperage_max_list = list(str(passerelle.amperage_max))
 
@@ -1360,6 +1386,16 @@ class Voie1234(Screen):
         while(len(time_sleep_list_3)!=6):
             time_sleep_list_3.insert(0,0)
 
+        while(len(time_awake_list_4)!=6):
+            time_awake_list_4.insert(0,0)
+        while(len(time_sleep_list_4)!=6):
+            time_sleep_list_4.insert(0,0)
+
+        while(len(time_awake_list_5)!=6):
+            time_awake_list_5.insert(0,0)
+        while(len(time_sleep_list_5)!=6):
+            time_sleep_list_5.insert(0,0)       
+
         while(len(f_acquisition_list)!=3):
             f_acquisition_list.insert(0,0)
         
@@ -1372,6 +1408,12 @@ class Voie1234(Screen):
         while(len(nb_rep_list_3)!=2):
             nb_rep_list_3.insert(0,0)
         
+        while(len(nb_rep_list_4)!=2):
+            nb_rep_list_3.insert(0,0)
+        
+        while(len(nb_rep_list_5)!=2):
+            nb_rep_list_3.insert(0,0)
+        
         
 
         Logger.warning('startacq: time_awake 1 : {}'.format(time_awake_list_1))
@@ -1382,6 +1424,12 @@ class Voie1234(Screen):
 
         Logger.warning('startacq: time_awake 3 : {}'.format(time_awake_list_3))
         Logger.warning('startacq: time_sleep 3 : {}'.format(time_sleep_list_3))
+
+        Logger.warning('startacq: time_awake 3 : {}'.format(time_awake_list_4))
+        Logger.warning('startacq: time_sleep 3 : {}'.format(time_sleep_list_4))
+
+        Logger.warning('startacq: time_awake 3 : {}'.format(time_awake_list_5))
+        Logger.warning('startacq: time_sleep 3 : {}'.format(time_sleep_list_5))
 
         Logger.warning('startacq: amperage_max  : {}'.format(amperage_max_list))
         
@@ -1420,6 +1468,26 @@ class Voie1234(Screen):
             #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
             #Logger.warning('bus: {}'.format(chiffre))
+        
+        for chiffre in time_awake_list_4:
+            #arduino1.write(str(chiffre))
+            trame_bus+=str(chiffre)
+            #Logger.warning('bus: {}'.format(chiffre))
+
+        for chiffre in time_sleep_list_4:
+            #arduino1.write(str(chiffre))
+            trame_bus+=str(chiffre)
+            #Logger.warning('bus: {}'.format(chiffre))
+
+        for chiffre in time_awake_list_5:
+            #arduino1.write(str(chiffre))
+            trame_bus+=str(chiffre)
+            #Logger.warning('bus: {}'.format(chiffre))
+
+        for chiffre in time_sleep_list_5:
+            #arduino1.write(str(chiffre))
+            trame_bus+=str(chiffre)
+            #Logger.warning('bus: {}'.format(chiffre))
 
         # for chiffre in f_acquisition_list:
         #     #arduino1.write(str(chiffre))
@@ -1433,9 +1501,17 @@ class Voie1234(Screen):
 
         for chiffre in nb_rep_list_1:
             trame_bus+=str(chiffre)
+
         for chiffre in nb_rep_list_2:
             trame_bus+=str(chiffre)
+
         for chiffre in nb_rep_list_3:
+            trame_bus+=str(chiffre)
+
+        for chiffre in nb_rep_list_4:
+            trame_bus+=str(chiffre)
+        
+        for chiffre in nb_rep_list_5:
             trame_bus+=str(chiffre)
 
 
@@ -2347,6 +2423,336 @@ class SetCycle3(Screen):
         self.label_nb_cycle.text=str(passerelle.cycle3.nb_repetition)
 
 
+class SetCycle4(Screen):
+    alarmawake = NumericProperty(1.1)
+    alarmsleep = NumericProperty(200)
+    timeacq = NumericProperty(150)
+    
+    def __init__(self, **kwargs):
+        super(SetCycle4, self).__init__(**kwargs)
+        
+
+        self.label_sec_awake = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.35, 'center_y': 0.63})
+        self.add_widget(self.label_sec_awake)
+
+        self.label_min_awake = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.2, 'center_y': 0.63})
+        self.add_widget(self.label_min_awake)
+
+        self.label_h_awake = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y': 0.63})
+        self.add_widget(self.label_h_awake)
+        
+        self.label_sec_sleep = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.85, 'center_y': 0.63})
+        self.add_widget(self.label_sec_sleep)
+
+        self.label_min_sleep = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.7, 'center_y': 0.63})
+        self.add_widget(self.label_min_sleep)
+
+        self.label_h_sleep = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.55, 'center_y': 0.63})
+        self.add_widget(self.label_h_sleep)
+
+        self.label_nb_cycle = Label(text="1", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.37, 'center_y':0.24})
+        self.add_widget(self.label_nb_cycle)
+
+    def incrementtimeawake_s(self):
+        if(passerelle.cycle4.time_awake_s<60):
+            passerelle.cycle4.time_awake_s += 5
+            self.label_sec_awake.text = str(passerelle.cycle4.time_awake_s)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle4.time_awake_s =0
+            self.label_sec_awake.text = str(passerelle.cycle4.time_awake_s)
+            passerelle.update_alarm = 1
+        
+    def decrementtimeawake_s(self):
+        if(passerelle.cycle4.time_awake_s>0):
+            passerelle.cycle4.time_awake_s -= 5
+            self.label_sec_awake.text = str(passerelle.cycle4.time_awake_s)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle4.time_awake_s =60
+            self.label_sec_awake.text = str(passerelle.cycle4.time_awake_s)
+            passerelle.update_alarm = 1
+
+    def incrementtimeawake_min(self):
+        if(passerelle.cycle4.time_awake_m<60):
+            passerelle.cycle4.time_awake_m += 1
+            self.label_min_awake.text = str(passerelle.cycle4.time_awake_m)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle4.time_awake_m =0
+            self.label_min_awake.text = str(passerelle.cycle4.time_awake_m)
+            passerelle.update_alarm = 1
+        
+    def decrementtimeawake_min(self):
+        if(passerelle.cycle4.time_awake_m>0):
+            passerelle.cycle4.time_awake_m -= 1
+            self.label_min_awake.text = str(passerelle.cycle4.time_awake_m)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle4.time_awake_m =60
+            self.label_min_awake.text = str(passerelle.cycle4.time_awake_m)
+            passerelle.update_alarm = 1
+
+    def incrementtimeawake_h(self):
+        if(passerelle.cycle4.time_awake_h<50):
+            passerelle.cycle4.time_awake_h += 1
+            self.label_h_awake.text = str(passerelle.cycle4.time_awake_h)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle4.time_awake_h =0
+            self.label_h_awake.text = str(passerelle.cycle4.time_awake_h)
+            passerelle.update_alarm = 1
+
+    def decrementtimeawake_h(self):
+        if(passerelle.cycle4.time_awake_h>0):
+            passerelle.cycle4.time_awake_h -= 1
+            self.label_h_awake.text = str(passerelle.cycle4.time_awake_h)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle4.time_awake_h =50
+            self.label_h_awake.text = str(passerelle.cycle4.time_awake_h)
+            passerelle.update_alarm = 1
+        
+    def incrementtimesleep_s(self):
+        if(passerelle.cycle4.time_sleep_s<60):
+            passerelle.cycle4.time_sleep_s += 5
+            self.label_sec_sleep.text = str(passerelle.cycle4.time_sleep_s)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle4.time_sleep_s =0
+            self.label_sec_sleep.text = str(passerelle.cycle4.time_sleep_s)
+            passerelle.update_alarm = 1
+        
+    def decrementtimesleep_s(self):
+        if(passerelle.cycle4.time_sleep_s>0):
+            passerelle.cycle4.time_sleep_s -= 5
+            self.label_sec_sleep.text = str(passerelle.cycle4.time_sleep_s)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle4.time_sleep_s =60
+            self.label_sec_sleep.text = str(passerelle.cycle4.time_sleep_s)
+            passerelle.update_alarm = 1
+
+    def incrementtimesleep_min(self):
+        if(passerelle.cycle4.time_sleep_m<60):
+            passerelle.cycle4.time_sleep_m += 1
+            self.label_min_sleep.text = str(passerelle.cycle4.time_sleep_m)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle4.time_sleep_m =0
+            self.label_min_sleep.text = str(passerelle.cycle4.time_sleep_m)
+            passerelle.update_alarm = 1
+        
+    def decrementtimesleep_min(self):
+        if(passerelle.cycle4.time_sleep_m>0):
+            passerelle.cycle4.time_sleep_m -= 1
+            self.label_min_sleep.text = str(passerelle.cycle4.time_sleep_m)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle4.time_sleep_m =60
+            self.label_min_sleep.text = str(passerelle.cycle4.time_sleep_m)
+            passerelle.update_alarm = 1
+
+    def incrementtimesleep_h(self):
+        if(passerelle.cycle4.time_sleep_h<50):
+            passerelle.cycle4.time_sleep_h += 1
+            self.label_h_sleep.text = str(passerelle.cycle4.time_sleep_h)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle4.time_sleep_h =0
+            self.label_h_sleep.text = str(passerelle.cycle4.time_sleep_h)
+            passerelle.update_alarm = 1
+
+    def decrementtimesleep_h(self):
+        if(passerelle.cycle4.time_sleep_h>0):
+            passerelle.cycle4.time_sleep_h -= 1
+            self.label_h_sleep.text = str(passerelle.cycle4.time_sleep_h)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle4.time_sleep_h =50
+            self.label_h_sleep.text = str(passerelle.cycle4.time_sleep_h)
+            passerelle.update_alarm = 1
+
+    def incrementnbrep(self):
+        if(passerelle.cycle4.nb_repetition<99):
+            passerelle.cycle4.nb_repetition+=1
+        else:
+            passerelle.cycle4.nb_repetition=1
+        self.label_nb_cycle.text=str(passerelle.cycle4.nb_repetition) 
+
+    def decrementnbrep(self):
+        if(passerelle.cycle4.nb_repetition>1):
+            passerelle.cycle4.nb_repetition-=1
+        else:
+            passerelle.cycle4.nb_repetition=99
+        self.label_nb_cycle.text=str(passerelle.cycle4.nb_repetition)
+
+
+class SetCycle5(Screen):
+    alarmawake = NumericProperty(1.1)
+    alarmsleep = NumericProperty(200)
+    timeacq = NumericProperty(150)
+    
+    def __init__(self, **kwargs):
+        super(SetCycle4, self).__init__(**kwargs)
+        
+
+        self.label_sec_awake = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.35, 'center_y': 0.63})
+        self.add_widget(self.label_sec_awake)
+
+        self.label_min_awake = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.2, 'center_y': 0.63})
+        self.add_widget(self.label_min_awake)
+
+        self.label_h_awake = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y': 0.63})
+        self.add_widget(self.label_h_awake)
+        
+        self.label_sec_sleep = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.85, 'center_y': 0.63})
+        self.add_widget(self.label_sec_sleep)
+
+        self.label_min_sleep = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.7, 'center_y': 0.63})
+        self.add_widget(self.label_min_sleep)
+
+        self.label_h_sleep = Label(text="0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.55, 'center_y': 0.63})
+        self.add_widget(self.label_h_sleep)
+
+        self.label_nb_cycle = Label(text="1", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.37, 'center_y':0.24})
+        self.add_widget(self.label_nb_cycle)
+
+    def incrementtimeawake_s(self):
+        if(passerelle.cycle5.time_awake_s<60):
+            passerelle.cycle5.time_awake_s += 5
+            self.label_sec_awake.text = str(passerelle.cycle5.time_awake_s)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle5.time_awake_s =0
+            self.label_sec_awake.text = str(passerelle.cycle5.time_awake_s)
+            passerelle.update_alarm = 1
+        
+    def decrementtimeawake_s(self):
+        if(passerelle.cycle5.time_awake_s>0):
+            passerelle.cycle5.time_awake_s -= 5
+            self.label_sec_awake.text = str(passerelle.cycle5.time_awake_s)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle5.time_awake_s =60
+            self.label_sec_awake.text = str(passerelle.cycle5.time_awake_s)
+            passerelle.update_alarm = 1
+
+    def incrementtimeawake_min(self):
+        if(passerelle.cycle5.time_awake_m<60):
+            passerelle.cycle5.time_awake_m += 1
+            self.label_min_awake.text = str(passerelle.cycle5.time_awake_m)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle5.time_awake_m =0
+            self.label_min_awake.text = str(passerelle.cycle5.time_awake_m)
+            passerelle.update_alarm = 1
+        
+    def decrementtimeawake_min(self):
+        if(passerelle.cycle5.time_awake_m>0):
+            passerelle.cycle5.time_awake_m -= 1
+            self.label_min_awake.text = str(passerelle.cycle5.time_awake_m)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle5.time_awake_m =60
+            self.label_min_awake.text = str(passerelle.cycle5.time_awake_m)
+            passerelle.update_alarm = 1
+
+    def incrementtimeawake_h(self):
+        if(passerelle.cycle5.time_awake_h<50):
+            passerelle.cycle5.time_awake_h += 1
+            self.label_h_awake.text = str(passerelle.cycle5.time_awake_h)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle5.time_awake_h =0
+            self.label_h_awake.text = str(passerelle.cycle5.time_awake_h)
+            passerelle.update_alarm = 1
+
+    def decrementtimeawake_h(self):
+        if(passerelle.cycle5.time_awake_h>0):
+            passerelle.cycle5.time_awake_h -= 1
+            self.label_h_awake.text = str(passerelle.cycle5.time_awake_h)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle5.time_awake_h =50
+            self.label_h_awake.text = str(passerelle.cycle5.time_awake_h)
+            passerelle.update_alarm = 1
+        
+    def incrementtimesleep_s(self):
+        if(passerelle.cycle5.time_sleep_s<60):
+            passerelle.cycle5.time_sleep_s += 5
+            self.label_sec_sleep.text = str(passerelle.cycle5.time_sleep_s)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle5.time_sleep_s =0
+            self.label_sec_sleep.text = str(passerelle.cycle5.time_sleep_s)
+            passerelle.update_alarm = 1
+        
+    def decrementtimesleep_s(self):
+        if(passerelle.cycle5.time_sleep_s>0):
+            passerelle.cycle5.time_sleep_s -= 5
+            self.label_sec_sleep.text = str(passerelle.cycle5.time_sleep_s)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle5.time_sleep_s =60
+            self.label_sec_sleep.text = str(passerelle.cycle5.time_sleep_s)
+            passerelle.update_alarm = 1
+
+    def incrementtimesleep_min(self):
+        if(passerelle.cycle5.time_sleep_m<60):
+            passerelle.cycle5.time_sleep_m += 1
+            self.label_min_sleep.text = str(passerelle.cycle5.time_sleep_m)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle5.time_sleep_m =0
+            self.label_min_sleep.text = str(passerelle.cycle5.time_sleep_m)
+            passerelle.update_alarm = 1
+        
+    def decrementtimesleep_min(self):
+        if(passerelle.cycle5.time_sleep_m>0):
+            passerelle.cycle5.time_sleep_m -= 1
+            self.label_min_sleep.text = str(passerelle.cycle5.time_sleep_m)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle5.time_sleep_m =60
+            self.label_min_sleep.text = str(passerelle.cycle5.time_sleep_m)
+            passerelle.update_alarm = 1
+
+    def incrementtimesleep_h(self):
+        if(passerelle.cycle5.time_sleep_h<50):
+            passerelle.cycle5.time_sleep_h += 1
+            self.label_h_sleep.text = str(passerelle.cycle5.time_sleep_h)
+            passerelle.update_alarm = 1
+        else : 
+            passerelle.cycle5.time_sleep_h =0
+            self.label_h_sleep.text = str(passerelle.cycle5.time_sleep_h)
+            passerelle.update_alarm = 1
+
+    def decrementtimesleep_h(self):
+        if(passerelle.cycle5.time_sleep_h>0):
+            passerelle.cycle5.time_sleep_h -= 1
+            self.label_h_sleep.text = str(passerelle.cycle5.time_sleep_h)
+            passerelle.update_alarm = 1
+        else :
+            passerelle.cycle5.time_sleep_h =50
+            self.label_h_sleep.text = str(passerelle.cycle5.time_sleep_h)
+            passerelle.update_alarm = 1
+
+    def incrementnbrep(self):
+        if(passerelle.cycle5.nb_repetition<99):
+            passerelle.cycle5.nb_repetition+=1
+        else:
+            passerelle.cycle5.nb_repetition=1
+        self.label_nb_cycle.text=str(passerelle.cycle5.nb_repetition) 
+
+    def decrementnbrep(self):
+        if(passerelle.cycle5.nb_repetition>1):
+            passerelle.cycle5.nb_repetition-=1
+        else:
+            passerelle.cycle5.nb_repetition=99
+        self.label_nb_cycle.text=str(passerelle.cycle5.nb_repetition)
+
+
 class SetAlarm(Screen):
     alarmawake = NumericProperty(1.1)
     alarmsleep = NumericProperty(200)
@@ -2405,6 +2811,32 @@ class SetCourantMax(Screen):
             passerelle.amperage_max -= 0.5
             self.label_courant_max.text = str(passerelle.amperage_max)
             passerelle.update_amperage_max = 1
+
+
+class SetNombreDeCycle(Screen):
+    amperagemax = NumericProperty(2)
+    timeacq = NumericProperty(150)
+    
+    def __init__(self, **kwargs):
+        super(SetCourantMax, self).__init__(**kwargs)
+        
+        self.label_nobmre_de_cycle = Label(text="2.0", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.48, 'center_y':0.5})
+        self.add_widget(self.label_nobmre_de_cycle)
+
+       
+
+    def incrementCycle(self):
+        if(passerelle.nobmre_de_cycle <= 5):
+            passerelle.nobmre_de_cycle += 1
+            self.label_nobmre_de_cycle.text = str(passerelle.nobmre_de_cycle)
+            passerelle.update_nobmre_de_cycle = 1
+        
+    def decrementCycle(self):
+        if(passerelle.nobmre_de_cycle>1):
+            passerelle.nobmre_de_cycle -= 1
+            self.label_nobmre_de_cycle.text = str(passerelle.nobmre_de_cycle)
+            passerelle.update_nobmre_de_cycle = 1
+
 
             
 class RootScreen(ScreenManager):

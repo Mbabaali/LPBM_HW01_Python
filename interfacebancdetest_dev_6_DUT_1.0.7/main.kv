@@ -24,6 +24,7 @@
     SetCycle3:
     SetAlarm:
     SetCourantMax:
+    SetNombreDeCycle:
     afficherParametres:
     Graph:
 
@@ -1113,6 +1114,7 @@
         text: 'H.'
         font_size: "35dp"
         pos_hint: {'center_x': .675, 'center_y':.63}  
+
     BoxLayout:
         orientation: 'vertical'
         ActionBar:
@@ -1120,7 +1122,7 @@
             ActionView:
                 use_separator: True
                 ActionPrevious:
-                    title: 'Régler Cycle(s) On/Off'
+                    title: 'Operating cycle Mode (ON/OFF) n°1'
                     with_previous: False
                 ActionOverflow:
                 ActionButton:
@@ -1241,7 +1243,7 @@
 
             Label:
                 id: label_text
-                text: 'Fréquence d\'acquisition'
+                text: 'Fréquence d acquisition'
                 font_size: "23dp"
                 pos_hint: {'center_x': .10, 'center_y':.35}
             Label:
@@ -1264,7 +1266,7 @@
             
             Label:
                 id: label_text
-                text: 'Nombre de répetitions'
+                text: 'Total test cycle number (repetition)'
                 font_size: "20dp"
                 pos_hint: {'center_x': .37, 'center_y':.35}
 
@@ -1337,13 +1339,14 @@
         text: 'H.'
         font_size: "35dp"
         pos_hint: {'center_x': .625, 'center_y':.63}  
+    
     BoxLayout:
         orientation: 'vertical'
         ActionBar:
             ActionView:
                 use_separator: True
                 ActionPrevious:
-                    title: 'Régler Cycle(s) On/Off n°2'
+                    title: 'Operating cycle Mode (ON/OFF) n°2'
                     with_previous: False
                 ActionOverflow:
                 ActionButton:
@@ -1533,7 +1536,7 @@
             ActionView:
                 use_separator: True
                 ActionPrevious:
-                    title: 'Régler Cycle(s) On/Off n°3'
+                    title: 'Operating cycle Mode (ON/OFF) n°3'
                     with_previous: False
                 ActionOverflow:
                 ActionButton:
@@ -1914,10 +1917,62 @@
                     text: ' '
                     icon: "images/parrotparrot.png"
                 ActionButton:
-                    text: 'Back'
+                    text: 'Valider'
                     on_release: root.manager.current = "setup2"
 
-        FloatLayout:
+
+
+############################################################################
+#################### SCREEN Nombre de Cycles ################################
+############################################################################
+<SetNombreDeCycle>:
+    name: "SetNombreDeCycle"  
+    Label:
+        id: label_text
+        text: 'Courant Max'
+        font_size: "30dp"
+        pos_hint: {'center_x': 0.5, 'center_y':0.7}
+
+
+    FloatLayout:
+        # Bouton +/- pour courant max
+        Label:
+            id: label_text
+            text: 'Cycles'
+            font_size: "35dp"
+            size_hint: 0.06, 0.1
+            pos_hint: {'center_x': 0.54, 'center_y':0.5}
+
+        Button:
+            text: '+'
+            size_hint: 0.06, 0.1
+            pos_hint: {'center_x': 0.6, 'center_y':0.5}
+            font_size: 30
+            on_press: root.incrementCycle()
+        Button:
+            text: '-'
+            size_hint: 0.06, 0.1
+            pos_hint: {'center_x': 0.4, 'center_y':0.5}
+            font_size: 30
+            on_press: root.decrementCycle()
+    
+    BoxLayout:
+        orientation: 'vertical'                      
+        ActionBar:
+            ActionView:
+                use_separator: True
+                ActionPrevious:
+                    title: 'Number Of Operating cycle Mode (ON/OFF)'
+                    with_previous: False
+                ActionOverflow:
+                ActionButton:
+                    text: ' '
+                    icon: "images/parrotparrot.png"
+                ActionButton:
+                    text: 'Valider'
+                    on_release: root.manager.current = "SetCycle1"
+
+
 
 
 
