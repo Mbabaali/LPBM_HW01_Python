@@ -2093,6 +2093,12 @@ class SetCycle1(Screen):
         else:
             passerelle.cycle1.nb_repetition=99
         self.label_nb_cycle.text=str(passerelle.cycle1.nb_repetition)
+    
+    def validationCycle1(self):
+        if (passerelle.nobmre_de_cycle != 1):
+            self.manager.current = 'setCycle2'
+        else:
+            self.manager.current = 'SetCourantMax'
 
 class SetCycle2(Screen):
     alarmawake = NumericProperty(1.1)

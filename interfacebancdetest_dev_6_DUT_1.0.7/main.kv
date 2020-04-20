@@ -1132,12 +1132,12 @@
                     title: 'Operating cycle Mode (ON/OFF) n°1'
                     with_previous: False
                 ActionOverflow:
+                # ActionButton:
+                #     text: ' '
+                #     icon: "images/logo_faurecia_clarion.png"
                 ActionButton:
-                    text: ' '
-                    icon: "images/logo_faurecia_clarion.png"
-                ActionButton:
-                    text: 'Back'
-                    on_release: root.manager.current = "setCourantMax"
+                    text: 'Valiation'
+                    on_release: root.validationCycle1() #root.manager.current = "setCourantMax"
 
         FloatLayout:
             Button:
