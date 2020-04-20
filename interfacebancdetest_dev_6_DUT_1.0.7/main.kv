@@ -928,7 +928,7 @@
                 on_release: root.manager.current="setAlarm"
             
             Button:
-                text: 'Régler Cycle(s) On/Off'
+                text: 'Operating cycle Mode (ON/OFF)'
                 size_hint: 0.3, 0.1
                 pos_hint: {'center_x': .25-0.09, 'center_y':.7}
                 font_size: 30
@@ -942,8 +942,11 @@
                 on_release: root.manager.current="afficherParametres"
             
             
-
-            
+            Image:
+                source:"images/cycleReg.png"
+                size_hint_x: 0.25
+                pos: 0.27, 0.68
+                allow_stretch: True
         
             # Button:
             #     text: 'test '
@@ -952,11 +955,7 @@
             #     font_size: 30
             #     on_release: Factory.MyPopup().open()
 
-    Image:
-        source:"images/cycleReg.png"
-        size_hint_x: 0.25
-        pos: 0.27, 0.68
-        allow_stretch: True
+    
 
 
 
@@ -1444,7 +1443,7 @@
             # Nombre de répetition
             Label:
                 id: label_text
-                text: 'Nombre de répetitions'
+                text: 'Total test cycle number (repetition)'
                 font_size: "20dp"
                 pos_hint: {'center_x': .37, 'center_y':.35}
 
@@ -1634,7 +1633,7 @@
             # Nombre de répetition
             Label:
                 id: label_text
-                text: 'Nombre de répetitions'
+                text: 'Total test cycle number (repetition)'
                 font_size: "20dp"
                 pos_hint: {'center_x': .37, 'center_y':.35}
 
