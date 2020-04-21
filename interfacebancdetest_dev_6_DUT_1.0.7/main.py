@@ -308,37 +308,37 @@ class Voie1234(Screen):
 
 ################################################################################################
         # Labels courant et conso Dut1
-        self.courant1 = Label(text="courant1", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.24, 'center_y':0.88})
+        self.courant1 = Label(text="0 A", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.24, 'center_y':0.88})
         self.add_widget(self.courant1)
         # self.puissance1 = Label(text="puissance1", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.24, 'center_y':0.80})
         # self.add_widget(self.puissance1)
         
         # Labels courant et conso Dut2
-        self.courant2 = Label(text="courant2", font_size='30sp', size=(100, 50),  pos_hint={'center_x': 0.57, 'center_y':0.88})
+        self.courant2 = Label(text="0 A", font_size='30sp', size=(100, 50),  pos_hint={'center_x': 0.57, 'center_y':0.88})
         self.add_widget(self.courant2)
         # self.puissance2 = Label(text="puissance2", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.57, 'center_y':0.80})
         # self.add_widget(self.puissance2)
 
         # Labels courant et conso Dut3
-        self.courant3 = Label(text="courant3", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.88})
+        self.courant3 = Label(text="0 A", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.88})
         self.add_widget(self.courant3)
         # self.puissance3 = Label(text="puissance3", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.80})
         # self.add_widget(self.puissance3)
 
         # Labels courant et conso Dut4
-        self.courant4 = Label(text="courant4", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.24, 'center_y':0.43})
+        self.courant4 = Label(text="0 A", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.24, 'center_y':0.43})
         self.add_widget(self.courant4)
         # self.puissance4 = Label(text="puissance4", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.24, 'center_y':0.35})
         # self.add_widget(self.puissance4)
 
         # Labels courant et conso Dut5
-        self.courant5 = Label(text="courant5", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.57, 'center_y':0.43})
+        self.courant5 = Label(text="0 A", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.57, 'center_y':0.43})
         self.add_widget(self.courant5)
         # self.puissance5 = Label(text="puissance5", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.57, 'center_y':0.35})
         # self.add_widget(self.puissance5)
 
         # Labels courant et conso Dut6
-        self.courant6 = Label(text="courant6", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.43})
+        self.courant6 = Label(text="0 A", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.43})
         self.add_widget(self.courant6)
         # self.puissance6 = Label(text="puissance6", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.35})
         # self.add_widget(self.puissance6)
@@ -487,7 +487,7 @@ class Voie1234(Screen):
         # Création de l'affiche dynamique de l'état de chaque équipements testés
         # Led rouge/verte-sleep/awake
         with self.canvas:
-            self.rect_dut_1 = Rectangle( pos=(135, 640) , size=(30,30),source="images/ledred.png")
+            self.rect_dut_1 = Rectangle(pos=(135,640),size=(30,30),source="images/ledred.png")
             self.rect_dut_2 = Rectangle(pos=(560,640),size=(30,30),source="images/ledred.png")
             self.rect_dut_3 = Rectangle(pos=(985,640),size=(30,30),source="images/ledred.png")
             self.rect_dut_4 = Rectangle(pos=(135,280),size=(30,30),source="images/ledred.png")
