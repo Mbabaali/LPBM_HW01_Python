@@ -929,7 +929,7 @@
             # padding: 3
 
             Button:
-                text: 'Régler Alarme'
+                text: 'Threeshold Alarm'
                 size_hint: 0.3, 0.1
                 pos_hint: {'center_x': .5, 'center_y':.7}
                 font_size: 25
@@ -943,7 +943,7 @@
                 on_release: root.manager.current="SetNombreDeCycle"
 
             Button:
-                text: 'Afficher Paramètres'
+                text: 'Show Parameters'
                 size_hint: 0.3, 0.1
                 pos_hint: {'center_x': .75+0.09, 'center_y':.7}
                 font_size: 25
@@ -2190,12 +2190,12 @@
             size: 4, self.height  
     Label:
         id: label_text
-        text: 'Alarm awake'
+        text: 'Operating Alarm'
         font_size: "30dp"
         pos_hint: {'center_x': 0.25, 'center_y':0.7}
     Label:
         id: label_text
-        text: 'Alarm sleep'
+        text: 'Sleep Alarm'
         font_size: "30dp"
         pos_hint: {'center_x': 0.75, 'center_y':0.7}
 
@@ -2249,7 +2249,7 @@
             ActionView:
                 use_separator: True
                 ActionPrevious:
-                    title: 'Régler Alarmes'
+                    title: 'Threeshold Alarm'
                     with_previous: False
                 ActionOverflow:
                 # # ActionButton:
@@ -2259,8 +2259,7 @@
                     text: 'Back'
                     on_release: root.manager.current = "setup2"
 
-        FloatLayout:
-
+                    
 ############################################################################
 #####################SCREEN Courant Max ##########################################
 ############################################################################
