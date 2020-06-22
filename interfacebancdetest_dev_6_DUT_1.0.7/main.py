@@ -2777,8 +2777,7 @@ class SetCycle5(Screen):
         self.label_nb_cycle.text=str(passerelle.cycle5.nb_repetition)
     
     def validationCycle5(self):
-        if (passerelle.nobmre_de_cycle != 5):
-            self.manager.current = 'setCourantMax'
+        self.manager.current = 'setCourantMax'
 
 
 class SetAlarm(Screen):
