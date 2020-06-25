@@ -1524,7 +1524,7 @@ class Voie1234(Screen):
 
         Logger.warning('trame envoyé: {}'.format(trame_bus))
 
-        #Logger.warning('test : ligne n°{}: Vérif '.format(inspect.currentframe().f_lineno))
+        #Logger.warning('test : ligne n°{}: Vérfif '.format(inspect.currentframe().f_lineno))
         cpt_erreur=0
         ok=False
         msg="rien reçu"
