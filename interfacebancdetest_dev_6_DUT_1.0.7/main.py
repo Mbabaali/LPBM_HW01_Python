@@ -1542,14 +1542,14 @@ class Voie1234(Screen):
                   cpt_erreur+=1
                   if cpt_erreur>5:
                     Logger.warning('l864: pb, renvoie de la trame')
-                    arduino1.write(str(trame_bus))
+                    arduino1.write(trame_bus.encode))
         #       #Logger.warning('message: msg : {}'.format(msg))        
 
         
     def stopacq(self):
         passerelle.start_stop = 0
         Logger.warning('stopacq: simulation arreté ')
-        arduino1.write(str("p\n"))
+        arduino1.write(str("p\n").encode)
         statut=0
         self.rect_dut_1.source = "images/ledred.png"
         self.rect_dut_2.source = "images/ledred.png"
@@ -1581,7 +1581,7 @@ class Voie1234(Screen):
 
 
         Logger.warning('stopacq: simulation arreté ')
-        arduino1.write(str("p\n"))
+        arduino1.write(str("p\n").encode)
         out1.close()
         Logger.warning('fermerBanc: out1 fermé')
         out2.close()
