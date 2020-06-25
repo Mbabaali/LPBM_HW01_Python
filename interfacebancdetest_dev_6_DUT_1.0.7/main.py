@@ -1530,7 +1530,7 @@ class Voie1234(Screen):
         msg="rien reçu"
         while(ok==False):
           while(arduino1.inWaiting()):
-              msg=str(arduino1.readline())
+              msg=str(arduino1.read())
 
               if (msg=='ok\n'):
                   Logger.warning('liaison à l\'arduino : communication ok')
