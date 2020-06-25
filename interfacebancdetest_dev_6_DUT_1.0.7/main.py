@@ -1531,6 +1531,7 @@ class Voie1234(Screen):
         while(ok==False):
           while(arduino1.inWaiting()):
               msg = arduino1.readline()
+              msg = str(msg)
 
               if (msg =='ok\n'):
                   Logger.warning('liaison à l\'arduino : communication ok')
