@@ -1541,7 +1541,7 @@ class Voie1234(Screen):
                   ok=False
                   cpt_erreur+=1
                   if cpt_erreur>5:
-                    Logger.warning('l864: pb, renvoie de la trame')
+                    Logger.warning('l544: pb, renvoie de la trame')
                     arduino1.write(trame_bus.encode())
         #       #Logger.warning('message: msg : {}'.format(msg))        
 
