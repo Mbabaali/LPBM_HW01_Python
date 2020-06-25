@@ -1444,7 +1444,10 @@ class Voie1234(Screen):
         # Logger.warning('bus: /n')
         trame_bus+=str('\n')
 
+        arduino1.flush()
         arduino1.write(str(trame_bus))
+        time.sleep(4)
+        
 
         Logger.warning('trame envoyé: {}'.format(trame_bus))
 
