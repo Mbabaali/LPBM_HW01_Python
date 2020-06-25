@@ -51,12 +51,7 @@ date = str(datetime.now())
 date_titre=str(datetime.now().year)+'-'+str(datetime.now().month)+'-'+str(datetime.now().day)+'-'+str(datetime.now().hour)+'-'+str(datetime.now().minute)+'-'+str(datetime.now().second)
 #adresseUSB='/media/pi/DATA3/' #utiliser une expression régulière ? * sinon voir ou est tout le temps monté la clé usb ls usb -> liste tous les ports
 # autre solution : démonter tous avant l'insertion de la clé usb puis remonter tous
-#adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
-
-# adresseUSB = str(os.path.realpath(__file__))
-# Logger.warning('adresseUSB: {}'.format(adresseUSB))
-  
-
+adresseUSB=str(os.popen("mount | grep /media/pi").readlines())
 try:
     adresseUSB=adresseUSB.split(" ")[2]+'/'
 except IndexError:
@@ -87,19 +82,19 @@ file666='/data_dut_6_err_'
 
 extension='.csv'
 
-chemin1=date_titre+file1+date_titre+extension
-chemin2=date_titre+file2+date_titre+extension
-chemin3=date_titre+file3+date_titre+extension
-chemin4=date_titre+file4+date_titre+extension
-chemin55=date_titre+file55+date_titre+extension
-chemin66=date_titre+file66+date_titre+extension
+chemin1=adresseUSB+date_titre+file1+date_titre+extension
+chemin2=adresseUSB+date_titre+file2+date_titre+extension
+chemin3=adresseUSB+date_titre+file3+date_titre+extension
+chemin4=adresseUSB+date_titre+file4+date_titre+extension
+chemin55=adresseUSB+date_titre+file55+date_titre+extension
+chemin66=adresseUSB+date_titre+file66+date_titre+extension
 
-chemin5=date_titre+file5+date_titre+extension
-chemin6=date_titre+file6+date_titre+extension
-chemin7=date_titre+file7+date_titre+extension
-chemin8=date_titre+file8+date_titre+extension
-chemin555=date_titre+file555+date_titre+extension
-chemin666=date_titre+file666+date_titre+extension
+chemin5=adresseUSB+date_titre+file5+date_titre+extension
+chemin6=adresseUSB+date_titre+file6+date_titre+extension
+chemin7=adresseUSB+date_titre+file7+date_titre+extension
+chemin8=adresseUSB+date_titre+file8+date_titre+extension
+chemin555=adresseUSB+date_titre+file555+date_titre+extension
+chemin666=adresseUSB+date_titre+file666+date_titre+extension
 
 
 try :   
@@ -125,19 +120,19 @@ except IOError :
 date = str(datetime.now())
 
 # Ecriture label colonne ficher excel        
-print >> out1, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
-print >> out2, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
-print >> out3, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
-print >> out4, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
-print >> out55, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
-print >> out66, ";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out1)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out2)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out3)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out4)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out55)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out66)
 
-print >> out5, ";".join(["date-time","Value", "Unit", "State"])
-print >> out6, ";".join(["date-time","Value", "Unit", "State"])
-print >> out7, ";".join(["date-time","Value", "Unit", "State"])
-print >> out8, ";".join(["date-time","Value", "Unit", "State"])
-print >> out555, ";".join(["date-time","Value", "Unit", "State"])
-print >> out666, ";".join(["date-time","Value", "Unit", "State"])
+print(";".join(["date-time","Value", "Unit", "State"]), file=out5)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out6)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out7)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out8)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out555)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out666)
 
 class cycle:
     def __init__(self, time_awake, time_awake_s, time_awake_m, time_awake_h, time_sleep, time_sleep_s, time_sleep_m, time_sleep_h):
