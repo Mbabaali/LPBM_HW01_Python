@@ -1532,7 +1532,7 @@ class Voie1234(Screen):
           while(arduino1.inWaiting()):
               msg=str(arduino1.readline())
 
-              if (msg=='ok\n'):
+              if (msg.decode()=='ok\n'):
                   Logger.warning('liaison à l\'arduino : communication ok')
                   ok=True
               else : 
