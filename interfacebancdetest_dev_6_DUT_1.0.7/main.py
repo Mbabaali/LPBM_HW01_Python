@@ -2873,13 +2873,13 @@ class MainApp(App):
 
 if __name__ == "__main__":
     Logger.warning('DATE ET HEURE DE LANCEMENT DE L ACQUISITION: {}'.format((datetime.now())))
-    # try:
-    #     arduino1 = serial.Serial('/dev/ttyACM0',115200,timeout = 10)
-    #     Logger.warning('arduino: Communication lancé')
+    try:
+        arduino1 = serial.Serial('/dev/ttyACM0',115200,timeout = 10)
+        Logger.warning('arduino: Communication lancé')
 
-    # except:
-    #     print "Failed to connect à l'arduino"
-    #     exit()
+    except:
+        print "Failed to connect à l'arduino"
+        exit()
 
 
     MainApp().run()
