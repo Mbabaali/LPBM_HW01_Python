@@ -1353,7 +1353,7 @@ class Voie1234(Screen):
         time_sleep_list_4 = list(str(passerelle.cycle4.time_sleep))   
 
         time_awake_list_5 = list(str(passerelle.cycle5.time_awake))
-        time_sleep_list_3 = list(str(passerelle.cycle5.time_sleep))   
+        time_sleep_list_5 = list(str(passerelle.cycle5.time_sleep))   
 
         f_acquisition_list=list(str(passerelle.f_acquisition))
 
