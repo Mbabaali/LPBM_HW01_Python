@@ -35,7 +35,7 @@ from datetime import datetime
 import subprocess
 import signal 
 import inspect
-import genGraph
+import GenGraph
 
 global alarmawake
 
