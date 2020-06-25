@@ -2878,7 +2878,7 @@ if __name__ == "__main__":
         Logger.warning('arduino: Communication lancé')
 
     except:
-        print "Failed to connect à l'arduino"
+        print ("Failed to connect à l'arduino")
         exit()
 
 
