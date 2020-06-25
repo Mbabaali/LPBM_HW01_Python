@@ -1404,10 +1404,10 @@ class Voie1234(Screen):
             nb_rep_list_3.insert(0,0)
         
         while(len(nb_rep_list_4)!=2):
-            nb_rep_list_3.insert(0,0)
+            nb_rep_list_4.insert(0,0)
         
         while(len(nb_rep_list_5)!=2):
-            nb_rep_list_3.insert(0,0)
+            nb_rep_list_5.insert(0,0)
         
         
 
