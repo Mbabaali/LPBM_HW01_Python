@@ -921,35 +921,66 @@ class Voie1234(Screen):
             A66=str(A6_mA).replace(".",",")
             W66=str(W6_mA).replace(".",",")
 
-            if(statut == '0'):
-                print >> out1, ";".join([date, A11, "mA", W11, "mW","Sleep"])
-            if(statut == '1'):
-                print >> out1, ";".join([date, A11, "mA", W11, "mW","Awake"])
+            # if(statut == '0'):
+            #     print >> out1, ";".join([date, A11, "mA", W11, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out1, ";".join([date, A11, "mA", W11, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out2, ";".join([date, A22, "mA", W22, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out2, ";".join([date, A22, "mA", W22, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out3, ";".join([date, A33, "mA", W33, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out3, ";".join([date, A33, "mA", W33, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out4, ";".join([date, A44, "mA", W44, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out4, ";".join([date, A44, "mA", W44, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out55, ";".join([date, A55, "mA", W55, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out55, ";".join([date, A55, "mA", W55, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out66, ";".join([date, A66, "mA", W66, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out66, ";".join([date, A66, "mA", W66, "mW","Awake"])
 
             if(statut == '0'):
-                print >> out2, ";".join([date, A22, "mA", W22, "mW","Sleep"])
+                print((";".join([date, A11, "mA", W11, "mW","Sleep"])), file=out1)
             if(statut == '1'):
-                print >> out2, ";".join([date, A22, "mA", W22, "mW","Awake"])
+                print ((";".join([date, A11, "mA", W11, "mW","Awake"])), file=out1)
 
-            if(statut == '0'):
-                print >> out3, ";".join([date, A33, "mA", W33, "mW","Sleep"])
-            if(statut == '1'):
-                print >> out3, ";".join([date, A33, "mA", W33, "mW","Awake"])
+            # if(statut == '0'):
+            #     print >> out2, ";".join([date, A22, "mA", W22, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out2, ";".join([date, A22, "mA", W22, "mW","Awake"])
 
-            if(statut == '0'):
-                print >> out4, ";".join([date, A44, "mA", W44, "mW","Sleep"])
-            if(statut == '1'):
-                print >> out4, ";".join([date, A44, "mA", W44, "mW","Awake"])
+            # if(statut == '0'):
+            #     print >> out3, ";".join([date, A33, "mA", W33, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out3, ";".join([date, A33, "mA", W33, "mW","Awake"])
 
-            if(statut == '0'):
-                print >> out55, ";".join([date, A55, "mA", W55, "mW","Sleep"])
-            if(statut == '1'):
-                print >> out55, ";".join([date, A55, "mA", W55, "mW","Awake"])
+            # if(statut == '0'):
+            #     print >> out4, ";".join([date, A44, "mA", W44, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out4, ";".join([date, A44, "mA", W44, "mW","Awake"])
 
-            if(statut == '0'):
-                print >> out66, ";".join([date, A66, "mA", W66, "mW","Sleep"])
-            if(statut == '1'):
-                print >> out66, ";".join([date, A66, "mA", W66, "mW","Awake"])
+            # if(statut == '0'):
+            #     print >> out55, ";".join([date, A55, "mA", W55, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out55, ";".join([date, A55, "mA", W55, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out66, ";".join([date, A66, "mA", W66, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out66, ";".join([date, A66, "mA", W66, "mW","Awake"])
+
 
             #Logger.warning('test format log: date : {} ; ligne n°{}: test format log'.format(str(datetime.now()),inspect.currentframe().f_lineno))
      
