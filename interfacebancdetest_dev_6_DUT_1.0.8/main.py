@@ -768,7 +768,6 @@ class Voie1234(Screen):
 
             if(U1 == '1'):
                 self.courant1.text = A1 + "  mA"
-                self.puissance1.text = W1 + "  mW"
                 # W11 = W1.replace(".",",")
                 # A11 = A1.replace(".",",")
                 # if(statut == '0'):
@@ -778,7 +777,6 @@ class Voie1234(Screen):
 
             if(U2=='1'):        
                 self.courant2.text = A2 + "  mA"
-                self.puissance2.text = W2 + "  mW"
                 # W22 = W2.replace(".",",")
                 # A22 = A2.replace(".",",")
                 # if(statut == '0'):
@@ -788,7 +786,6 @@ class Voie1234(Screen):
 
             if(U3=='1'):    
                 self.courant3.text = A3 + "  mA"
-                self.puissance3.text = W3 + "  mW"
                 # W33 = W3.replace(".",",")
                 # A33 = A3.replace(".",",")
                 # if(statut == '0'):
@@ -798,7 +795,6 @@ class Voie1234(Screen):
 
             if(U4=='1'):    
                 self.courant4.text = A4 + "  mA"
-                self.puissance4.text = W4 + "  mW"
                 # W44 = W4.replace(".",",")
                 # A44 = A4.replace(".",",")
                 # if(statut == '0'):
@@ -808,15 +804,12 @@ class Voie1234(Screen):
             
             if(U5=='1'):    
                 self.courant5.text = A5 + "  mA"
-                self.puissance5.text = W5 + "  mW"
             
             if(U6=='1'):    
                 self.courant6.text = A6 + "  mA"
-                self.puissance6.text = W6 + "  mW"
 
             if(U1 == '0'):
                 self.courant1.text = A1 + "  µA"
-                self.puissance1.text = W1 + "  mW"
                 #Logger.warning('Ecriture Fichier: valeur de A1 avant castage : {}'.format(A1))
                 # A1 = float(A1)
                 # #Logger.warning('Ecriture Fichier: valeur de A1 après castage : {}'.format(A1))
@@ -830,7 +823,6 @@ class Voie1234(Screen):
             
             if(U2=='0'):    
                 self.courant2.text = A2 + "  µA"
-                self.puissance2.text = W2 + "  mW"
                 # A2 = float(A2)
                 # W22 = W2.replace(".",",")
                 # A22 = str(A2).replace(".",",")
@@ -841,7 +833,6 @@ class Voie1234(Screen):
 
             if(U3=='0'):    
                 self.courant3.text = A3 + "  µA"
-                self.puissance3.text = W3 + "  mW"
                 # A3 = float(A3)
                 # W33 = W3.replace(".",",")
                 # A33 = str(A3).replace(".",",")
@@ -852,7 +843,6 @@ class Voie1234(Screen):
             
             if(U4=='0'):    
                 self.courant4.text = A4 + "  µA"
-                self.puissance4.text = W4 + "  mW"
                 # A4 = float(A4)
                 # W44 = W4.replace(".",",")
                 # A44 = str(A4).replace(".",",")
@@ -863,15 +853,12 @@ class Voie1234(Screen):
 
             if(U5=='0'):    
                 self.courant5.text = A5 + "  µA"
-                self.puissance5.text = W5 + "  mW"
 
             if(U6=='0'):    
                 self.courant6.text = A6 + "  µA"
-                self.puissance6.text = W6 + "  mW"
 
             if(U1 == '2'):
                 self.courant1.text = A1 + "  A"
-                self.puissance1.text = W1 + "  W"
                 # A1 = float(A1)
                 # W11 = W1.replace(".",",")
                 # A11 = str(A1).replace(".",",")
@@ -882,7 +869,6 @@ class Voie1234(Screen):
             
             if(U2 == '2'):    
                 self.courant2.text = A2 + "  A"
-                self.puissance2.text = W2 + "  W"
                 # A2 = float(A2)
                 # W22 = W2.replace(".",",")
                 # A22 = str(A2).replace(".",",")
@@ -893,7 +879,6 @@ class Voie1234(Screen):
             
             if(U3 == '2'):    
                 self.courant3.text = A3 + "  A"
-                self.puissance3.text = W3 + "  W"
                 # A3 = float(A3)
                 # W33 = W3.replace(".",",")
                 # A33 = str(A3).replace(".",",")
@@ -904,7 +889,6 @@ class Voie1234(Screen):
             
             if(U4 == '2'):    
                 self.courant4.text = A4 + "  A"
-                self.puissance4.text = W4 + "  W"
                 # A4 = float(A4)
                 # W44 = W4.replace(".",",")
                 # A44 = str(A4).replace(".",",")
@@ -915,11 +899,9 @@ class Voie1234(Screen):
 
             if(U5 == '2'):    
                 self.courant5.text = A5 + "  A"
-                self.puissance5.text = W5 + "  W"
 
             if(U6 == '2'):    
                 self.courant6.text = A6 + "  A"
-                self.puissance6.text = W6 + "  W"
 
             A11=str(A1_mA).replace(".",",")
             W11=str(W1_mA).replace(".",",")
