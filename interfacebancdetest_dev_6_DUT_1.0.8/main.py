@@ -1592,12 +1592,22 @@ class Voie1234(Screen):
         pause_encode = pause.encode()
         arduino1.write(pause_encode)
         statut=0
+
         self.rect_dut_1.source = "images/ledred.png"
         self.rect_dut_2.source = "images/ledred.png"
         self.rect_dut_3.source = "images/ledred.png"
         self.rect_dut_4.source = "images/ledred.png"
         self.rect_dut_5.source = "images/ledred.png"
         self.rect_dut_6.source = "images/ledred.png"
+
+        self.courant1.text = 0 + "  A"
+        self.courant2.text = 0 + "  A"
+        self.courant3.text = 0 + "  A"
+        self.courant4.text = 0 + "  A"
+        self.courant5.text = 0 + "  A"
+        self.courant6.text = 0 + "  A"
+
+        
 
         ok=False
         while(ok==False):
