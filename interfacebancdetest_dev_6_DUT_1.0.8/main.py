@@ -992,7 +992,7 @@ class Voie1234(Screen):
                 # self.alarmeoff1.text = (str(passerelle.alarm_sleep)+" µA")
                 # self.alarmeon2.text = (str(passerelle.alarm_awake)+" A")
                 # self.alarmeoff2.text = (str(passerelle.alarm_sleep)+" µA")
-                # self.alarmeon3.text = (str(passerelle.alarm_awake)+" A")
+                # self.alarmeon3.text = (str(passerelle.alarm_awake)+" A")ddddd
                 # self.alarmeoff3.text = (str(passerelle.alarm_sleep)+" µA")
                 # self.alarmeon4.text = (str(passerelle.alarm_awake)+" A")
                 # self.alarmeoff4.text = (str(passerelle.alarm_sleep)+" µA")
