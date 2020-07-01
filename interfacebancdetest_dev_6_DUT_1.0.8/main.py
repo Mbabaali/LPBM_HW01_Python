@@ -1653,25 +1653,25 @@ class Voie1234(Screen):
 
         if(passerelle.graph1.flagGraph):
             try:
-                genGraph.generer_graph(chemin=chemin1, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
+                Gengraph.generer_graph(chemin=chemin1, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
               
             except AttributeError:
                 Logger.warning('fermerBanc: impossible de generer un graph, fichier vide')
 
             try:
-                genGraph.generer_graph(chemin=chemin2, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
+                Gengraph.generer_graph(chemin=chemin2, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
               
             except AttributeError:
                 Logger.warning('fermerBanc: impossible de generer un graph, fichier vide')
 
             try:
-                genGraph.generer_graph(chemin=chemin3, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
+                Gengraph.generer_graph(chemin=chemin3, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
               
             except AttributeError:
                 Logger.warning('fermerBanc: impossible de generer un graph, fichier vide')
 
             try:
-                genGraph.generer_graph(chemin=chemin4, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
+                Gengraph.generer_graph(chemin=chemin4, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
               
             except AttributeError:
                 Logger.warning('fermerBanc: impossible de generer un graph, fichier vide')
