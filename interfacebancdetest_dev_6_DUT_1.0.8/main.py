@@ -1001,6 +1001,13 @@ class Voie1234(Screen):
                 self.alarmeon6.text = (str(passerelle.alarm_awake)+" A")
                 self.alarmeoff6.text = (str(passerelle.alarm_sleep)+" µA")
                 passerelle.update_alarm = 0
+            
+            U1 = int(U1)
+            U2 = int(U2)
+            U3 = int(U3)
+            U4 = int(U4)
+            U5 = int(U5)
+            U6 = int(U6)
 
             if(statut=='0'):
                 if(passerelle.U1offMax<U1):
@@ -1084,8 +1091,6 @@ class Voie1234(Screen):
 
 
             if(statut=='1'):
-                print(type(passerelle.U1onMax))
-                print(type(U1))
                 if(passerelle.U1onMax<U1):
                     passerelle.U1onMax=U1
                     passerelle.A1onMax=A1
