@@ -1602,7 +1602,7 @@ class Voie1234(Screen):
         ok=False
         while(ok==False):
           while(arduino1.inWaiting()):
-              msg_code =str(arduino1.readline())
+              msg_code = arduino1.readline()
               msg = msg_code.decode()
 
               if (msg=='ok\n'):
