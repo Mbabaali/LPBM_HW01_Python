@@ -669,21 +669,21 @@ class Voie1234(Screen):
                     passerelle.cptalarmoffdut1=passerelle.cptalarmoffdut1+1
                     Logger.warning("alarme: valeur de cptalarmoffdut1 : {}".format(passerelle.cptalarmoffdut1))
                     self.cptalarmeoff1.text=str(passerelle.cptalarmoffdut1)
-                    print >> out5, ";".join([date, str(A1_mA), "mA", "Sleep"])
+                    print((";".join([date, str(A1_mA), "mA", "Sleep"])), out5)
 
                 if(A2_mA>alarm_sleep_mA):
                     Logger.warning("alarme: seuil dépassé")
                     passerelle.cptalarmoffdut2=passerelle.cptalarmoffdut2+1
                     Logger.warning("alarme: valeur de cptalarmoffdut2 : {}".format(passerelle.cptalarmoffdut2))
                     self.cptalarmeoff2.text=str(passerelle.cptalarmoffdut2)
-                    print >> out6, ";".join([date, str(A2_mA), "mA", "Sleep"])
+                    print((";".join([date, str(A2_mA), "mA", "Sleep"])), out6)
 
                 if(A3_mA>alarm_sleep_mA):
                     Logger.warning("alarme: seuil dépassé")
                     passerelle.cptalarmoffdut3=passerelle.cptalarmoffdut3+1
                     Logger.warning("alarme: valeur de cptalarmoffdut3 : {}".format(passerelle.cptalarmoffdut3))
                     self.cptalarmeoff3.text=str(passerelle.cptalarmoffdut3)
-                    print >> out7, ";".join([date, str(A3_mA), "mA", "Sleep"])
+                    print((";".join([date, str(A3_mA), "mA", "Sleep"])), out7)
                 
 
                 if(A4_mA>alarm_sleep_mA):
@@ -691,7 +691,7 @@ class Voie1234(Screen):
                     passerelle.cptalarmoffdut4=passerelle.cptalarmoffdut4+1
                     Logger.warning("alarme: valeur de cptalarmoffdut4 : {}".format(passerelle.cptalarmoffdut4))
                     self.cptalarmeoff4.text=str(passerelle.cptalarmoffdut4)
-                    print >> out8, ";".join([date, str(A4_mA), "mA", "Sleep"])
+                    print((";".join([date, str(A4_mA), "mA", "Sleep"])), out8)
                     Logger.warning("écriture dans le ficheir ")
 
                 if(A5_mA>alarm_sleep_mA):
@@ -699,7 +699,7 @@ class Voie1234(Screen):
                     passerelle.cptalarmoffdut5=passerelle.cptalarmoffdut5+1
                     Logger.warning("alarme: valeur de cptalarmoffdut5 : {}".format(passerelle.cptalarmoffdut5))
                     self.cptalarmeoff5.text=str(passerelle.cptalarmoffdut5)
-                    print >> out555, ";".join([date, str(A5_mA), "mA", "Sleep"])
+                    print((";".join([date, str(A5_mA), "mA", "Sleep"])), out555)
                     Logger.warning("écriture dans le ficheir ")
 
                 
@@ -708,7 +708,7 @@ class Voie1234(Screen):
                     passerelle.cptalarmoffdut6=passerelle.cptalarmoffdut6+1
                     Logger.warning("alarme: valeur de cptalarmoffdut6 : {}".format(passerelle.cptalarmoffdut6))
                     self.cptalarmeoff6.text=str(passerelle.cptalarmoffdut6)
-                    print >> out666, ";".join([date, str(A6_mA), "mA", "Sleep"])
+                    print((";".join([date, str(A6_mA), "mA", "Sleep"])), out666)
                     Logger.warning("écriture dans le ficheir ")
 
             if(statut=='1'):
@@ -724,21 +724,21 @@ class Voie1234(Screen):
                     passerelle.cptalarmondut1=passerelle.cptalarmondut1+1
                     Logger.warning("alarme: valeur de cptalarmondut1 : {}".format(passerelle.cptalarmondut1))
                     self.cptalarmeon1.text=str(passerelle.cptalarmondut1)
-                    print >> out5, ";".join([date, str(A1_mA), "mA", "Awake"])
+                    print((";".join([date, str(A1_mA), "mA", "Awake"])), out5)
 
                 if(A2_mA>alarm_awake_mA):
                     Logger.warning("alarme: seuil dépassé")
                     passerelle.cptalarmondut2=passerelle.cptalarmondut2+1
                     Logger.warning("alarme: valeur de cptalarmondut2 : {}".format(passerelle.cptalarmondut2))
                     self.cptalarmeon2.text=str(passerelle.cptalarmondut2)
-                    print >> out6, ";".join([date, str(A2_mA), "mA", "Awake"])
+                    print((";".join([date, str(A2_mA), "mA", "Awake"])) ,out6)
 
                 if(A3_mA>alarm_awake_mA):
                     Logger.warning("alarme: seuil dépassé")
                     passerelle.cptalarmondut3=passerelle.cptalarmondut3+1
                     Logger.warning("alarme: valeur de cptalarmondut3 : {}".format(passerelle.cptalarmondut3))
                     self.cptalarmeon3.text=str(passerelle.cptalarmondut3)
-                    print >> out7, ";".join([date, str(A3_mA), "mA", "Awake"])
+                    print((";".join([date, str(A3_mA), "mA", "Awake"])), out7)
 
     
                 if(A4_mA>alarm_awake_mA):
@@ -746,14 +746,14 @@ class Voie1234(Screen):
                     passerelle.cptalarmondut4=passerelle.cptalarmondut4+1
                     Logger.warning("alarme: valeur de cptalarmondut4 : {}".format(passerelle.cptalarmondut4))
                     self.cptalarmeon4.text=str(passerelle.cptalarmondut4)
-                    print >> out8, ";".join([date, str(A4_mA), "mA", "Awake"])
+                    print((";".join([date, str(A4_mA), "mA", "Awake"])),out8)
                 
                 if(A5_mA>alarm_awake_mA):
                     Logger.warning("alarme: seuil dépassé")
                     passerelle.cptalarmondut5=passerelle.cptalarmondut5+1
                     Logger.warning("alarme: valeur de cptalarmondut5 : {}".format(passerelle.cptalarmondut5))
                     self.cptalarmeon5.text=str(passerelle.cptalarmondut5)
-                    print >> out555, ";".join([date, str(A5_mA), "mA", "Awake"])
+                    print((";".join([date, str(A5_mA), "mA", "Awake"])), out555)
 
                 
                 if(A6_mA>alarm_awake_mA):
@@ -761,7 +761,7 @@ class Voie1234(Screen):
                     passerelle.cptalarmondut4=passerelle.cptalarmondut6+1
                     Logger.warning("alarme: valeur de cptalarmondut6 : {}".format(passerelle.cptalarmondut6))
                     self.cptalarmeon6.text=str(passerelle.cptalarmondut6)
-                    print >> out666, ";".join([date, str(A6_mA), "mA", "Awake"])
+                    print((";".join([date, str(A6_mA), "mA", "Awake"])), out666)
                     
                     
             
