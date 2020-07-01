@@ -1009,6 +1009,13 @@ class Voie1234(Screen):
             U5 = int(U5)
             U6 = int(U6)
 
+            A1 = int(A1)
+            A2 = int(A2)
+            A3 = int(A3)
+            A4 = int(A4)
+            A5 = int(A5)
+            A6 = int(A6)
+
             if(statut=='0'):
                 if(passerelle.U1offMax<U1):
                     passerelle.U1offMax=U1
