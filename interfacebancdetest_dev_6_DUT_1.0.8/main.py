@@ -1016,6 +1016,13 @@ class Voie1234(Screen):
             A5 = float(A5)
             A6 = float(A6)
 
+            W1 = float(W1)
+            W2 = float(W2)
+            W3 = float(W3)
+            W4 = float(W4)
+            W5 = float(W5)
+            W6 = float(W6)
+
 
             if(statut=='0'):
                 if(passerelle.U1offMax<U1):
