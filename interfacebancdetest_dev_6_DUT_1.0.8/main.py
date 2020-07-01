@@ -1536,7 +1536,7 @@ class Voie1234(Screen):
               msg = msg_encode.decode()
               msg = str(msg)
 
-              if (msg =='ok\r\n'):
+              if (msg =='ok\n'):
                   Logger.warning('liaison à l\'arduino : communication ok')
                   ok=True
               else : 
