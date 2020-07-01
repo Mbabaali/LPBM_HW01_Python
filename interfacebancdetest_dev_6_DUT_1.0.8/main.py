@@ -504,7 +504,6 @@ class Voie1234(Screen):
             inbox_code = arduino1.readline()
             inbox = inbox_code.decode()
             inbox =str(inbox)
-            print(inbox.count(':'))
             #Logger.warning('timer: valeur : {}'.format(inbox))
             #Logger.warning('timer: nombre de deux points : {}'.format(inbox.count(':')))
             # if(inbox.count(':')!=13):
@@ -1010,12 +1009,12 @@ class Voie1234(Screen):
             U5 = int(U5)
             U6 = int(U6)
 
-            A1 = int(A1)
-            A2 = int(A2)
-            A3 = int(A3)
-            A4 = int(A4)
-            A5 = int(A5)
-            A6 = int(A6)
+            A1 = float(A1)
+            A2 = float(A2)
+            A3 = float(A3)
+            A4 = float(A4)
+            A5 = float(A5)
+            A6 = float(A6)
 
             if(statut=='0'):
                 if(passerelle.U1offMax<U1):
