@@ -503,6 +503,7 @@ class Voie1234(Screen):
             ####################################################################################
             inbox_code = arduino1.readline()
             inbox = inbox_code.decode()
+            inbox =str(inbox)
             #Logger.warning('timer: valeur : {}'.format(inbox))
             #Logger.warning('timer: nombre de deux points : {}'.format(inbox.count(':')))
             # if(inbox.count(':')!=13):
