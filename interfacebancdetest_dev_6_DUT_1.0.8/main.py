@@ -1016,6 +1016,7 @@ class Voie1234(Screen):
             A5 = float(A5)
             A6 = float(A6)
 
+
             if(statut=='0'):
                 if(passerelle.U1offMax<U1):
                     passerelle.U1offMax=U1
@@ -1098,6 +1099,10 @@ class Voie1234(Screen):
 
 
             if(statut=='1'):
+                print(type(passerelle.A1onMax))
+                print(type(A1))
+                print(type(passerelle.U1onMax))
+                print(type(U1))
                 if(passerelle.U1onMax<U1):
                     passerelle.U1onMax=U1
                     passerelle.A1onMax=A1
