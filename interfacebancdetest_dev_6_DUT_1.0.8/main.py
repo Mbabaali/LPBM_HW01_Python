@@ -988,18 +988,18 @@ class Voie1234(Screen):
            
 
             if(passerelle.update_alarm == 1):           
-                self.alarmeon1.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff1.text = (str(passerelle.alarm_sleep)+" µA")
-                self.alarmeon2.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff2.text = (str(passerelle.alarm_sleep)+" µA")
-                self.alarmeon3.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff3.text = (str(passerelle.alarm_sleep)+" µA")
-                self.alarmeon4.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff4.text = (str(passerelle.alarm_sleep)+" µA")
-                self.alarmeon5.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff5.text = (str(passerelle.alarm_sleep)+" µA")
-                self.alarmeon6.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff6.text = (str(passerelle.alarm_sleep)+" µA")
+                # self.alarmeon1.text = (str(passerelle.alarm_awake)+" A")
+                # self.alarmeoff1.text = (str(passerelle.alarm_sleep)+" µA")
+                # self.alarmeon2.text = (str(passerelle.alarm_awake)+" A")
+                # self.alarmeoff2.text = (str(passerelle.alarm_sleep)+" µA")
+                # self.alarmeon3.text = (str(passerelle.alarm_awake)+" A")
+                # self.alarmeoff3.text = (str(passerelle.alarm_sleep)+" µA")
+                # self.alarmeon4.text = (str(passerelle.alarm_awake)+" A")
+                # self.alarmeoff4.text = (str(passerelle.alarm_sleep)+" µA")
+                # self.alarmeon5.text = (str(passerelle.alarm_awake)+" A")
+                # self.alarmeoff5.text = (str(passerelle.alarm_sleep)+" µA")
+                # self.alarmeon6.text = (str(passerelle.alarm_awake)+" A")
+                # self.alarmeoff6.text = (str(passerelle.alarm_sleep)+" µA")
                 passerelle.update_alarm = 0
             
             U1 = int(U1)
