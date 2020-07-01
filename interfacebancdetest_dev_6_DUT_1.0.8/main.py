@@ -1107,6 +1107,10 @@ class Voie1234(Screen):
                 print(type(passerelle.U1onMax))
                 print(U1)
                 print(type(U1))
+                print(passerelle.W1onMax)
+                print(type(passerelle.W1onMax))
+                print(W1)
+                print(type(W1))
                 if(passerelle.U1onMax<U1):
                     passerelle.U1onMax=U1
                     passerelle.A1onMax=A1
