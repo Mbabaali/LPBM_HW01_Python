@@ -1106,18 +1106,6 @@ class Voie1234(Screen):
 
 
             if(statut=='1'):
-                print(passerelle.A1onMax)
-                print(type(passerelle.A1onMax))
-                print(A1)
-                print(type(A1))
-                print(passerelle.A1onMax)
-                print(type(passerelle.U1onMax))
-                print(U1)
-                print(type(U1))
-                print(passerelle.W1onMax)
-                print(type(passerelle.W1onMax))
-                print(W1)
-                print(type(W1))
                 if(passerelle.U1onMax<U1):
                     passerelle.U1onMax=U1
                     passerelle.A1onMax=A1
@@ -1580,7 +1568,6 @@ class Voie1234(Screen):
         while(ok==False):
           while(arduino1.inWaiting()):
               msg_encode = arduino1.readline()
-              time.sleep(0.6)
               msg = msg_encode.decode()
               msg = str(msg)
 
@@ -1613,7 +1600,6 @@ class Voie1234(Screen):
         self.rect_dut_6.source = "images/ledred.png"
 
         ok=False
-        msg="rien reçu"
         while(ok==False):
           while(arduino1.inWaiting()):
               msg_code =str(arduino1.readline())
