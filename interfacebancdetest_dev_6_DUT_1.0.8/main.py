@@ -1624,7 +1624,7 @@ class Voie1234(Screen):
                   ok=True
               else : 
                   Logger.warning('liaison à l\'arduino: en attente de la communication...')
-              #Logger.warning('message: msg : {}'.format(msg))
+              #Logger.warning('message: msg : {}'.format(msg)) fff 
 
     def fermerBanc(self):  
 
