@@ -1600,12 +1600,12 @@ class Voie1234(Screen):
         self.rect_dut_5.source = "images/ledred.png"
         self.rect_dut_6.source = "images/ledred.png"
 
-        self.courant1.text = 0 + "  A"
-        self.courant2.text = 0 + "  A"
-        self.courant3.text = 0 + "  A"
-        self.courant4.text = 0 + "  A"
-        self.courant5.text = 0 + "  A"
-        self.courant6.text = 0 + "  A"
+        self.courant1.text = "0  A"
+        self.courant2.text = "0  A"
+        self.courant3.text = "0  A"
+        self.courant4.text = "0  A"
+        self.courant5.text = "0  A"
+        self.courant6.text = "0  A"
 
         
 
