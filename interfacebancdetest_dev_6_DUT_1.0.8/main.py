@@ -120,19 +120,19 @@ except IOError :
 date = str(datetime.now())
 
 # Ecriture label colonne ficher excel        
-print((";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out1)
-print((";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out2)
-print((";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out3)
-print((";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out4)
-print((";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out55)
-print((";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out66)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out1)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out2)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out3)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out4)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out55)
+print(";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"]), file=out66)
 
-print((";".join(["date-time","Value", "Unit", "State"])), file=out5)
-print((";".join(["date-time","Value", "Unit", "State"])), file=out6)
-print((";".join(["date-time","Value", "Unit", "State"])), file=out7)
-print((";".join(["date-time","Value", "Unit", "State"])), file=out8)
-print((";".join(["date-time","Value", "Unit", "State"])), file=out555)
-print((";".join(["date-time","Value", "Unit", "State"])), file=out666)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out5)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out6)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out7)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out8)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out555)
+print(";".join(["date-time","Value", "Unit", "State"]), file=out666)
 
 class cycle:
     def __init__(self, time_awake, time_awake_s, time_awake_m, time_awake_h, time_sleep, time_sleep_s, time_sleep_m, time_sleep_h):
