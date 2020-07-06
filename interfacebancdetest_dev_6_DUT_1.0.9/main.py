@@ -573,6 +573,7 @@ class Voie1234(Screen):
 
                     for i in range(len(passerelle.dut)): 
                         print(i)
+                        print(passerelle.dut[i].U)
 
             ####################################################################################
             ####Conversion de la mesure en mA pour pouvoir la comparer aux alarmes sleep et awake
