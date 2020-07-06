@@ -563,8 +563,7 @@ class Voie1234(Screen):
                 passerelle.dut[1].U,passerelle.dut[1].W,passerelle.dut[1].A, \
                 passerelle.dut[2].U,passerelle.dut[2].W,passerelle.dut[2].A, \
                 passerelle.dut[3].U,passerelle.dut[3].W,passerelle.dut[3].A, \
-                passerelle.dut[5].U,passerelle.dut[5].W,passerelle.dut[5].A, \
-                passerelle.dut[6].U,passerelle.dut[6].W,passerelle.dut[6].A, 
+                passerelle.dut[5].U,passerelle.dut[5].W,passerelle.dut[5].A, 
                 Logger.info("debug arduino: {}".format(inbox))
 
             ####################################################################################
@@ -1193,7 +1192,7 @@ class Voie1234(Screen):
     	'''
         with self.canvas:
             self.loading_screen = Rectangle(pos=(0, 0),size=(800,480),source="images/loading_screen.jpg")
-
+            
         Clock.schedule_once(lambda dt: self.fermerBanc(self, *args), 0)
 
     def fermerBanc(self):  
