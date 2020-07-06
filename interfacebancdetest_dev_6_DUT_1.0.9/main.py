@@ -145,17 +145,18 @@ class cycle:
         self.time_sleep_m=time_sleep_m
         self.time_sleep_h=time_sleep_h
         self.nb_repetition=1
-    
-    def process_graph(list_argument_graph):
-        chemin=list_argument_graph[0]
-        low_min=list_argument_graph[1]
-        low_max=list_argument_graph[2]
-        high_min=list_argument_graph[3]
-        high_max=list_argument_graph[4]
-        taille=list_argument_graph[5]
 
-        Logger.warning('process_graph: chemin : {}  ;  low_min : {} ; low_max : {}  ; high_min : {} ; high_max : {}  ; taille : {} '.format(chemin, low_min, low_max, high_min, high_max, taille))
-        GenGraph.generer_graph(chemin=chemin, y_low_min=low_min, y_low_max=low_max, y_high_min=high_min, y_high_max=high_max, format_graph=taille)
+
+def process_graph(list_argument_graph):
+    chemin=list_argument_graph[0]
+    low_min=list_argument_graph[1]
+    low_max=list_argument_graph[2]
+    high_min=list_argument_graph[3]
+    high_max=list_argument_graph[4]
+    taille=list_argument_graph[5]
+
+    Logger.warning('process_graph: chemin : {}  ;  low_min : {} ; low_max : {}  ; high_min : {} ; high_max : {}  ; taille : {} '.format(chemin, low_min, low_max, high_min, high_max, taille))
+    GenGraph.generer_graph(chemin=chemin, y_low_min=low_min, y_low_max=low_max, y_high_min=high_min, y_high_max=high_max, format_graph=taille)
 
 class graph:
     def __init__(self):
