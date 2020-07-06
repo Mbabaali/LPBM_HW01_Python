@@ -602,10 +602,11 @@ class Voie1234(Screen):
 
             if(passerelle.flag_seuil==False and statut == '0' and passerelle.flag_alamarOff_init==True):
                 a=time.time()-passerelle.timer_delai_init
+                Logger.warning('init : passerelle.flag_seuil==False and statut == '0' and passerelle.flag_alamarOff_init==True')
 
                 if((passerelle.dut[0].A_mA<alarm_sleep_mA) and (passerelle.dut[1].A_mA<alarm_sleep_mA) and (passerelle.dut[2].A_mA<alarm_sleep_mA) and (passerelle.dut[3].A_mA<alarm_sleep_mA)
                 and (passerelle.dut[4].A_mA<alarm_sleep_mA) and (passerelle.dut[5].A_mA<alarm_sleep_mA)):
-
+                    Logger.warning('passerelle.dut[0].A_mA<alarm_sleep_mA')
                     timer_print=time.time()-passerelle.timer_delai_init
                     Logger.warning('timer delai: {}'.format(timer_print) )
                     passerelle.flag_seuil=True
@@ -616,11 +617,11 @@ class Voie1234(Screen):
                     Logger.warning('delai depassé (25 secondes)')
 
             if passerelle.flag_seuil==True and statut=='0':
-                Logger.warning('On commence à verifier les valeurs pour l\'alarme off')
+                Logger.warning('On commence à verifier les valeurs pour l alarme off')
                 flag_cpt_off=[False, False, False, False, False, False]
 
                 for i in passerelle.dut:
-                    # if(i.A_mA>alarm_sleep_mA):
+                     if(i.A_mA>alarm_sleep_mA):
                         Logger.warning("alarme: seuil dépassé")
                         i.cptalarmeoff+=1
                         flag_cpt_off[passerelle.dut.index(i)]=True
@@ -776,7 +777,7 @@ class Voie1234(Screen):
             if flag_ecriture_fic==True: #and flag_timer>=passerelle.f_acquisition :
             #if flag_timer>=passerelle.f_acquisition :
                 #Si on a bien reçu une valeur pendat ce tour de boucle, et que la période correspond à celle voulu par l'user, alors on écrit dans les fichiers
-                #Logger.warning('timer: ecriture dans les fichiers.')
+                Logger.warning('timer: ecriture dans les fichiers ')
                 for i in passerelle.dut :
                     if(statut=='0'):
                         print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
