@@ -564,6 +564,9 @@ class Voie1234(Screen):
                     passerelle.dut[5].U,passerelle.dut[5].W,passerelle.dut[5].A, 
                     Logger.info("debug arduino: {}".format(inbox))
 
+                    for i in passerelle.dut:
+                        print(passerelle.dut[i].U + passerelle.dut[1].W + passerelle.dut[1].A)
+
             ####################################################################################
             ####Conversion de la mesure en mA pour pouvoir la comparer aux alarmes sleep et awake
             ####################################################################################
