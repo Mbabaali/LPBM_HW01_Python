@@ -773,7 +773,7 @@ class Voie1234(Screen):
             #flag_timer+=0.331 #leger offset observé lors de l'acquisition des données, on le modifie 'en dur'
             #Logger.warning('622: flag_timer : {}'.format(flag_timer))
 
-            if flag_ecriture_fic==True #and flag_timer>=passerelle.f_acquisition :
+            if flag_ecriture_fic==True: #and flag_timer>=passerelle.f_acquisition :
             #if flag_timer>=passerelle.f_acquisition :
                 #Si on a bien reçu une valeur pendat ce tour de boucle, et que la période correspond à celle voulu par l'user, alors on écrit dans les fichiers
                 #Logger.warning('timer: ecriture dans les fichiers.')
