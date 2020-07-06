@@ -155,7 +155,7 @@ class cycle:
         taille=list_argument_graph[5]
 
         Logger.warning('process_graph: chemin : {}  ;  low_min : {} ; low_max : {}  ; high_min : {} ; high_max : {}  ; taille : {} '.format(chemin, low_min, low_max, high_min, high_max, taille))
-        genGraph.generer_graph(chemin=chemin, y_low_min=low_min, y_low_max=low_max, y_high_min=high_min, y_high_max=high_max, format_graph=taille)
+        GenGraph.generer_graph(chemin=chemin, y_low_min=low_min, y_low_max=low_max, y_high_min=high_min, y_high_max=high_max, format_graph=taille)
 
 class graph:
     def __init__(self):
@@ -546,7 +546,6 @@ class Voie1234(Screen):
                 inbox_code = arduino1.readline()
                 inbox = inbox_code.decode()
                 inbox =str(inbox)
-                print(inbox.count(':'))
 
                 if(inbox.count(':')!=19):
                     statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6 ,bullshit= 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
@@ -564,14 +563,8 @@ class Voie1234(Screen):
                     passerelle.dut[4].U,passerelle.dut[4].W,passerelle.dut[4].A = U5,W5,A5
                     passerelle.dut[5].U,passerelle.dut[5].W,passerelle.dut[5].A = U6,W6,A6
                     
-                     
-                    
-                    
+                                  
                     Logger.info("debug arduino: {}".format(inbox))
-
-                    for i in range(len(passerelle.dut)): 
-                        print(i)
-                        print(passerelle.dut[i].U)
 
             ####################################################################################
             ####Conversion de la mesure en mA pour pouvoir la comparer aux alarmes sleep et awake
