@@ -624,7 +624,7 @@ class Voie1234(Screen):
                         Logger.warning("alarme: seuil dépassé")
                         i.cptalarmeoff+=1
                         flag_cpt_off[passerelle.dut.index(i)]=True
-                        print((";".join([date, str(i.A_mA), "mA", "Sleep"])), file=i.fic_err)
+                        print((";".join([date, str(i.A_mA), "mA", "Sleep"])), file=(i.fic_err))
 
                 # if(flag_cpt_off[0]==True):
                 #     self.cptalarmeoff1.text=str(passerelle.dut[0].cptalarmeoff)
@@ -672,7 +672,7 @@ class Voie1234(Screen):
                         i.cptalarmeon+=1
                         Logger.warning('index : {}'.format(passerelle.dut.index(i)))
                         flag_cpt_on[passerelle.dut.index(i)]=True
-                        print((";".join([date, str(i.A_mA), "mA", "Awake"])), file=i.fic_err)
+                        print((";".join([date, str(i.A_mA), "mA", "Awake"])), file=(i.fic_err))
 
                 Logger.warning("flag cpt_on : {}".format(flag_cpt_on))
                 if(flag_cpt_on[0]==True):
@@ -778,9 +778,9 @@ class Voie1234(Screen):
                 #Logger.warning('timer: ecriture dans les fichiers.')
                 for i in passerelle.dut :
                     if(statut=='0'):
-                        print(((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=i.fic)
+                        print(((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
                     if(statut == '1'):
-                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])),  file=i.fic)
+                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])),  file=(i.fic))
                 passerelle.timer_acquisition=time.time()
 
 
