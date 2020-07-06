@@ -556,15 +556,13 @@ class Voie1234(Screen):
                     statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6,bullshit = 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
                     Logger.warning("debug arduino: {}".format(inbox))
                 else:   
-                    #statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6, bullshit = inbox.split(":")
-                    statut,
-                    passerelle.dut[0].U,passerelle.dut[0].W,passerelle.dut[0].A,
-                    passerelle.dut[1].U,passerelle.dut[1].W,passerelle.dut[1].A,
-                    passerelle.dut[2].U,passerelle.dut[2].W,passerelle.dut[2].A,
-                    passerelle.dut[3].U,passerelle.dut[3].W,passerelle.dut[3].A,
-                    passerelle.dut[4].U,passerelle.dut[4].W,passerelle.dut[4].A, 
-                    passerelle.dut[5].U,passerelle.dut[5].W,passerelle.dut[5].A,
-                    bullshit = inbox.split(":")
+                    statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6, bullshit = inbox.split(":")
+                    passerelle.dut[0].U,passerelle.dut[0].W,passerelle.dut[0].A = U1,W1,A1
+                    passerelle.dut[1].U,passerelle.dut[1].W,passerelle.dut[1].A = U2,W2,A2
+                    passerelle.dut[2].U,passerelle.dut[2].W,passerelle.dut[2].A = U3,W3,A3
+                    passerelle.dut[3].U,passerelle.dut[3].W,passerelle.dut[3].A = U4,W4,A4
+                    passerelle.dut[4].U,passerelle.dut[4].W,passerelle.dut[4].A = U5,W5,A5
+                    passerelle.dut[5].U,passerelle.dut[5].W,passerelle.dut[5].A = U6,W6,A6
                     
                      
                     
