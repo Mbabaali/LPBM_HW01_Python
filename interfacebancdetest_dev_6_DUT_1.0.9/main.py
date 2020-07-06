@@ -1188,13 +1188,13 @@ class Voie1234(Screen):
               #Logger.warning('message: msg : {}'.format(msg)) fff 
     
     def fermerBanc_schedule(self, *args):
-        	'''
+        '''
     	permet de "multithreader" l'application : avant de lancer "fermer banc" (qui peut mettre une 30aine de secondes à s'executer suivant la taille du graphe)
     	on affiche à l'écran une image pour éviter la sensation de "freeze" du programme par l'user.
     	'''
-        
         with self.canvas:
             self.loading_screen = Rectangle(pos=(0, 0),size=(800,480),source="images/loading_screen.jpg")
+            
         Clock.schedule_once(lambda dt: self.fermerBanc(self, *args), 0)
 
     def fermerBanc(self):  
