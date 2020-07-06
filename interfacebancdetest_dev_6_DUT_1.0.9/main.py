@@ -546,6 +546,7 @@ class Voie1234(Screen):
                 inbox_code = arduino1.readline()
                 inbox = inbox_code.decode()
                 inbox =str(inbox)
+                print(inbox.count(':'))
 
                 if(inbox.count(':')!=19):
                     statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6 ,bullshit= 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
