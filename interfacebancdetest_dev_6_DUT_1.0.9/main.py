@@ -604,8 +604,8 @@ class Voie1234(Screen):
             if(passerelle.flag_seuil==False and statut == '0' and passerelle.flag_alamarOff_init==True):
                 a=time.time()-passerelle.timer_delai_init
 
-                if((passerelle.dut[0].A_mA<alarm_sleep_mA) and (passerelle.dut[1]<alarm_sleep_mA) and (passerelle.dut[2]<alarm_sleep_mA) and (passerelle.dut[3]<alarm_sleep_mA)) \
-                        and (passerelle.dut[4]<alarm_sleep_mA) and (passerelle.dut[5]<alarm_sleep_mA)):
+                if((passerelle.dut[0].A_mA<alarm_sleep_mA) and (passerelle.dut[1]<alarm_sleep_mA) and (passerelle.dut[2]<alarm_sleep_mA) and (passerelle.dut[3]<alarm_sleep_mA))
+                and (passerelle.dut[4]<alarm_sleep_mA) and (passerelle.dut[5]<alarm_sleep_mA)):
 
                     timer_print=time.time()-passerelle.timer_delai_init
                     Logger.warning('timer delai: {}'.format(timer_print) )
