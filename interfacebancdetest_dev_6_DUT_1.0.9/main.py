@@ -175,10 +175,10 @@ class Dut:
     """
     def __init__(self, fic, fic_err):
         self.U=0
-        self.A=0
-        self.W=0
-        self.A_mA=0
-        self.W_mA=0
+        self.A=0.0
+        self.W=0.0
+        self.A_mA=0.0
+        self.W_mA=0.0
         self.AoffMax=0
         self.WoffMax=0
         self.AonMax=0
@@ -571,9 +571,8 @@ class Voie1234(Screen):
                     
                     Logger.info("debug arduino: {}".format(inbox))
 
-                    print(passerelle.dut[0].U)
-                    print(passerelle.dut[0].W)
-                    print(passerelle.dut[0].A)
+                    for i in range(len(passerelle.dut)): 
+                        print(i)
 
             ####################################################################################
             ####Conversion de la mesure en mA pour pouvoir la comparer aux alarmes sleep et awake
