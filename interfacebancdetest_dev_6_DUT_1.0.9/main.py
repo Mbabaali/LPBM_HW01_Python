@@ -625,36 +625,37 @@ class Voie1234(Screen):
                         i.cptalarmeoff+=1
                         flag_cpt_off[passerelle.dut.index(i)]=True
                         print((";".join([date, str(i.A_mA), "mA", "Sleep"])), file=(i.fic_err))
+                        Logger.warning("écriture dans le fichier ")
 
-                # if(flag_cpt_off[0]==True):
-                #     self.cptalarmeoff1.text=str(passerelle.dut[0].cptalarmeoff)
-                #     #Logger.warning("maj : channel 1")
-                #     flag_cpt_off[0]=False
+                if(flag_cpt_off[0]==True):
+                    self.cptalarmeoff1.text=str(passerelle.dut[0].cptalarmeoff)
+                    #Logger.warning("maj : channel 1")
+                    flag_cpt_off[0]=False
 
-                # if(flag_cpt_off[1]==True):
-                #     self.cptalarmeoff2.text=str(passerelle.dut[1].cptalarmeoff)
-                #     #Logger.warning("maj : channel 2 : valeur du compteur : {}".format(passerelle.dut[1].cptalarmeoff))
-                #     flag_cpt_off[1]=False
+                if(flag_cpt_off[1]==True):
+                    self.cptalarmeoff2.text=str(passerelle.dut[1].cptalarmeoff)
+                    #Logger.warning("maj : channel 2 : valeur du compteur : {}".format(passerelle.dut[1].cptalarmeoff))
+                    flag_cpt_off[1]=False
 
-                # if(flag_cpt_off[2]==True):
-                #     self.cptalarmeoff3.text=str(passerelle.dut[2].cptalarmeoff)
-                #     #Logger.warning("maj : channel 3")
-                #     flag_cpt_off[2]=False
+                if(flag_cpt_off[2]==True):
+                    self.cptalarmeoff3.text=str(passerelle.dut[2].cptalarmeoff)
+                    #Logger.warning("maj : channel 3")
+                    flag_cpt_off[2]=False
 
-                # if(flag_cpt_off[3]==True):
-                #     self.cptalarmeoff4.text=str(passerelle.dut[3].cptalarmeoff)
-                #     #Logger.warning("maj : channel 4")
-                #     flag_cpt_off[3]=False
+                if(flag_cpt_off[3]==True):
+                    self.cptalarmeoff4.text=str(passerelle.dut[3].cptalarmeoff)
+                    #Logger.warning("maj : channel 4")
+                    flag_cpt_off[3]=False
                 
-                # if(flag_cpt_off[4]==True):
-                #     self.cptalarmeoff5.text=str(passerelle.dut[4].cptalarmeoff)
-                #     #Logger.warning("maj : channel 4")
-                #     flag_cpt_off[4]=False
+                if(flag_cpt_off[4]==True):
+                    self.cptalarmeoff5.text=str(passerelle.dut[4].cptalarmeoff)
+                    #Logger.warning("maj : channel 4")
+                    flag_cpt_off[4]=False
                 
-                # if(flag_cpt_off[5]==True):
-                #     self.cptalarmeoff6.text=str(passerelle.dut[5].cptalarmeoff)
-                #     #Logger.warning("maj : channel 4")
-                #     flag_cpt_off[5]=False
+                if(flag_cpt_off[5]==True):
+                    self.cptalarmeoff6.text=str(passerelle.dut[5].cptalarmeoff)
+                    #Logger.warning("maj : channel 4")
+                    flag_cpt_off[5]=False
 
 
             if(statut=='1'):
@@ -772,7 +773,7 @@ class Voie1234(Screen):
             #flag_timer+=0.331 #leger offset observé lors de l'acquisition des données, on le modifie 'en dur'
             #Logger.warning('622: flag_timer : {}'.format(flag_timer))
 
-            if flag_ecriture_fic==True and flag_timer>=passerelle.f_acquisition :
+            if flag_ecriture_fic==True #and flag_timer>=passerelle.f_acquisition :
             #if flag_timer>=passerelle.f_acquisition :
                 #Si on a bien reçu une valeur pendat ce tour de boucle, et que la période correspond à celle voulu par l'user, alors on écrit dans les fichiers
                 #Logger.warning('timer: ecriture dans les fichiers.')
