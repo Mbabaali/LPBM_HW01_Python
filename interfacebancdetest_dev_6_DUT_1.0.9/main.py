@@ -715,82 +715,64 @@ class Voie1234(Screen):
 
             if(passerelle.dut[0].U == '1'):
                 self.courant1.text = passerelle.dut[0].A + "  mA"
-                self.puissance1.text = passerelle.dut[0].W + "  mW"
 
             if(passerelle.dut[1].U=='1'):        
                 self.courant2.text = passerelle.dut[1].A + "  mA"
-                self.puissance2.text = passerelle.dut[1].W + "  mW"
 
             if(passerelle.dut[2].U=='1'):    
                 self.courant3.text = passerelle.dut[2].A + "  mA"
-                self.puissance3.text = passerelle.dut[2].W + "  mW"
 
             if(passerelle.dut[3].U=='1'):    
                 self.courant4.text = passerelle.dut[3].A + "  mA"
-                self.puissance4.text = passerelle.dut[3].W + "  mW"
             
             if(passerelle.dut[4].U=='1'):    
                 self.courant5.text = passerelle.dut[3].A + "  mA"
-                self.puissance5.text = passerelle.dut[3].W + "  mW"
             
             if(passerelle.dut[5].U=='1'):    
                 self.courant6.text = passerelle.dut[3].A + "  mA"
-                self.puissance6.text = passerelle.dut[3].W + "  mW"
 
                     
             if(passerelle.dut[0].U =='0'):
                 self.courant1.text = passerelle.dut[0].A + "  µA"
-                self.puissance1.text = passerelle.dut[0].W + "  µW"
 
             
             if(passerelle.dut[1].U=='0'):    
                 self.courant2.text = passerelle.dut[1].A + "  µA"
-                self.puissance2.text = passerelle.dut[1].W + "  µW"
 
             if(passerelle.dut[2].U=='0'):    
                 self.courant3.text = passerelle.dut[2].A + "  µA"
-                self.puissance3.text = passerelle.dut[2].W + "  µW"
             
             if(passerelle.dut[3].U=='0'):    
                 self.courant4.text = passerelle.dut[3].A + "  µA"
-                self.puissance4.text = passerelle.dut[3].W + "  µW"
             
             if(passerelle.dut[4].U=='0'):    
                 self.courant5.text = passerelle.dut[4].A + "  µA"
-                self.puissance5.text = passerelle.dut[4].W + "  µW"
             
             if(passerelle.dut[5].U=='0'):    
                 self.courant6.text = passerelle.dut[5].A + "  µA"
-                self.puissance6.text = passerelle.dut[5].W + "  µW"
 
 
             if(passerelle.dut[0].U == '2'):
                 self.courant1.text = passerelle.dut[0].A + "  A"
-                self.puissance1.text = passerelle.dut[0].W + "  W"
 
             
             if(passerelle.dut[1].U == '2'):    
                 self.courant2.text = passerelle.dut[1].A + "  A"
-                self.puissance2.text = passerelle.dut[1].W + "  W"
 
             
             if(passerelle.dut[2].U == '2'):    
                 self.courant3.text = passerelle.dut[2].A + "  A"
-                self.puissance3.text = passerelle.dut[2].W + "  W"
 
             
             if(passerelle.dut[3].U == '2'):    
                 self.courant4.text = passerelle.dut[3].A + "  A"
-                self.puissance4.text = passerelle.dut[3].W + "  W"
             
             if(passerelle.dut[4].U == '2'):    
                 self.courant5.text = passerelle.dut[4].A + "  A"
-                self.puissance5.text = passerelle.dut[4].W + "  W"
 
             
             if(passerelle.dut[5].U == '2'):    
                 self.courant6.text = passerelle.dut[5].A + "  A"
-                self.puissance6.text = passerelle.dut[5].W + "  W"
 
             flag_timer=time.time()-passerelle.timer_acquisition
             #flag_timer+=0.331 #leger offset observé lors de l'acquisition des données, on le modifie 'en dur'
