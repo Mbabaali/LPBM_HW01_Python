@@ -571,6 +571,8 @@ class Voie1234(Screen):
                     
                     Logger.info("debug arduino: {}".format(inbox))
 
+                    print(passerelle.dut[0].U)
+                    print(passerelle.dut[0].W)
                     print(passerelle.dut[0].A)
 
             ####################################################################################
