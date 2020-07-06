@@ -613,10 +613,10 @@ class Voie1234(Screen):
 
                 if((a>25) and (statut=='0')):
                     passerelle.flag_seuil=True
-                    #Logger.warning('delai depassé (25 secondes)')
+                    Logger.warning('delai depassé (25 secondes)')
 
             if passerelle.flag_seuil==True and statut=='0':
-                #Logger.warning('On commence à verifier les valeurs pour l\'alarme off')
+                Logger.warning('On commence à verifier les valeurs pour l\'alarme off')
                 flag_cpt_off=[False, False, False, False, False, False]
 
                 for i in passerelle.dut:
