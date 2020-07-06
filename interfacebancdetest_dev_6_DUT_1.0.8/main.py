@@ -36,7 +36,6 @@ import subprocess
 import signal 
 import inspect
 import GenGraph
-from multiprocessing import Process
 
 global alarmawake
 
@@ -146,49 +145,19 @@ class cycle:
         self.time_sleep_m=time_sleep_m
         self.time_sleep_h=time_sleep_h
         self.nb_repetition=1
-    
-    def process_graph(list_argument_graph):
-    
-    chemin=list_argument_graph[0]
-    low_min=list_argument_graph[1]
-    low_max=list_argument_graph[2]
-    high_min=list_argument_graph[3]
-    high_max=list_argument_graph[4]
-    taille=list_argument_graph[5]
-
-    Logger.warning('process_graph: chemin : {}  ;  low_min : {} ; low_max : {}  ; high_min : {} ; high_max : {}  ; taille : {} '.format(chemin, low_min, low_max, high_min, high_max, taille))
-    genGraph.generer_graph(chemin=chemin, y_low_min=low_min, y_low_max=low_max, y_high_min=high_min, y_high_max=high_max, format_graph=taille)
 
 class graph:
     def __init__(self):
         self.y_low_min_uA=60
         self.y_low_max_uA=120
-        self.y_low_min=0.06
-        self.y_low_max=0.120
+        self.y_low_min=0
+        self.y_low_max=0
         self.y_high_min=600
         self.y_high_max=1000
         self.flagGraph=True
-        self.setTaille=0
 
 
-class Dut:
-    """
-    un objet par DUT. les objets DUTs seronts stocké dans une liste 
-    """
-    def __init__(self, fic, fic_err):
-        self.U=0
-        self.A=0
-        self.W=0
-        self.A_mA=0
-        self.W_mA=0
-        self.AoffMax=0
-        self.WoffMax=0
-        self.AonMax=0
-        self.WonMax=0
-        self.cptalarmeoff=0
-        self.cptalarmeon=0
-        self.fic=fic
-        self.fic_err=fic_err        
+        
 
 
 # Classe de transition pour variable global
@@ -296,21 +265,10 @@ class passerelle(Screen):
     flag_seuil=False
     flag_delai=False
     timer_delai_init=0
-    nb_screen_param_param=0
-
-    flag_alamarOff_init=False
-
-    timer_acquisition=time.time()
+    nb_screen=0
 
 
     graph1=graph()
-    dut=[]
-    dut.append(Dut(out1, out5))
-    dut.append(Dut(out2, out6))
-    dut.append(Dut(out3, out7))
-    dut.append(Dut(out4, out8))
-    dut.append(Dut(out55, out555))
-    dut.append(Dut(out66, out666))
     # uA1=0
     # uW1=0
     # uA2=0
@@ -534,7 +492,6 @@ class Voie1234(Screen):
             
     def timer(self, dt): 
         statut=0
-        flag_ecriture_fic=False
         if(passerelle.start_stop == 1):
             # A1_mA, A2_mA, A3_mA, A4_mA=0,0,0,0
             # W1_mA, W2_mA, W3_mA, W4_mA=0,0,0,0
@@ -544,14 +501,20 @@ class Voie1234(Screen):
             ####################################################################################
             #Récupération des données Serial
             ####################################################################################
-            if arduino1.inWaiting()>0:
-                inbox_code = arduino1.readline()
-                inbox = inbox_code.decode()
-                inbox =str(inbox)
-            
-            else:
-                inbox='nope'
-
+            inbox_code = arduino1.readline()
+            inbox = inbox_code.decode()
+            inbox =str(inbox)
+            #Logger.warning('timer: valeur : {}'.format(inbox))
+            #Logger.warning('timer: nombre de deux points : {}'.format(inbox.count(':')))
+            # if(inbox.count(':')!=13):
+            #     statut,U1,W1,A1,U2,W2,A2,U3,W3,A3,U4,W4,A4,bullshit=0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            #     Logger.warning("timer: Bug du double bus")
+            #     Logger.warning("timer : {}".format(inbox))
+            # elif (inbox[0]=='d'):
+            #     statut,U1,W1,A1,U2,W2,A2,U3,W3,A3,U4,W4,A4,bullshit=0,0,0,0,0,0,0,0,0,0,0,0,0,0
+            #     Logger.warning("debug arduino: {}".format(inbox))
+            # else:   
+            #     statut,U1,W1,A1,U2,W2,A2,U3,W3,A3,U4,W4,A4,bullshit = inbox.split(":")
             if(inbox.count(':')!=19):
                 statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6 ,bullshit= 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
                 Logger.warning("timer: Bug du double bus")
@@ -561,13 +524,6 @@ class Voie1234(Screen):
                 Logger.warning("debug arduino: {}".format(inbox))
             else:   
                 statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6, bullshit = inbox.split(":")
-                statut,passerelle.dut[0].U,passerelle.dut[0].W,passerelle.dut[0].A,
-                passerelle.dut[1].U,passerelle.dut[1].W,passerelle.dut[1].A, 
-                passerelle.dut[2].U,passerelle.dut[2].W,passerelle.dut[2].A,
-                passerelle.dut[3].U,passerelle.dut[3].W,passerelle.dut[3].A,
-                passerelle.dut[5].U,passerelle.dut[5].W,passerelle.dut[5].A,
-                passerelle.dut[6].U,passerelle.dut[6].W,passerelle.dut[6].A,
-                bullshit = inbox.split(":")
                 Logger.info("debug arduino: {}".format(inbox))
 
             ####################################################################################
@@ -577,234 +533,458 @@ class Voie1234(Screen):
             alarm_sleep_mA=float(passerelle.alarm_sleep)/1000
             #Logger.warning('alarme awake : {} mA ; alarme sleep : {} '.format(alarm_awake_mA, alarm_sleep_mA))
 
-            for i in passerelle.dut :
-                #Pour chaque DUT, on check l'unité (A, mA ou uA, et on initialise A_mA et W_mA en fonction)
-                if(i.U=='0'):
-                    i.A_mA=float(i.A)/1000
-                    i.W_mA=float(i.W)/1000
-                elif(i.U=='1'):
-                    i.A_mA=float(i.A)
-                    i.W_mA=float(i.W)
-                elif(i.U=='2'):
-                    i.A_mA=float(i.A)*1000
-                    i.W_mA=float(i.W)*1000
-                else:
-                   i.A_mA=0
-                   i.W_mA=0
+            if(U1=='0'):
+                A1_mA=float(A1)/1000
+                W1_mA=float(W1)/1000
+            elif(U1=='1'):
+                A1_mA=float(A1)
+                W1_mA=float(W1)
+            elif(U1=='2'):
+                A1_mA=float(A1)*1000
+                W1_mA=float(W1)*1000
+            else:
+                A1_mA=0
+                W1_mA=0
+                Logger.warning("conversion mA: Problème de conversion : valeur de U1 : {}".format(U1))
+
+            if(U2=='0'):
+                A2_mA=float(A2)/1000
+                W2_mA=float(W2)/1000
+            elif(U2=='1'):
+                A2_mA=float(A2)
+                W2_mA=float(W2)
+            elif(U2=='2'):
+                A2_mA=float(A2)*1000
+                W2_mA=float(W2)*1000
+            else:
+                A2_mA=0
+                W2_mA=0
+                Logger.warning("conversion mA: Problème de conversion valeur de U2 : {}".format(U2))
             
+            if(U3=='0'):
+                A3_mA=float(A3)/1000
+                W3_mA=float(W3)/1000
+            elif(U3=='1'):
+                A3_mA=float(A3)
+                W3_mA=float(W3)
+            elif(U3=='2'):
+                A3_mA=float(A3)*1000
+                W3_mA=float(W3)*1000
+            else:
+                A3_mA=0
+                W3_mA=0
+                Logger.warning("conversion mA: Problème de conversion valeur de U3 : {}".format(U3))
+            
+            if(U4=='0'):
+                A4_mA=float(A4)/1000
+                W4mA=float(W4)/1000
+            elif(U4=='1'):
+                A4_mA=float(A4)
+                W4_mA=float(W4)
+            elif(U4=='2'):
+                A4_mA=float(A4)*1000
+                W4_mA=float(W4)*1000
+            else:
+                A4_mA=0
+                W4_mA=0
+                Logger.warning("conversion mA: Problème de conversion valeur de U4 : {}".format(U4))
 
-################################################################################################################################################
-######################################REGLAGE DE L'ALARME#######################################################################################
-################################################################################################################################################
-            if(statut=='0' and passerelle.flag_alamarOff_init==False):
+            if(U5=='0'):
+                A5_mA=float(A5)/1000
+                W5_mA=float(W5)/1000
+            elif(U5=='1'):
+                A5_mA=float(A5)
+                W5_mA=float(W5)
+            elif(U5=='2'):
+                A5_mA=float(A5)*1000
+                W5_mA=float(W5)*1000
+            else:
+                A5_mA=0
+                W5_mA=0
+                Logger.warning("conversion mA: Problème de conversion valeur de U5 : {}".format(U5))
+            
+            if(U6=='0'):
+                A6_mA=float(A6)/1000
+                W6mA=float(W6)/1000
+            elif(U6=='1'):
+                A6_mA=float(A6)
+                W6_mA=float(W6)
+            elif(U6=='2'):
+                A6_mA=float(A6)*1000
+                W6_mA=float(W6)*1000
+            else:
+                A6_mA=0
+                W6_mA=0
+                Logger.warning("conversion mA: Problème de conversion valeur de U6 : {}".format(U6))
 
-                Logger.warning('init : initialisé')
-                passerelle.flag_alamarOff_init=True
-                passerelle.timer_delai_init=time.time()
+            ####################################
+
+           
+
+            #Logger.warning("conversion mA: valeur de A1_m1 : {}  ;  A2_MA : {} ;   A3_mA : {} ;  A4_mA : {} ; ".format(A1_mA, A2_mA, A3_mA, A4_mA))
+
+            ##################################################################################################
+            ######INCREMENTATION DES ALARMES DE DEPASSEMENT DE SEUIL ET ECRITURE DANS LE FICHIER ASSOCIE######
+            ##################################################################################################
+
+            #Logger.warning('ligne n°{}: statut : {}   flag_seuil : {}'.format(inspect.currentframe().f_lineno, statut, passerelle.flag_seuil))
 
 
-            if(passerelle.flag_seuil==False and statut == '0' and passerelle.flag_alamarOff_init==True):
+            # if(statut=='0'):
+            #     Logger.warning('ligne n°{}: statut ok'.format(inspect.currentframe().f_lineno))
+
+            # if(passerelle.flag_seuil==False):
+            #     Logger.warning('ligne n°{}: flag_seuil ok'.format(inspect.currentframe().f_lineno))
+
+            # if(passerelle.flag_seuil==0):
+            #     Logger.warning('test: test')
+
+            if((passerelle.flag_seuil==False) and (statut=='0')):
                 a=time.time()-passerelle.timer_delai_init
 
-                if((passerelle.dut[0].A_mA<alarm_sleep_mA) and (passerelle.dut[1]<alarm_sleep_mA) and (passerelle.dut[2]<alarm_sleep_mA) and (passerelle.dut[3]<alarm_sleep_mA)) 
-                and (passerelle.dut[4]<alarm_sleep_mA) and (passerelle.dut[5]<alarm_sleep_mA)):
+                #Logger.warning('ligne n°{}: temps écoulé depuis passage off : {}   statut : {}'.format(inspect.currentframe().f_lineno, a, statut))
+
+                if((A1_mA<alarm_sleep_mA) and (A2_mA<alarm_sleep_mA) and (A3_mA<alarm_sleep_mA) and (A4_mA<alarm_sleep_mA)):
 
                     timer_print=time.time()-passerelle.timer_delai_init
                     Logger.warning('timer delai: {}'.format(timer_print) )
                     passerelle.flag_seuil=True
-                    #Si tous les Duts sont en dessous de la valeur de l'alarme, on active le flag seuil
 
                 if((a>25) and (statut=='0')):
-                    passerelle.flag_seuil=True
-                    #Logger.warning('delai depassé (25 secondes)')
+                    Logger.warning('ligne n°{}: 25 secondes ecoulé depuis passage off'.format(inspect.currentframe().f_lineno))
 
-            if passerelle.flag_seuil==True and statut=='0':
-                #Logger.warning('On commence à verifier les valeurs pour l\'alarme off')
-                flag_cpt_off=[False, False, False, False, False, False]
 
-                for i in passerelle.dut:
-                    if(i.A_mA>alarm_sleep_mA):
-                        Logger.warning("alarme: seuil dépassé")
-                        i.cptalarmeoff+=1
-                        flag_cpt_off[passerelle.dut.index(i)]=True
-                        print(";".join([date, str(i.A_mA), "mA", "Sleep"]), i.fic_err)
 
-                # if(flag_cpt_off[0]==True):
-                #     self.cptalarmeoff1.text=str(passerelle.dut[0].cptalarmeoff)
-                #     #Logger.warning("maj : channel 1")
-                #     flag_cpt_off[0]=False
+            if((statut=='0') and (passerelle.flag_delai==False)):
 
-                # if(flag_cpt_off[1]==True):
-                #     self.cptalarmeoff2.text=str(passerelle.dut[1].cptalarmeoff)
-                #     #Logger.warning("maj : channel 2 : valeur du compteur : {}".format(passerelle.dut[1].cptalarmeoff))
-                #     flag_cpt_off[1]=False
+                Logger.warning('init : initialisé')
+                passerelle.flag_delai=True
+                passerelle.timer_delai_init=time.time()
+                Logger.warning('init: timer_init : {}'.format(passerelle.timer_delai_init))
 
-                # if(flag_cpt_off[2]==True):
-                #     self.cptalarmeoff3.text=str(passerelle.dut[2].cptalarmeoff)
-                #     #Logger.warning("maj : channel 3")
-                #     flag_cpt_off[2]=False
 
-                # if(flag_cpt_off[3]==True):
-                #     self.cptalarmeoff4.text=str(passerelle.dut[3].cptalarmeoff)
-                #     #Logger.warning("maj : channel 4")
-                #     flag_cpt_off[3]=False
+            if((statut=='0') and (passerelle.flag_seuil==True)):
+                if (A1_mA>alarm_sleep_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmoffdut1=passerelle.cptalarmoffdut1+1
+                    Logger.warning("alarme: valeur de cptalarmoffdut1 : {}".format(passerelle.cptalarmoffdut1))
+                    self.cptalarmeoff1.text=str(passerelle.cptalarmoffdut1)
+                    print((";".join([date, str(A1_mA), "mA", "Sleep"])), out5)
+
+                if(A2_mA>alarm_sleep_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmoffdut2=passerelle.cptalarmoffdut2+1
+                    Logger.warning("alarme: valeur de cptalarmoffdut2 : {}".format(passerelle.cptalarmoffdut2))
+                    self.cptalarmeoff2.text=str(passerelle.cptalarmoffdut2)
+                    print((";".join([date, str(A2_mA), "mA", "Sleep"])), out6)
+
+                if(A3_mA>alarm_sleep_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmoffdut3=passerelle.cptalarmoffdut3+1
+                    Logger.warning("alarme: valeur de cptalarmoffdut3 : {}".format(passerelle.cptalarmoffdut3))
+                    self.cptalarmeoff3.text=str(passerelle.cptalarmoffdut3)
+                    print((";".join([date, str(A3_mA), "mA", "Sleep"])), out7)
                 
-                # if(flag_cpt_off[4]==True):
-                #     self.cptalarmeoff5.text=str(passerelle.dut[4].cptalarmeoff)
-                #     #Logger.warning("maj : channel 4")
-                #     flag_cpt_off[4]=False
-                
-                # if(flag_cpt_off[5]==True):
-                #     self.cptalarmeoff6.text=str(passerelle.dut[5].cptalarmeoff)
-                #     #Logger.warning("maj : channel 4")
-                #     flag_cpt_off[5]=False
 
+                if(A4_mA>alarm_sleep_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmoffdut4=passerelle.cptalarmoffdut4+1
+                    Logger.warning("alarme: valeur de cptalarmoffdut4 : {}".format(passerelle.cptalarmoffdut4))
+                    self.cptalarmeoff4.text=str(passerelle.cptalarmoffdut4)
+                    print((";".join([date, str(A4_mA), "mA", "Sleep"])), out8)
+                    Logger.warning("écriture dans le ficheir ")
+
+                if(A5_mA>alarm_sleep_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmoffdut5=passerelle.cptalarmoffdut5+1
+                    Logger.warning("alarme: valeur de cptalarmoffdut5 : {}".format(passerelle.cptalarmoffdut5))
+                    self.cptalarmeoff5.text=str(passerelle.cptalarmoffdut5)
+                    print((";".join([date, str(A5_mA), "mA", "Sleep"])), out555)
+                    Logger.warning("écriture dans le ficheir ")
+
+                
+                if(A6_mA>alarm_sleep_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmoffdut6=passerelle.cptalarmoffdut6+1
+                    Logger.warning("alarme: valeur de cptalarmoffdut6 : {}".format(passerelle.cptalarmoffdut6))
+                    self.cptalarmeoff6.text=str(passerelle.cptalarmoffdut6)
+                    print((";".join([date, str(A6_mA), "mA", "Sleep"])), out666)
+                    Logger.warning("écriture dans le ficheir ")
 
             if(statut=='1'):
 
                 if(passerelle.flag_seuil==True):
                     passerelle.flag_seuil=False
-                if(passerelle.flag_alamarOff_init==True):
-                    passerelle.flag_alamarOff_init=False
-
-                flag_cpt_on=[False, False, False, False, False, False]
+                if(passerelle.flag_delai==True):
+                    passerelle.flag_delai=False
 
 
-                for i in passerelle.dut:
-                    if(i.A_mA>alarm_awake_mA):
-                        i.cptalarmeon+=1
-                        Logger.warning('index : {}'.format(passerelle.dut.index(i)))
-                        flag_cpt_on[passerelle.dut.index(i)]=True
-                        print(";".join([date, str(i.A_mA), "mA", "Awake"]) , i.fic_err)
+                if(A1_mA>alarm_awake_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmondut1=passerelle.cptalarmondut1+1
+                    Logger.warning("alarme: valeur de cptalarmondut1 : {}".format(passerelle.cptalarmondut1))
+                    self.cptalarmeon1.text=str(passerelle.cptalarmondut1)
+                    print((";".join([date, str(A1_mA), "mA", "Awake"])), out5)
 
-                Logger.warning("flag cpt_on : {}".format(flag_cpt_on))
-                if(flag_cpt_on[0]==True):
-                    self.cptalarmeon1.text=str(passerelle.dut[0].cptalarmeon)
-                    Logger.warning("maj : channel 1")
-                    flag_cpt_on[0]=False
+                if(A2_mA>alarm_awake_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmondut2=passerelle.cptalarmondut2+1
+                    Logger.warning("alarme: valeur de cptalarmondut2 : {}".format(passerelle.cptalarmondut2))
+                    self.cptalarmeon2.text=str(passerelle.cptalarmondut2)
+                    print((";".join([date, str(A2_mA), "mA", "Awake"])) ,out6)
 
-                if(flag_cpt_on[1]==True):
-                    self.cptalarmeon2.text="hibou"#str(passerelle.dut[1].cptalarmeon)
-                    Logger.warning("maj : channel 2")
-                    flag_cpt_on[1]=False
+                if(A3_mA>alarm_awake_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmondut3=passerelle.cptalarmondut3+1
+                    Logger.warning("alarme: valeur de cptalarmondut3 : {}".format(passerelle.cptalarmondut3))
+                    self.cptalarmeon3.text=str(passerelle.cptalarmondut3)
+                    print((";".join([date, str(A3_mA), "mA", "Awake"])), out7)
 
-                if(flag_cpt_on[2]==True):
-                    self.cptalarmeon3.text=str(passerelle.dut[2].cptalarmeon)
-                    Logger.warning("maj : channel 3")
-                    flag_cpt_on[2]=False
-
-                if(flag_cpt_on[3]==True):
-                    self.cptalarmeon4.text=str(passerelle.dut[3].cptalarmeon)
-                    Logger.warning("maj : channel 4")
-                    flag_cpt_on[2]=False
+    
+                if(A4_mA>alarm_awake_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmondut4=passerelle.cptalarmondut4+1
+                    Logger.warning("alarme: valeur de cptalarmondut4 : {}".format(passerelle.cptalarmondut4))
+                    self.cptalarmeon4.text=str(passerelle.cptalarmondut4)
+                    print((";".join([date, str(A4_mA), "mA", "Awake"])),out8)
                 
-                if(flag_cpt_on[4]==True):
-                    self.cptalarmeon5.text=str(passerelle.dut[2].cptalarmeon)
-                    Logger.warning("maj : channel 5")
-                    flag_cpt_on[4]=False
+                if(A5_mA>alarm_awake_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmondut5=passerelle.cptalarmondut5+1
+                    Logger.warning("alarme: valeur de cptalarmondut5 : {}".format(passerelle.cptalarmondut5))
+                    self.cptalarmeon5.text=str(passerelle.cptalarmondut5)
+                    print((";".join([date, str(A5_mA), "mA", "Awake"])), out555)
 
-                if(flag_cpt_on[5]==True):
-                    self.cptalarmeon6.text=str(passerelle.dut[5].cptalarmeon)
-                    Logger.warning("maj : channel 6")
-                    flag_cpt_on[5]=False
-
-
-
-            if(passerelle.dut[0].U == '1'):
-                self.courant1.text = passerelle.dut[0].A + "  mA"
-                self.puissance1.text = passerelle.dut[0].W + "  mW"
-
-            if(passerelle.dut[1].U=='1'):        
-                self.courant2.text = passerelle.dut[1].A + "  mA"
-                self.puissance2.text = passerelle.dut[1].W + "  mW"
-
-            if(passerelle.dut[2].U=='1'):    
-                self.courant3.text = passerelle.dut[2].A + "  mA"
-                self.puissance3.text = passerelle.dut[2].W + "  mW"
-
-            if(passerelle.dut[3].U=='1'):    
-                self.courant4.text = passerelle.dut[3].A + "  mA"
-                self.puissance4.text = passerelle.dut[3].W + "  mW"
-            
-            if(passerelle.dut[4].U=='1'):    
-                self.courant5.text = passerelle.dut[3].A + "  mA"
-                self.puissance5.text = passerelle.dut[3].W + "  mW"
-            
-            if(passerelle.dut[5].U=='1'):    
-                self.courant6.text = passerelle.dut[3].A + "  mA"
-                self.puissance6.text = passerelle.dut[3].W + "  mW"
-
+                
+                if(A6_mA>alarm_awake_mA):
+                    Logger.warning("alarme: seuil dépassé")
+                    passerelle.cptalarmondut4=passerelle.cptalarmondut6+1
+                    Logger.warning("alarme: valeur de cptalarmondut6 : {}".format(passerelle.cptalarmondut6))
+                    self.cptalarmeon6.text=str(passerelle.cptalarmondut6)
+                    print((";".join([date, str(A6_mA), "mA", "Awake"])), out666)
                     
-            if(passerelle.dut[0].U =='0'):
-                self.courant1.text = passerelle.dut[0].A + "  µA"
-                self.puissance1.text = passerelle.dut[0].W + "  µW"
-
+                    
             
-            if(passerelle.dut[1].U=='0'):    
-                self.courant2.text = passerelle.dut[1].A + "  µA"
-                self.puissance2.text = passerelle.dut[1].W + "  µW"
 
-            if(passerelle.dut[2].U=='0'):    
-                self.courant3.text = passerelle.dut[2].A + "  µA"
-                self.puissance3.text = passerelle.dut[2].W + "  µW"
+
+            if(U1 == '1'):
+                self.courant1.text = A1 + "  mA"
+                # W11 = W1.replace(".",",")
+                # A11 = A1.replace(".",",")
+                # if(statut == '0'):
+                #     print >> out1, ";".join([date, A11, "mA", W11, "mW", "Sleep"])
+                # if(statut == '1'):
+                #     print >> out1, ";".join([date, A11, "mA", W11, "mW", "Awake"])
+
+            if(U2=='1'):        
+                self.courant2.text = A2 + "  mA"
+                # W22 = W2.replace(".",",")
+                # A22 = A2.replace(".",",")
+                # if(statut == '0'):
+                #     print >> out2, ";".join([date, A22, "mA", W22, "mW", "Sleep"])
+                # if(statut == '1'):
+                #     print >> out2, ";".join([date, A22, "mA", W22, "mW", "Awake"])
+
+            if(U3=='1'):    
+                self.courant3.text = A3 + "  mA"
+                # W33 = W3.replace(".",",")
+                # A33 = A3.replace(".",",")
+                # if(statut == '0'):
+                #     print >> out3, ";".join([date, A33, "mA", W33, "mW", "Sleep"])
+                # if(statut == '1'):
+                #     print >> out3, ";".join([date, A33, "mA", W33, "mW", "Awake"])
+
+            if(U4=='1'):    
+                self.courant4.text = A4 + "  mA"
+                # W44 = W4.replace(".",",")
+                # A44 = A4.replace(".",",")
+                # if(statut == '0'):
+                #     print >> out4, ";".join([date, A44, "mA", W44, "mW", "Sleep"])
+                # if(statut == '1'):
+                #     print >> out4, ";".join([date, A44, "mA", W44, "mW", "Awake"])
             
-            if(passerelle.dut[3].U=='0'):    
-                self.courant4.text = passerelle.dut[3].A + "  µA"
-                self.puissance4.text = passerelle.dut[3].W + "  µW"
+            if(U5=='1'):    
+                self.courant5.text = A5 + "  mA"
             
-            if(passerelle.dut[4].U=='0'):    
-                self.courant5.text = passerelle.dut[4].A + "  µA"
-                self.puissance5.text = passerelle.dut[4].W + "  µW"
+            if(U6=='1'):    
+                self.courant6.text = A6 + "  mA"
+
+            if(U1 == '0'):
+                self.courant1.text = A1 + "  µA"
+                #Logger.warning('Ecriture Fichier: valeur de A1 avant castage : {}'.format(A1))
+                # A1 = float(A1)
+                # #Logger.warning('Ecriture Fichier: valeur de A1 après castage : {}'.format(A1))
+                # W11 = W1.replace(".",",")
+                # A11 = str(A1).replace(".",",")
+                # #Logger.warning('Ecriture Fichier: valeur écrite : {}'.format(A11))
+                # if(statut == '0'):
+                #     print >> out1, ";".join([date, A11, "uA", W11, "uW", "Sleep"])
+                # if(statut == '1'):
+                #     print >> out1, ";".join([date, A11, "uA", W11, "uW", "Awake"])
             
-            if(passerelle.dut[5].U=='0'):    
-                self.courant6.text = passerelle.dut[5].A + "  µA"
-                self.puissance6.text = passerelle.dut[5].W + "  µW"
+            if(U2=='0'):    
+                self.courant2.text = A2 + "  µA"
+                # A2 = float(A2)
+                # W22 = W2.replace(".",",")
+                # A22 = str(A2).replace(".",",")
+                # if(statut == '0'):
+                #     print >> out2, ";".join([date, A22, "uA", W22,"uW", "Sleep"])
+                # if(statut == '1'):
+                #     print >> out2, ";".join([date, A22, "uA", W22, "uW","Awake"])
 
-
-            if(passerelle.dut[0].U == '2'):
-                self.courant1.text = passerelle.dut[0].A + "  A"
-                self.puissance1.text = passerelle.dut[0].W + "  W"
-
+            if(U3=='0'):    
+                self.courant3.text = A3 + "  µA"
+                # A3 = float(A3)
+                # W33 = W3.replace(".",",")
+                # A33 = str(A3).replace(".",",")
+                # if(statut == '0'):
+                #     print >> out3, ";".join([date, A33, "uA", W33, "uW","Sleep"])
+                # if(statut == '1'):
+                #     print >> out3, ";".join([date, A33, "uA", W33,"uW", "Awake"])
             
-            if(passerelle.dut[1].U == '2'):    
-                self.courant2.text = passerelle.dut[1].A + "  A"
-                self.puissance2.text = passerelle.dut[1].W + "  W"
+            if(U4=='0'):    
+                self.courant4.text = A4 + "  µA"
+                # A4 = float(A4)
+                # W44 = W4.replace(".",",")
+                # A44 = str(A4).replace(".",",")
+                # if(statut == '0'):
+                #     print >> out4, ";".join([date, A44, "uA", W44, "uW","Sleep"])
+                # if(statut == '1'):
+                #     print >> out4, ";".join([date, A44, "uA", W44, "uW","Awake"])
 
+            if(U5=='0'):    
+                self.courant5.text = A5 + "  µA"
+
+            if(U6=='0'):    
+                self.courant6.text = A6 + "  µA"
+
+            if(U1 == '2'):
+                self.courant1.text = A1 + "  A"
+                # A1 = float(A1)
+                # W11 = W1.replace(".",",")
+                # A11 = str(A1).replace(".",",")
+                # if(statut == '0'):
+                #     print >> out1, ";".join([date, A11, "A", W11, "W","Sleep"])
+                # if(statut == '1'):
+                #     print >> out1, ";".join([date, A11, "A", W11, "W","Awake"])
             
-            if(passerelle.dut[2].U == '2'):    
-                self.courant3.text = passerelle.dut[2].A + "  A"
-                self.puissance3.text = passerelle.dut[2].W + "  W"
-
+            if(U2 == '2'):    
+                self.courant2.text = A2 + "  A"
+                # A2 = float(A2)
+                # W22 = W2.replace(".",",")
+                # A22 = str(A2).replace(".",",")
+                # if(statut == '0'):
+                #     print >> out2, ";".join([date, A22, "A", W22, "W","Sleep"])
+                # if(statut == '1'):
+                #     print >> out2, ";".join([date, A22, "A", W22, "W","Awake"])
             
-            if(passerelle.dut[3].U == '2'):    
-                self.courant4.text = passerelle.dut[3].A + "  A"
-                self.puissance4.text = passerelle.dut[3].W + "  W"
+            if(U3 == '2'):    
+                self.courant3.text = A3 + "  A"
+                # A3 = float(A3)
+                # W33 = W3.replace(".",",")
+                # A33 = str(A3).replace(".",",")
+                # if(statut == '0'):
+                #     print >> out3, ";".join([date, A33, "A", W33, "W","Sleep"])
+                # if(statut == '1'):
+                #     print >> out3, ";".join([date, A33, "A", W33, "W","Awake"])
             
-            if(passerelle.dut[4].U == '2'):    
-                self.courant5.text = passerelle.dut[4].A + "  A"
-                self.puissance5.text = passerelle.dut[4].W + "  W"
+            if(U4 == '2'):    
+                self.courant4.text = A4 + "  A"
+                # A4 = float(A4)
+                # W44 = W4.replace(".",",")
+                # A44 = str(A4).replace(".",",")
+                # if(statut == '0'):
+                #     print >> out4, ";".join([date, A44, "A", W44, "W","Sleep"])
+                # if(statut == '1'):
+                #     print >> out4, ";".join([date, A44, "A", W44, "W","Awake"])
 
-            
-            if(passerelle.dut[5].U == '2'):    
-                self.courant6.text = passerelle.dut[5].A + "  A"
-                self.puissance6.text = passerelle.dut[5].W + "  W"
+            if(U5 == '2'):    
+                self.courant5.text = A5 + "  A"
 
-            flag_timer=time.time()-passerelle.timer_acquisition
-            #flag_timer+=0.331 #leger offset observé lors de l'acquisition des données, on le modifie 'en dur'
-            #Logger.warning('622: flag_timer : {}'.format(flag_timer))
+            if(U6 == '2'):    
+                self.courant6.text = A6 + "  A"
 
-            if flag_ecriture_fic==True and flag_timer>=passerelle.f_acquisition :
-            #if flag_timer>=passerelle.f_acquisition :
-                #Si on a bien reçu une valeur pendat ce tour de boucle, et que la période correspond à celle voulu par l'user, alors on écrit dans les fichiers
-                #Logger.warning('timer: ecriture dans les fichiers.')
-                for i in passerelle.dut :
-                    if(statut=='0'):
-                        print(";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"]), i.fic)
-                    if(statut == '1'):
-                        print(";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"]),  i.fic)
-                passerelle.timer_acquisition=time.time()
+            A11=str(A1_mA).replace(".",",")
+            W11=str(W1_mA).replace(".",",")
+
+            A22=str(A2_mA).replace(".",",")
+            W22=str(W2_mA).replace(".",",")
+
+            A33=str(A3_mA).replace(".",",")
+            W33=str(W3_mA).replace(".",",")
+
+            A44=str(A4_mA).replace(".",",")
+            W44=str(W4_mA).replace(".",",")
+
+            A55=str(A5_mA).replace(".",",")
+            W55=str(W5_mA).replace(".",",")
+
+            A66=str(A6_mA).replace(".",",")
+            W66=str(W6_mA).replace(".",",")
+
+            # if(statut == '0'):
+            #     print >> out1, ";".join([date, A11, "mA", W11, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out1, ";".join([date, A11, "mA", W11, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out2, ";".join([date, A22, "mA", W22, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out2, ";".join([date, A22, "mA", W22, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out3, ";".join([date, A33, "mA", W33, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out3, ";".join([date, A33, "mA", W33, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out4, ";".join([date, A44, "mA", W44, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out4, ";".join([date, A44, "mA", W44, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out55, ";".join([date, A55, "mA", W55, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out55, ";".join([date, A55, "mA", W55, "mW","Awake"])
+
+            # if(statut == '0'):
+            #     print >> out66, ";".join([date, A66, "mA", W66, "mW","Sleep"])
+            # if(statut == '1'):
+            #     print >> out66, ";".join([date, A66, "mA", W66, "mW","Awake"])
+
+            if(statut == '0'):
+                print((";".join([date, A11, "mA", W11, "mW","Sleep"])), file=out1)
+            if(statut == '1'):
+                print((";".join([date, A11, "mA", W11, "mW","Awake"])), file=out1)
+
+            if(statut == '0'):
+                print((";".join([date, A22, "mA", W22, "mW","Sleep"])), file=out2)
+            if(statut == '1'):
+                print((";".join([date, A22, "mA", W22, "mW","Awake"])), file=out2)
+
+            if(statut == '0'):
+                print((";".join([date, A33, "mA", W33, "mW","Sleep"])), file=out3)
+            if(statut == '1'):
+                print((";".join([date, A33, "mA", W33, "mW","Awake"])), file=out3)
+
+            if(statut == '0'):
+                print((";".join([date, A44, "mA", W44, "mW","Sleep"])), file=out4)
+            if(statut == '1'):
+                print((";".join([date, A44, "mA", W44, "mW","Awake"])), file=out4)
+
+            if(statut == '0'):
+                print((";".join([date, A55, "mA", W55, "mW","Sleep"])), file=out55)
+            if(statut == '1'):
+                print((";".join([date, A55, "mA", W55, "mW","Awake"])), file=out55)
+
+            if(statut == '0'):
+                print((";".join([date, A66, "mA", W66, "mW","Sleep"])), file=out66)
+            if(statut == '1'):
+                print((";".join([date, A66, "mA", W66, "mW","Awake"])), file=out66)
 
 
+            #Logger.warning('test format log: date : {} ; ligne n°{}: test format log'.format(str(datetime.now()),inspect.currentframe().f_lineno))
+     
            
 
             if(passerelle.update_alarm == 1):           
@@ -812,7 +992,7 @@ class Voie1234(Screen):
                 # self.alarmeoff1.text = (str(passerelle.alarm_sleep)+" µA")
                 # self.alarmeon2.text = (str(passerelle.alarm_awake)+" A")
                 # self.alarmeoff2.text = (str(passerelle.alarm_sleep)+" µA")
-                # self.alarmeon3.text = (str(passerelle.alarm_awake)+" A")
+                # self.alarmeon3.text = (str(passerelle.alarm_awake)+" A")ddddd
                 # self.alarmeoff3.text = (str(passerelle.alarm_sleep)+" µA")
                 # self.alarmeon4.text = (str(passerelle.alarm_awake)+" A")
                 # self.alarmeoff4.text = (str(passerelle.alarm_sleep)+" µA")
@@ -821,54 +1001,314 @@ class Voie1234(Screen):
                 # self.alarmeon6.text = (str(passerelle.alarm_awake)+" A")
                 # self.alarmeoff6.text = (str(passerelle.alarm_sleep)+" µA")
                 passerelle.update_alarm = 0
+            
+            U1 = int(U1)
+            U2 = int(U2)
+            U3 = int(U3)
+            U4 = int(U4)
+            U5 = int(U5)
+            U6 = int(U6)
+
+            A1 = float(A1)
+            A2 = float(A2)
+            A3 = float(A3)
+            A4 = float(A4)
+            A5 = float(A5)
+            A6 = float(A6)
+
+            W1 = float(W1)
+            W2 = float(W2)
+            W3 = float(W3)
+            W4 = float(W4)
+            W5 = float(W5)
+            W6 = float(W6)
+
 
             if(statut=='0'):
+                if(passerelle.U1offMax<U1):
+                    passerelle.U1offMax=U1
+                    passerelle.A1offMax=A1
+                    passerelle.W1offMax=W1
+                    passerelle.updateMax=True
 
-                for i in passerelle.dut:
-                    if(i.AoffMax<i.A_mA):
-                        i.AoffMax=i.A_mA
-                        i.WoffMax=i.W_mA
+                else :
+                    if((passerelle.A1offMax<A1) and (passerelle.U1offMax==U1)):
+                        passerelle.A1offMax=A1
+                        passerelle.updateMax=True
+                    if((passerelle.W1offMax<W1) and (passerelle.U1offMax==U1)) :
+                        passerelle.W1offMax=W1
                         passerelle.updateMax=True
 
+                if(passerelle.U2offMax<U2):
+                    passerelle.U2offMax=U2
+                    passerelle.A2offMax=A2
+                    passerelle.W2offMax=W2
+                    passerelle.updateMax=True
+                else:
+                    if((passerelle.A2offMax<A2) and (passerelle.U2offMax==U2)):
+                        passerelle.A2offMax=A2
+                        passerelle.updateMax=True
+                    if((passerelle.W2offMax<W2) and (passerelle.U2offMax==U2)):
+                        passerelle.W2offMax=W2
+                        passerelle.updateMax=True
 
-         
+                if(passerelle.U3offMax<U3):
+                    passerelle.U3offMax=U3
+                    passerelle.A3offMax=A3
+                    passerelle.W3offMax=W3
+                    passerelle.updateMax=True
+                else:
+                    if((passerelle.A3offMax<A3) and (passerelle.U3offMax==U3)):
+                        passerelle.A3offMax=A3
+                        passerelle.updateMax=True
+                    if((passerelle.W3offMax<W3) and (passerelle.U3offMax==U3)):
+                        passerelle.W3offMax=W3
+                        passerelle.updateMax=True  
+
+                if(passerelle.U4offMax<U4):
+                    passerelle.U4offMax=U4
+                    passerelle.A4offMax=A4
+                    passerelle.W4offMax=W4
+                    passerelle.updateMax=True
+                else:
+                    if((passerelle.A4offMax<A4) and (passerelle.U4offMax==U4)):
+                        passerelle.A4offMax=A4
+                        passerelle.updateMax=True
+                    if((passerelle.W4offMax<W4) and (passerelle.U4offMax==U4)):
+                        passerelle.W4offMax=W4
+                        passerelle.updateMax=True   
+
+                if(passerelle.U5offMax<U5):
+                    passerelle.U5offMax=U5
+                    passerelle.A5offMax=A5
+                    passerelle.W5offMax=W5
+                    passerelle.updateMax=True
+                else:
+                    if((passerelle.A5offMax<A5) and (passerelle.U5offMax==U5)):
+                        passerelle.A5offMax=A5
+                        passerelle.updateMax=True
+                    if((passerelle.W4offMax<W5) and (passerelle.U5offMax==U5)):
+                        passerelle.W5offMax=W5
+                        passerelle.updateMax=True   
+
+                if(passerelle.U6offMax<U6):
+                    passerelle.U6offMax=U6
+                    passerelle.A6offMax=A6
+                    passerelle.W6offMax=W6
+                    passerelle.updateMax=True
+                else:
+                    if((passerelle.A6offMax<A6) and (passerelle.U6offMax==U6)):
+                        passerelle.A6offMax=A6
+                        passerelle.updateMax=True
+                    if((passerelle.W6offMax<W6) and (passerelle.U6offMax==U6)):
+                        passerelle.W6offMax=W6
+                        passerelle.updateMax=True       
 
 
             if(statut=='1'):
-                for i in passerelle.dut:
-                    if(i.A_mA>i.AonMax):
-                        i.AonMax=i.A_mA
-                        i.WonMax=i.W_mA
+                if(passerelle.U1onMax<U1):
+                    passerelle.U1onMax=U1
+                    passerelle.A1onMax=A1
+                    passerelle.W1onMax=W1
+                    passerelle.updateMax=True
+                else :
+                    if((passerelle.A1onMax<A1) and (passerelle.U1onMax==U1)):
+                        passerelle.A1onMax=A1
                         passerelle.updateMax=True
-        
+                    if((passerelle.W1onMax<W1) and (passerelle.U1onMax==U1)):
+                        passerelle.W1onMax=W1
+                        passerelle.updateMax=True
+
+                if(passerelle.U2onMax<U2):
+                    passerelle.U2onMax=U2
+                    passerelle.A2onMax=A2
+                    passerelle.W2onMax=W2
+                    passerelle.updateMax=True
+                else:
+                    if((passerelle.A2onMax<A2) and (passerelle.U2onMax==U2)):
+                        passerelle.A2onMax=A2
+                        passerelle.updateMax=True
+                    if((passerelle.W2onMax<W2) and (passerelle.U2onMax==U2)):
+                        passerelle.W2onMax=W2
+                        passerelle.updateMax=True
+
+                if(passerelle.U3onMax<U3):
+                    passerelle.U3onMax=U3
+                    passerelle.A3onMax=A3
+                    passerelle.W3onMax=W3
+                    passerelle.updateMax=True
+                else:
+                    if((passerelle.A3onMax<A3) and (passerelle.U3onMax==U3)):
+                        passerelle.A3onMax=A3
+                        passerelle.updateMax=True
+                    if((passerelle.W3onMax<W3) and (passerelle.U3onMax==U3)):
+                        passerelle.W3onMax=W3
+                        passerelle.updateMax=True  
+
+                if(passerelle.U4onMax<U4):
+                    passerelle.U4onMax=U4
+                    passerelle.A4onMax=A4
+                    passerelle.W4onMax=W4
+                    passerelle.updateMax=True
+                else:
+                    if((passerelle.A4onMax<A4) and (passerelle.U4onMax==U4)):
+                        passerelle.A4onMax=A4
+                        passerelle.updateMax=True
+                    if((passerelle.W4onMax<W4) and (passerelle.U4onMax==U4)):
+                        passerelle.W4onMax=W4
+                        passerelle.updateMax=True      
+
+                if(passerelle.U5onMax<U5):
+                    passerelle.U5onMax=U5
+                    passerelle.A5onMax=A5
+                    passerelle.W5onMax=W5
+                    passerelle.updateMax=True
+                else:
+                    if((passerelle.A5onMax<A5) and (passerelle.U5onMax==U5)):
+                        passerelle.A5onMax=A5
+                        passerelle.updateMax=True
+                    if((passerelle.W5onMax<W5) and (passerelle.U5onMax==U5)):
+                        passerelle.W5onMax=W5
+                        passerelle.updateMax=True   
+
+                if(passerelle.U6onMax<U6):
+                    passerelle.U6onMax=U6
+                    passerelle.A6onMax=A6
+                    passerelle.W6onMax=W6
+                    passerelle.updateMax=True
+                else:
+                    if((passerelle.A6onMax<A6) and (passerelle.U6onMax==U6)):
+                        passerelle.A6onMax=A6
+                        passerelle.updateMax=True
+                    if((passerelle.W6onMax<W6) and (passerelle.U6onMax==U6)):
+                        passerelle.W6onMax=W6
+                        passerelle.updateMax=True         
 
 
             #Affichage des Max
             if(passerelle.updateMax):
-                # self.maxAOn1.text=(str(passerelle.dut[0].AonMax)+" mA")
-                # self.maxAOn2.text=(str(passerelle.dut[1].AonMax)+" mA")
-                # self.maxAOn3.text=(str(passerelle.dut[2].AonMax)+" mA")
-                # self.maxAOn4.text=(str(passerelle.dut[3].AonMax)+" mA")
 
-                # self.maxAoff1.text=(str(passerelle.dut[0].AoffMax)+" mA")
-                # self.maxAoff2.text=(str(passerelle.dut[1].AoffMax)+" mA")
-                # self.maxAoff3.text=(str(passerelle.dut[2].AoffMax)+" mA")
-                # self.maxAoff4.text=(str(passerelle.dut[3].AoffMax)+" mA")
+                if(passerelle.U1onMax=='0'):
+                    self.maxAOn1.text=(str(passerelle.A1onMax)+ " uA")
+                    self.maxWOn1.text=(str(passerelle.W1onMax)+" uW")
+                elif(passerelle.U1onMax=='1'):  
+                    self.maxAOn1.text=(str(passerelle.A1onMax)+ " mA") 
+                    self.maxWOn1.text=(str(passerelle.W1onMax)+" mW") 
+                elif(passerelle.U1onMax=='2'):  
+                    self.maxAOn1.text=(str(passerelle.A1onMax)+ " A")
+                    self.maxWOn1.text=(str(passerelle.W1onMax)+" W")  
 
-                # self.maxWOn1.text=(str(passerelle.dut[0].WonMax)+" mW")
-                # self.maxWOn2.text=(str(passerelle.dut[1].WonMax)+" mW")
-                # self.maxWOn3.text=(str(passerelle.dut[2].WonMax)+" mW")
-                # self.maxWOn4.text=(str(passerelle.dut[3].WonMax)+" mW")
+                if(passerelle.U2onMax=='0'):
+                    self.maxAOn2.text=(str(passerelle.A2onMax)+ " uA")
+                    self.maxWOn2.text=(str(passerelle.W2onMax)+" uW")
+                elif(passerelle.U2onMax=='1'):  
+                    self.maxAOn2.text=(str(passerelle.A2onMax)+ " mA") 
+                    self.maxWOn2.text=(str(passerelle.W2onMax)+" mW") 
+                elif(passerelle.U2onMax=='2'):  
+                    self.maxAOn2.text=(str(passerelle.A2onMax)+ " A")
+                    self.maxWOn2.text=(str(passerelle.W2onMax)+" W")
 
-                # self.maxWoff1.text=(str(passerelle.dut[0].WoffMax)+" mW")
-                # self.maxWoff2.text=(str(passerelle.dut[1].WoffMax)+" mW")
-                # self.maxWoff3.text=(str(passerelle.dut[2].WoffMax)+" mW")
-                # self.maxWoff4.text=(str(passerelle.dut[3].WoffMax)+" mW")
+                if(passerelle.U3onMax=='0'):
+                    self.maxAOn3.text=(str(passerelle.A3onMax)+ " uA")
+                    self.maxWOn3.text=(str(passerelle.W3onMax)+" uW")
+                elif(passerelle.U3onMax=='1'):  
+                    self.maxAOn3.text=(str(passerelle.A3onMax)+ " mA") 
+                    self.maxWOn3.text=(str(passerelle.W3onMax)+" mW") 
+                elif(passerelle.U3onMax=='2'):  
+                    self.maxAOn3.text=(str(passerelle.A3onMax)+ " A")
+                    self.maxWOn3.text=(str(passerelle.W3onMax)+" W")
 
+                if(passerelle.U4onMax=='0'):
+                    self.maxAOn4.text=(str(passerelle.A4onMax)+ " uA")
+                    self.maxWOn4.text=(str(passerelle.W4onMax)+" uW")
+                elif(passerelle.U4onMax=='1'):  
+                    self.maxAOn4.text=(str(passerelle.A4onMax)+ " mA") 
+                    self.maxWOn4.text=(str(passerelle.W4onMax)+" mW") 
+                elif(passerelle.U4onMax=='2'):  
+                    self.maxAOn4.text=(str(passerelle.A4onMax)+ " A")
+                    self.maxWOn4.text=(str(passerelle.W4onMax)+" W") 
+
+                if(passerelle.U5onMax=='0'):
+                    self.maxAOn5.text=(str(passerelle.A5onMax)+ " uA")
+                    self.maxWOn5.text=(str(passerelle.W5onMax)+" uW")
+                elif(passerelle.U5onMax=='1'):  
+                    self.maxAOn5.text=(str(passerelle.A5onMax)+ " mA") 
+                    self.maxWOn5.text=(str(passerelle.W5onMax)+" mW") 
+                elif(passerelle.U5onMax=='2'):  
+                    self.maxAOn5.text=(str(passerelle.A4onMax)+ " A")
+                    self.maxWOn5.text=(str(passerelle.W4onMax)+" W") 
+
+                if(passerelle.U6onMax=='0'):
+                    self.maxAOn6.text=(str(passerelle.A6onMax)+ " uA")
+                    self.maxWOn6.text=(str(passerelle.W6onMax)+" uW")
+                elif(passerelle.U6onMax=='1'):  
+                    self.maxAOn6.text=(str(passerelle.A6onMax)+ " mA") 
+                    self.maxWOn6.text=(str(passerelle.W6onMax)+" mW") 
+                elif(passerelle.U6onMax=='2'):  
+                    self.maxAOn6.text=(str(passerelle.A6onMax)+ " A")
+                    self.maxWOn6.text=(str(passerelle.W6onMax)+" W") 
+
+                if(passerelle.U1offMax=='0'):
+                    self.maxAoff1.text=(str(passerelle.A1offMax)+ " uA")
+                    self.maxWoff1.text=(str(passerelle.W1offMax)+" uW")
+                elif(passerelle.U1offMax=='1'):  
+                    self.maxAoff1.text=(str(passerelle.A1offMax)+ " mA") 
+                    self.maxWoff1.text=(str(passerelle.W1offMax)+" mW") 
+                elif(passerelle.U1offMax=='2'):  
+                    self.maxAoff1.text=(str(passerelle.A1offMax)+ " A")
+                    self.maxWoff1.text=(str(passerelle.W1offMax)+" W")  
+
+                if(passerelle.U2offMax=='0'):
+                    self.maxAoff2.text=(str(passerelle.A2offMax)+ " uA")
+                    self.maxWoff2.text=(str(passerelle.W2offMax)+" uW")
+                elif(passerelle.U2offMax=='1'):  
+                    self.maxAoff2.text=(str(passerelle.A2offMax)+ " mA") 
+                    self.maxWoff2.text=(str(passerelle.W2offMax)+" mW") 
+                elif(passerelle.U2offMax=='2'):  
+                    self.maxAoff2.text=(str(passerelle.A2offMax)+ " A")
+                    self.maxWoff2.text=(str(passerelle.W2offMax)+" W")
+
+                if(passerelle.U3offMax=='0'):
+                    self.maxAoff3.text=(str(passerelle.A3offMax)+ " uA")
+                    self.maxWoff3.text=(str(passerelle.W3offMax)+" uW")
+                elif(passerelle.U3offMax=='1'):  
+                    self.maxAoff3.text=(str(passerelle.A3offMax)+ " mA") 
+                    self.maxWoff3.text=(str(passerelle.W3offMax)+" mW") 
+                elif(passerelle.U3offMax=='2'):  
+                    self.maxAoff3.text=(str(passerelle.A3offMax)+ " A")
+                    self.maxWoff3.text=(str(passerelle.W3offMax)+" W")
+
+                if(passerelle.U4offMax=='0'):
+                    self.maxAoff4.text=(str(passerelle.A4offMax)+ " uA")
+                    self.maxWoff4.text=(str(passerelle.W4offMax)+" uW")
+                elif(passerelle.U4offMax=='1'):  
+                    self.maxAoff4.text=(str(passerelle.A4offMax)+ " mA") 
+                    self.maxWoff4.text=(str(passerelle.W4offMax)+" mW") 
+                elif(passerelle.U4offMax=='2'):  
+                    self.maxAoff4.text=(str(passerelle.A4offMax)+ " A")
+                    self.maxWoff4.text=(str(passerelle.W4offMax)+" W")   
+
+                if(passerelle.U5offMax=='0'):
+                    self.maxAoff5.text=(str(passerelle.A5offMax)+ " uA")
+                    self.maxWoff5.text=(str(passerelle.W5offMax)+" uW")
+                elif(passerelle.U5offMax=='1'):  
+                    self.maxAoff5.text=(str(passerelle.A5offMax)+ " mA") 
+                    self.maxWoff5.text=(str(passerelle.W5offMax)+" mW") 
+                elif(passerelle.U5offMax=='2'):  
+                    self.maxAoff5.text=(str(passerelle.A5offMax)+ " A")
+                    self.maxWoff5.text=(str(passerelle.W5offMax)+" W")  
+                
+                if(passerelle.U6offMax=='0'):
+                    self.maxAoff6.text=(str(passerelle.A6offMax)+ " uA")
+                    self.maxWoff6.text=(str(passerelle.W6offMax)+" uW")
+                elif(passerelle.U6offMax=='1'):  
+                    self.maxAoff6.text=(str(passerelle.A6offMax)+ " mA") 
+                    self.maxWoff6.text=(str(passerelle.W6offMax)+" mW") 
+                elif(passerelle.U6offMax=='2'):  
+                    self.maxAoff6.text=(str(passerelle.A6offMax)+ " A")
+                    self.maxWoff6.text=(str(passerelle.W6offMax)+" W")  
 
                 passerelle.updateMax=False
-
-
         if(statut == '0'):
                 self.rect_dut_1.source = "images/ledred.png"
                 self.rect_dut_2.source = "images/ledred.png"
@@ -889,11 +1329,11 @@ class Voie1234(Screen):
 
     def printscreen(self):
 
-        chemin_screen=adresseUSB+date_titre+'_'+str(passerelle.nb_screen_param_param)+".png"
+        chemin_screen=adresseUSB+date_titre+'_'+str(passerelle.nb_screen)+".png"
         Logger.warning(chemin_screen)
 
         self.export_to_png(chemin_screen)
-        passerelle.nb_screen_param_param+=1
+        passerelle.nb_screen+=1
     
         
                 
@@ -927,20 +1367,14 @@ class Voie1234(Screen):
 
 
         Logger.warning('startacq: lancement acquisition avec comme setup')
-        Logger.warning('startacq: valeur de time_awake  1: {}'.format(passerelle.cycle1.time_awake))
+        Logger.warning('startacq: valeur de time_awake 1 : {}'.format(passerelle.cycle1.time_awake))
         Logger.warning('startacq: valeur de time_sleep  1: {}'.format(passerelle.cycle1.time_sleep))
 
-        Logger.warning('startacq: valeur de time_awake  2: {}'.format(passerelle.cycle2.time_awake))
+        Logger.warning('startacq: valeur de time_awake 2 : {}'.format(passerelle.cycle2.time_awake))
         Logger.warning('startacq: valeur de time_sleep  2: {}'.format(passerelle.cycle2.time_sleep))
 
-        Logger.warning('startacq: valeur de time_awake  3: {}'.format(passerelle.cycle3.time_awake))
+        Logger.warning('startacq: valeur de time_awake 3 : {}'.format(passerelle.cycle3.time_awake))
         Logger.warning('startacq: valeur de time_sleep  3: {}'.format(passerelle.cycle3.time_sleep))
-
-        Logger.warning('startacq: valeur de time_awake  4: {}'.format(passerelle.cycle4.time_awake))
-        Logger.warning('startacq: valeur de time_sleep  4: {}'.format(passerelle.cycle4.time_sleep))
-
-        Logger.warning('startacq: valeur de time_awake 5 : {}'.format(passerelle.cycle5.time_awake))
-        Logger.warning('startacq: valeur de time_sleep  5: {}'.format(passerelle.cycle5.time_sleep))
 
 
         time_awake_list_1 = list(str(passerelle.cycle1.time_awake))
@@ -968,8 +1402,7 @@ class Voie1234(Screen):
 
         amperage_max_list = list(str(passerelle.amperage_max))
 
-        #On cherche à envoyer la trame à l'arduino. le time_awake et time_sleep doivent être composé de 6 chiffre, pour cela, on vérifie le 
-        # la longueur de chaque, et on insere des 0 à gauche tant que différent de 6 : exemple : 12 devient 000012 
+
         while(len(time_awake_list_1)!=6):
             time_awake_list_1.insert(0,0)
         while(len(time_sleep_list_1)!=6):
@@ -1188,21 +1621,11 @@ class Voie1234(Screen):
               else : 
                   Logger.warning('liaison à l\'arduino: en attente de la communication...')
               #Logger.warning('message: msg : {}'.format(msg)) fff 
-    
-    def fermerBanc_schedule(self, *args):
-        	'''
-    	permet de "multithreader" l'application : avant de lancer "fermer banc" (qui peut mettre une 30aine de secondes à s'executer suivant la taille du graphe)
-    	on affiche à l'écran une image pour éviter la sensation de "freeze" du programme par l'user.
-    	'''
-        
-        with self.canvas:
-            self.loading_screen = Rectangle(pos=(0, 0),size=(800,480),source="images/loading_screen.jpg")
-        Clock.schedule_once(lambda dt: self.fermerBanc(self, *args), 0)
 
     def fermerBanc(self):  
 
-        # self.msgAlarm = Label(text="Merci de Patienter", font_size='60sp', size=(100, 50), pos=(-335, -175))
-        # self.add_widget(self.msgAlarm)
+        self.msgAlarm = Label(text="Merci de Patienter", font_size='60sp', size=(100, 50), pos=(-335, -175))
+        self.add_widget(self.msgAlarm)
 
 
         passerelle.start_stop = 0
@@ -1232,65 +1655,57 @@ class Voie1234(Screen):
         Logger.warning('y high max : {}'.format(passerelle.graph1.y_high_max))
 
 
-        
-        list_argument_graph=[]
-        list_argument_graph.append(passerelle.graph1.y_low_min)
-        list_argument_graph.append(passerelle.graph1.y_low_max)
-        list_argument_graph.append(passerelle.graph1.y_high_min)
-        list_argument_graph.append(passerelle.graph1.y_high_max)
-        list_argument_graph.append(passerelle.graph1.setTaille)
-
-        list_argument_graph_1=list(list_argument_graph)
-        list_argument_graph_1.insert(0, chemin1)
-
-        list_argument_graph_2=list(list_argument_graph)
-        list_argument_graph_2.insert(0, chemin2)
-
-        list_argument_graph_3=list(list_argument_graph)
-        list_argument_graph_3.insert(0, chemin3)
-
-        list_argument_graph_4=list(list_argument_graph)
-        list_argument_graph_4.insert(0, chemin4)
-
-        list_argument_graph_5=list(list_argument_graph)
-        list_argument_graph_5.insert(0, chemin55)
-
-        list_argument_graph_6=list(list_argument_graph)
-        list_argument_graph_6.insert(0, chemin66)
-
-
-
-
         if(passerelle.graph1.flagGraph):
+            try:
+                GenGraph.generer_graph(chemin=chemin1, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
+              
+            except AttributeError:
+                Logger.warning('fermerBanc: impossible de generer un graph, fichier vide')
 
-            p1 = Process(target=process_graph, args=(list_argument_graph_1,))
+            try:
+                GenGraph.generer_graph(chemin=chemin2, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
+              
+            except AttributeError:
+                Logger.warning('fermerBanc: impossible de generer un graph, fichier vide')
 
-            p2 = Process(target=process_graph, args=(list_argument_graph_2,))
+            try:
+                GenGraph.generer_graph(chemin=chemin3, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
+              
+            except AttributeError:
+                Logger.warning('fermerBanc: impossible de generer un graph, fichier vide')
 
-            p3 = Process(target=process_graph, args=(list_argument_graph_3,))
+            try:
+                GenGraph.generer_graph(chemin=chemin4, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
+              
+            except AttributeError:
+                Logger.warning('fermerBanc: impossible de generer un graph, fichier vide')
 
-            p4 = Process(target=process_graph, args=(list_argument_graph_4,))
+            try:
+                GenGraph.generer_graph(chemin=chemin55, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
+              
+            except AttributeError:
+                Logger.warning('fermerBanc: impossible de generer un graph, fichier vide')
 
-            p5 = Process(target=process_graph, args=(list_argument_graph_5,))
-
-            p6 = Process(target=process_graph, args=(list_argument_graph_6,))
-
-
-
-            p1.start()   
-            p2.start()
-            p3.start()
-            p4.start()
-            p5.start()
-            p6.start()
+            try:
+                GenGraph.generer_graph(chemin=chemin66, y_low_min=passerelle.graph1.y_low_min, y_low_max=passerelle.graph1.y_low_max, y_high_min=passerelle.graph1.y_high_min, y_high_max=passerelle.graph1.y_high_max )
+              
+            except AttributeError:
+                Logger.warning('fermerBanc: impossible de generer un graph, fichier vide')
+                
             
-            p1.join()
-            p2.join()
-            p3.join()
-            p4.join()
-            p5.join()
-            p6.join()
 
+
+        
+
+
+
+
+
+
+
+        #   os.popen('umount')
+        # except Exception as e:
+        #   raise e
         exit()
 
 
@@ -1399,9 +1814,6 @@ class Graph(Screen):
         
     def graphOff(self):
         passerelle.graph1.flagGraph=False
-    
-    def setSize(self, a):
-        passerelle.graph1.setTaille=a
 
 
 
