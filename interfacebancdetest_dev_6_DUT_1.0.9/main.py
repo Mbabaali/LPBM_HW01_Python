@@ -547,21 +547,21 @@ class Voie1234(Screen):
                 inbox = inbox_code.decode()
                 inbox =str(inbox)
 
-            if(inbox.count(':')!=19):
-                statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6 ,bullshit= 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
-                Logger.warning("timer: Bug du double bus")
-                Logger.warning("timer : {}".format(inbox))
-            elif (inbox[0]=='d'):
-                statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6,bullshit = 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
-                Logger.warning("debug arduino: {}".format(inbox))
-            else:   
-                statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6, bullshit = inbox.split(":")
-                statut,passerelle.dut[0].U,passerelle.dut[0].W,passerelle.dut[0].A,\
-                passerelle.dut[1].U,passerelle.dut[1].W,passerelle.dut[1].A, \
-                passerelle.dut[2].U,passerelle.dut[2].W,passerelle.dut[2].A, \
-                passerelle.dut[3].U,passerelle.dut[3].W,passerelle.dut[3].A, \
-                passerelle.dut[5].U,passerelle.dut[5].W,passerelle.dut[5].A, 
-                Logger.info("debug arduino: {}".format(inbox))
+                if(inbox.count(':')!=19):
+                    statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6 ,bullshit= 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
+                    Logger.warning("timer: Bug du double bus")
+                    Logger.warning("timer : {}".format(inbox))
+                elif (inbox[0]=='d'):
+                    statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6,bullshit = 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
+                    Logger.warning("debug arduino: {}".format(inbox))
+                else:   
+                    statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6, bullshit = inbox.split(":")
+                    statut,passerelle.dut[0].U,passerelle.dut[0].W,passerelle.dut[0].A,\
+                    passerelle.dut[1].U,passerelle.dut[1].W,passerelle.dut[1].A, \
+                    passerelle.dut[2].U,passerelle.dut[2].W,passerelle.dut[2].A, \
+                    passerelle.dut[3].U,passerelle.dut[3].W,passerelle.dut[3].A, \
+                    passerelle.dut[5].U,passerelle.dut[5].W,passerelle.dut[5].A, 
+                    Logger.info("debug arduino: {}".format(inbox))
 
             ####################################################################################
             ####Conversion de la mesure en mA pour pouvoir la comparer aux alarmes sleep et awake
