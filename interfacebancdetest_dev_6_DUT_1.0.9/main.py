@@ -602,7 +602,7 @@ class Voie1234(Screen):
 
             if(passerelle.flag_seuil==False and statut == '0' and passerelle.flag_alamarOff_init==True):
                 a=time.time()-passerelle.timer_delai_init
-                Logger.warning('init : passerelle.flag_seuil==False and statut == '0' and passerelle.flag_alamarOff_init==True')
+                Logger.warning('init : passerelle.flag_seuil=False and statut == 0 and passerelle.flag_alamarOff_init==True')
 
                 if((passerelle.dut[0].A_mA<alarm_sleep_mA) and (passerelle.dut[1].A_mA<alarm_sleep_mA) and (passerelle.dut[2].A_mA<alarm_sleep_mA) and (passerelle.dut[3].A_mA<alarm_sleep_mA)
                 and (passerelle.dut[4].A_mA<alarm_sleep_mA) and (passerelle.dut[5].A_mA<alarm_sleep_mA)):
