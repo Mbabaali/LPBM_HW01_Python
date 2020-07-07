@@ -675,6 +675,7 @@ class Voie1234(Screen):
                         Logger.warning('index : {}'.format(passerelle.dut.index(i)))
                         flag_cpt_on[passerelle.dut.index(i)]=True
                         print((";".join([date, str(i.A_mA), "mA", "Awake"])), file=(i.fic_err))
+                        Logger.warning("Ecriture dans le fichier error i.A_mA>alarm_awake_mA")
 
                 Logger.warning("flag cpt_on : {}".format(flag_cpt_on))
                 if(flag_cpt_on[0]==True):
@@ -774,16 +775,16 @@ class Voie1234(Screen):
             #flag_timer+=0.331 #leger offset observé lors de l'acquisition des données, on le modifie 'en dur'
             #Logger.warning('622: flag_timer : {}'.format(flag_timer))
 
-            if flag_ecriture_fic==True: #and flag_timer>=passerelle.f_acquisition :
+            #if flag_ecriture_fic==True: #and flag_timer>=passerelle.f_acquisition :
             #if flag_timer>=passerelle.f_acquisition :
                 #Si on a bien reçu une valeur pendat ce tour de boucle, et que la période correspond à celle voulu par l'user, alors on écrit dans les fichiers
-                Logger.warning('timer: ecriture dans les fichiers ')
-                for i in passerelle.dut :
-                    if(statut=='0'):
-                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
-                    if(statut == '1'):
-                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])),  file=(i.fic))
-                passerelle.timer_acquisition=time.time()
+            Logger.warning('timer: ecriture dans les fichiers ')
+            for i in passerelle.dut :
+                if(statut=='0'):
+                    print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
+                if(statut == '1'):
+                    print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])),  file=(i.fic))
+            passerelle.timer_acquisition=time.time()
 
 
            
