@@ -187,7 +187,19 @@ class Dut:
         self.cptalarmeoff=0
         self.cptalarmeon=0
         self.fic=fic
-        self.fic_err=fic_err        
+        self.fic_err=fic_err
+
+    def set_AonMax(self, currentOnRead):
+        if(currentOnRead>self.AonMax):
+            self.AonMax = currentOnRead
+        else:
+            pass
+    
+    def set_AoffMax(self,currentOffRead):
+        if(currentOffRead>self.AoffMax):
+            self.AoffMax = currentOffRead
+        else:
+            pass
 
 
 # Classe de transition pour variable global
@@ -810,11 +822,7 @@ class Voie1234(Screen):
                     if(i.AoffMax<i.A_mA):
                         i.AoffMax=i.A_mA
                         i.WoffMax=i.W_mA
-                        passerelle.updateMax=True
-
-
-         
-
+                        passerelle.updateMax=True         
 
             if(statut=='1'):
                 for i in passerelle.dut:
@@ -827,25 +835,20 @@ class Voie1234(Screen):
 
             #Affichage des Max
             if(passerelle.updateMax):
-                # self.maxAOn1.text=(str(passerelle.dut[0].AonMax)+" mA")
-                # self.maxAOn2.text=(str(passerelle.dut[1].AonMax)+" mA")
-                # self.maxAOn3.text=(str(passerelle.dut[2].AonMax)+" mA")
-                # self.maxAOn4.text=(str(passerelle.dut[3].AonMax)+" mA")
+                self.maxAOn1.text=(str(passerelle.dut[0].AonMax)+" mA")
+                self.maxAOn2.text=(str(passerelle.dut[1].AonMax)+" mA")
+                self.maxAOn3.text=(str(passerelle.dut[2].AonMax)+" mA")
+                self.maxAOn4.text=(str(passerelle.dut[3].AonMax)+" mA")
+                self.maxAOn5.text=(str(passerelle.dut[4].AonMax)+" mA")
+                self.maxAOn6.text=(str(passerelle.dut[5].AonMax)+" mA")
 
-                # self.maxAoff1.text=(str(passerelle.dut[0].AoffMax)+" mA")
-                # self.maxAoff2.text=(str(passerelle.dut[1].AoffMax)+" mA")
-                # self.maxAoff3.text=(str(passerelle.dut[2].AoffMax)+" mA")
-                # self.maxAoff4.text=(str(passerelle.dut[3].AoffMax)+" mA")
+                self.maxAoff1.text=(str(passerelle.dut[0].AoffMax)+" mA")
+                self.maxAoff2.text=(str(passerelle.dut[1].AoffMax)+" mA")
+                self.maxAoff3.text=(str(passerelle.dut[2].AoffMax)+" mA")
+                self.maxAoff4.text=(str(passerelle.dut[3].AoffMax)+" mA")
+                self.maxAoff5.text=(str(passerelle.dut[4].AoffMax)+" mA")
+                self.maxAoff6.text=(str(passerelle.dut[5].AoffMax)+" mA")
 
-                # self.maxWOn1.text=(str(passerelle.dut[0].WonMax)+" mW")
-                # self.maxWOn2.text=(str(passerelle.dut[1].WonMax)+" mW")
-                # self.maxWOn3.text=(str(passerelle.dut[2].WonMax)+" mW")
-                # self.maxWOn4.text=(str(passerelle.dut[3].WonMax)+" mW")
-
-                # self.maxWoff1.text=(str(passerelle.dut[0].WoffMax)+" mW")
-                # self.maxWoff2.text=(str(passerelle.dut[1].WoffMax)+" mW")
-                # self.maxWoff3.text=(str(passerelle.dut[2].WoffMax)+" mW")
-                # self.maxWoff4.text=(str(passerelle.dut[3].WoffMax)+" mW")
 
 
                 passerelle.updateMax=False
