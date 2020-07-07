@@ -1204,9 +1204,9 @@ class Voie1234(Screen):
         out4.close()
         Logger.warning('fermerBanc: out4 fermé')
         out55.close()
-        Logger.warning('fermerBanc: out3 fermé')
+        Logger.warning('fermerBanc: out55 fermé')
         out66.close()
-        Logger.warning('fermerBanc: out4 fermé')
+        Logger.warning('fermerBanc: out66 fermé')
 
         Logger.warning('y low min : {}'.format(passerelle.graph1.y_low_min))
         Logger.warning('y low max : {}'.format(passerelle.graph1.y_low_max))
@@ -1283,16 +1283,16 @@ class Graph(Screen):
 
 
 
-        self.label_y_low_min_uA = Label(text="60", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.750})
+        self.label_y_low_min_uA = Label(text="30", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.750})
         self.add_widget(self.label_y_low_min_uA)
 
-        self.label_y_low_max_uA = Label(text="120", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.580})
+        self.label_y_low_max_uA = Label(text="100", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.580})
         self.add_widget(self.label_y_low_max_uA)
 
-        self.label_y_high_min = Label(text="600", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.380})
+        self.label_y_high_min = Label(text="100", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.380})
         self.add_widget(self.label_y_high_min)
 
-        self.label_y_high_max = Label(text="1000", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.18})
+        self.label_y_high_max = Label(text="2000", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.18})
         self.add_widget(self.label_y_high_max)
 
 
@@ -1361,7 +1361,7 @@ class Graph(Screen):
             self.label_y_high_min.text = str(passerelle.graph1.y_high_min)
 
     def increment_y_high_max(self):
-        if(passerelle.graph1.y_high_max<1500):
+        if(passerelle.graph1.y_high_max<15000):
             passerelle.graph1.y_high_max += 20
             self.label_y_high_max.text = str(passerelle.graph1.y_high_max)
         else : 
