@@ -160,12 +160,12 @@ def process_graph(list_argument_graph):
 
 class graph:
     def __init__(self):
-        self.y_low_min_uA=60
+        self.y_low_min_uA=0
         self.y_low_max_uA=120
-        self.y_low_min=0.06
+        self.y_low_min=0.00
         self.y_low_max=0.120
-        self.y_high_min=600
-        self.y_high_max=1000
+        self.y_high_min=0
+        self.y_high_max=1500
         self.flagGraph=True
         self.setTaille=0
 
@@ -1286,7 +1286,7 @@ class Graph(Screen):
 
 
 
-        self.label_y_low_min_uA = Label(text="30", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.750})
+        self.label_y_low_min_uA = Label(text="0", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.750})
         self.add_widget(self.label_y_low_min_uA)
 
         self.label_y_low_max_uA = Label(text="100", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.580})
