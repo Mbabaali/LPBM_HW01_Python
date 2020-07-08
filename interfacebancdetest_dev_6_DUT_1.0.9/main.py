@@ -1289,13 +1289,13 @@ class Graph(Screen):
         self.label_y_low_min_uA = Label(text="0", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.750})
         self.add_widget(self.label_y_low_min_uA)
 
-        self.label_y_low_max_uA = Label(text="100", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.580})
+        self.label_y_low_max_uA = Label(text="120", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.580})
         self.add_widget(self.label_y_low_max_uA)
 
         self.label_y_high_min = Label(text="0", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.380})
         self.add_widget(self.label_y_high_min)
 
-        self.label_y_high_max = Label(text="2000", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.18})
+        self.label_y_high_max = Label(text="1500", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.18})
         self.add_widget(self.label_y_high_max)
 
 
