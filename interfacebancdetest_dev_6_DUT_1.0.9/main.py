@@ -164,7 +164,7 @@ class graph:
         self.y_low_max_uA=120
         self.y_low_min=0.00
         self.y_low_max=0.120
-        self.y_high_min=0
+        self.y_high_min= 120
         self.y_high_max=1500
         self.flagGraph=True
         self.setTaille=0
