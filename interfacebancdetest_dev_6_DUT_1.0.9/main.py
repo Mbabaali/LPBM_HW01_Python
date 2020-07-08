@@ -559,6 +559,7 @@ class Voie1234(Screen):
                 inbox_code = arduino1.readline()
                 inbox = inbox_code.decode()
                 inbox =str(inbox)
+                flag_ecriture_fic=True
 
                 if(inbox.count(':')!=19):
                     statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6 ,bullshit= 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
@@ -629,7 +630,7 @@ class Voie1234(Screen):
                     Logger.warning('delai depassé (25 secondes)')
 
             if passerelle.flag_seuil==True and statut=='0':
-                Logger.warning('On commence à verifier les valeurs pour l alarme off')
+                #Logger.warning('On commence à verifier les valeurs pour l alarme off')
                 flag_cpt_off=[False, False, False, False, False, False]
 
                 for i in passerelle.dut:
@@ -790,13 +791,14 @@ class Voie1234(Screen):
             #if flag_ecriture_fic==True: #and flag_timer>=passerelle.f_acquisition :
             #if flag_timer>=passerelle.f_acquisition :
                 #Si on a bien reçu une valeur pendat ce tour de boucle, et que la période correspond à celle voulu par l'user, alors on écrit dans les fichiers
-            Logger.warning('timer: ecriture dans les fichiers ')
-            for i in passerelle.dut :
-                if(statut=='0'):
-                    print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
-                if(statut == '1'):
-                    print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])),  file=(i.fic))
-            passerelle.timer_acquisition=time.time()
+            if flag_ecriture_fic==True and flag_timer>=passerelle.f_acquisition :
+                Logger.warning('timer: ecriture dans les fichiers ')
+                for i in passerelle.dut :
+                    if(statut=='0'):
+                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
+                    if(statut == '1'):
+                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])),  file=(i.fic))
+                passerelle.timer_acquisition=time.time()
 
 
            
