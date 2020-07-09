@@ -164,7 +164,7 @@ class graph:
         self.y_low_max_uA=120
         self.y_low_min=0.00
         self.y_low_max=0.120
-        self.y_high_min= 120
+        self.y_high_min= 20
         self.y_high_max=1500
         self.flagGraph=True
         self.setTaille=0
@@ -721,6 +721,24 @@ class Voie1234(Screen):
                     Logger.warning("maj : channel 6")
                     flag_cpt_on[5]=False
 
+            if(passerelle.dut[0].U =='0'):
+                self.courant1.text = passerelle.dut[0].A + "  µA"
+            
+            if(passerelle.dut[1].U=='0'):    
+                self.courant2.text = passerelle.dut[1].A + "  µA"
+
+            if(passerelle.dut[2].U=='0'):    
+                self.courant3.text = passerelle.dut[2].A + "  µA"
+            
+            if(passerelle.dut[3].U=='0'):    
+                self.courant4.text = passerelle.dut[3].A + "  µA"
+            
+            if(passerelle.dut[4].U=='0'):    
+                self.courant5.text = passerelle.dut[4].A + "  µA"
+            
+            if(passerelle.dut[5].U=='0'):    
+                self.courant6.text = passerelle.dut[5].A + "  µA"
+
 
 
             if(passerelle.dut[0].U == '1'):
@@ -742,24 +760,6 @@ class Voie1234(Screen):
                 self.courant6.text = passerelle.dut[3].A + "  mA"
                 
 
-                    
-            if(passerelle.dut[0].U =='0'):
-                self.courant1.text = passerelle.dut[0].A + "  µA"
-            
-            if(passerelle.dut[1].U=='0'):    
-                self.courant2.text = passerelle.dut[1].A + "  µA"
-
-            if(passerelle.dut[2].U=='0'):    
-                self.courant3.text = passerelle.dut[2].A + "  µA"
-            
-            if(passerelle.dut[3].U=='0'):    
-                self.courant4.text = passerelle.dut[3].A + "  µA"
-            
-            if(passerelle.dut[4].U=='0'):    
-                self.courant5.text = passerelle.dut[4].A + "  µA"
-            
-            if(passerelle.dut[5].U=='0'):    
-                self.courant6.text = passerelle.dut[5].A + "  µA"
 
 
             if(passerelle.dut[0].U == '2'):
@@ -1294,7 +1294,7 @@ class Graph(Screen):
         self.label_y_low_max_uA = Label(text="120", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.580})
         self.add_widget(self.label_y_low_max_uA)
 
-        self.label_y_high_min = Label(text="120", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.380})
+        self.label_y_high_min = Label(text="20", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.380})
         self.add_widget(self.label_y_high_min)
 
         self.label_y_high_max = Label(text="1500", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.18})
