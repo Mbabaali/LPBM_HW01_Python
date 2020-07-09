@@ -551,7 +551,7 @@ class Voie1234(Screen):
             # W1_mA, W2_mA, W3_mA, W4_mA=0,0,0,0
             A1_mA, A2_mA, A3_mA, A4_mA, A5_mA, A6_mA = 0,0,0,0,0,0
             W1_mA, W2_mA, W3_mA, W4_mA, W5_mA, W6_mA =0,0,0,0,0,0
-            date = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
+            date = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%4f")
             ####################################################################################
             #Récupération des données Serial
             ####################################################################################
@@ -795,9 +795,9 @@ class Voie1234(Screen):
                 Logger.warning('timer: ecriture dans les fichiers ')
                 for i in passerelle.dut :
                     if(statut=='0'):
-                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
+                        print((";".join([date, str(round(i.A_mA,3)), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
                     if(statut == '1'):
-                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])),  file=(i.fic))
+                        print((";".join([date, str(round(i.A_mA,3)), "mA", str(i.W_mA), "mW","Awake"])),  file=(i.fic))
                 passerelle.timer_acquisition=time.time()
 
 
