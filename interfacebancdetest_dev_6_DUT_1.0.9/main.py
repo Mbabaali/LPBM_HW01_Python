@@ -591,13 +591,13 @@ class Voie1234(Screen):
                 #Pour chaque DUT, on check l'unité (A, mA ou uA, et on initialise A_mA et W_mA en fonction)
                 if(i.U=='0'):
                     i.A_mA=float(i.A)/1000
-                    i.W_mA=float(i.W)/1000
+                    i.W_mA=float((i.A)*12)/1000
                 elif(i.U=='1'):
                     i.A_mA=float(i.A)
-                    i.W_mA=float(i.W)
+                    i.W_mA=float((i.A)*12)
                 elif(i.U=='2'):
                     i.A_mA=float(i.A)*1000
-                    i.W_mA=float(i.W)*1000
+                    i.W_mA=float((i.A)*12)*1000
                 else:
                    i.A_mA=0
                    i.W_mA=0
@@ -741,10 +741,10 @@ class Voie1234(Screen):
             if(passerelle.dut[5].U=='1'):    
                 self.courant6.text = passerelle.dut[3].A + "  mA"
 
+
                     
             if(passerelle.dut[0].U =='0'):
                 self.courant1.text = passerelle.dut[0].A + "  µA"
-
             
             if(passerelle.dut[1].U=='0'):    
                 self.courant2.text = passerelle.dut[1].A + "  µA"
