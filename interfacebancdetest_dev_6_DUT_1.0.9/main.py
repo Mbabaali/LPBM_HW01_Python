@@ -795,9 +795,9 @@ class Voie1234(Screen):
                 Logger.warning('timer: ecriture dans les fichiers ')
                 for i in passerelle.dut :
                     if(statut=='0'):
-                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
+                        print((";".join([date, (i.A_mA), "mA", (i.W_mA), "mW","Sleep"])), file=(i.fic))
                     if(statut == '1'):
-                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])),  file=(i.fic))
+                        print((";".join([date, (i.A_mA), "mA", (i.W_mA), "mW","Awake"])),  file=(i.fic))
                 passerelle.timer_acquisition=time.time()
 
 
