@@ -1186,7 +1186,7 @@ class Voie1234(Screen):
             
         Clock.schedule_once(lambda dt: self.fermerBanc(self, *args), 0)
 
-    def fermerBanc(self):  
+    def fermerBanc(self, dt):  
 
         # self.msgAlarm = Label(text="Merci de Patienter", font_size='60sp', size=(100, 50), pos=(-335, -175))
         # self.add_widget(self.msgAlarm)
