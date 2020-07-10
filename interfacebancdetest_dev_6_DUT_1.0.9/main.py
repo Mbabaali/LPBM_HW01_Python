@@ -697,7 +697,7 @@ class Voie1234(Screen):
                     flag_cpt_on[0]=False
 
                 if(flag_cpt_on[1]==True):
-                    self.cptalarmeon2.text="hibou"#str(passerelle.dut[1].cptalarmeon)
+                    self.cptalarmeon2.text=str(passerelle.dut[1].cptalarmeon)
                     Logger.warning("maj : channel 2")
                     flag_cpt_on[1]=False
 
@@ -794,7 +794,7 @@ class Voie1234(Screen):
             if flag_ecriture_fic==True and flag_timer>=passerelle.f_acquisition :
                 Logger.warning('timer: ecriture dans les fichiers ')
                 for i in passerelle.dut :
-                    if(statut=='0'):
+                    if(statut == '0'):
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Sleep"])), file=(i.fic))
                     if(statut == '1'):
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Awake"])),  file=(i.fic))
@@ -1182,7 +1182,7 @@ class Voie1234(Screen):
     	on affiche à l'écran une image pour éviter la sensation de "freeze" du programme par l'user.
     	'''
         with self.canvas:
-            self.loading_screen = Rectangle(pos=(0, 0),size=(800,480),source="images/loading_screen.jpg")
+            self.loading_screen = Rectangle(pos=(0, 0),size=(1280,800),source="images/loading_screen.jpg")
             
         Clock.schedule_once(lambda dt: self.fermerBanc(self, *args), 0)
 
