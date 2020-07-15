@@ -1365,7 +1365,7 @@
                 ActionPrevious:
                     title: 'Operating cycle Mode (ON/OFF) n°2'
                     with_previous: False
-                ActionOverflow:
+                # ActionOverflow:
                 # ActionButton:
                 #     text: ' '
                 #     icon: "images/parrotparrot.png"
@@ -1562,6 +1562,10 @@
                 # ActionButton:
                 #     text: ' '
                 #     icon: "images/parrotparrot.png"
+
+                ActionButton:
+                    text: 'Back'
+                    on_release: root.manager.current="setCycle2"
                 ActionButton:
                     text: 'Validation Cycle 3'
                     on_release: root.validationCycle3()#root.manager.current = "setCourantMax"
@@ -1747,6 +1751,9 @@
                 # ActionButton:
                 #     text: ' '
                 #     icon: "images/parrotparrot.png"
+                ActionButton:
+                    text: 'Back'
+                    on_release: root.manager.current="setCycle3"
                 ActionButton:
                     text: 'Validation Cycle 4'
                     on_release: root.validationCycle4()#root.manager.current = "setCourantMax"
@@ -1938,6 +1945,9 @@
                 # ActionButton:
                 #     text: ' '
                 #     icon: "images/parrotparrot.png"
+                ActionButton:
+                    text: 'Back'
+                    on_release: root.manager.current="setCycle4"
                 ActionButton:
                     text: 'Validation Cycle 5'
                     on_release: root.validationCycle5()#root.manager.current = "setCourantMax"
