@@ -2279,7 +2279,23 @@
 #####################SCREEN Courant Max ##########################################
 ############################################################################
 <SetCourantMax>:
-    name: "setCourantMax"  
+    name: "setCourantMax" 
+    BoxLayout:
+        orientation: 'vertical'                      
+        ActionBar:
+            ActionView:
+                use_separator: True
+                ActionPrevious:
+                    title: 'Régler le courant Max'
+                    with_previous: False
+                ActionOverflow:
+                # ActionButton:
+                #     text: ' '
+                #     icon: "images/parrotparrot.png"
+                ActionButton:
+                    text: 'Validation Courant Max'
+                    color: (1,1,0,1)
+                    on_release: root.manager.current = "setup2" 
     Label:
         id: label_text
         text: 'Max Current Per Unit'
@@ -2309,22 +2325,7 @@
             font_size: 30
             on_press: root.decrementCourantMax()
     
-    BoxLayout:
-        orientation: 'vertical'                      
-        ActionBar:
-            ActionView:
-                use_separator: True
-                ActionPrevious:
-                    title: 'Régler le courant Max'
-                    with_previous: False
-                ActionOverflow:
-                # ActionButton:
-                #     text: ' '
-                #     icon: "images/parrotparrot.png"
-                ActionButton:
-                    text: 'Validation Courant Max'
-                    color: (1,1,0,1)
-                    on_release: root.manager.current = "setup2"
+
 
 
 
