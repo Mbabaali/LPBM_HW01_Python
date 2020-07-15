@@ -1371,7 +1371,10 @@
                 #     icon: "images/parrotparrot.png"
                 ActionButton:
                     text: 'Validation Cycle 2'
-                    on_release: root.validationCycle2()#root.manager.current = "setCourantMax"
+                    on_release: root.validationCycle2()
+                ActionButton:
+                    text: 'Back'
+                    on_release: root.manager.current="setCycle1"
 
         FloatLayout:
             Button:
