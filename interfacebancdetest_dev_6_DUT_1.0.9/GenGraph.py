@@ -13,8 +13,8 @@ import pandas as pd
 plt.rcParams["figure.figsize"] = (70,12)
 
 def generer_graph(chemin, chemin_graph='',
-                  y_low_min=0.02, y_low_max=0.12,
-                  y_high_min=600, y_high_max=1000, format_graph=0):
+                  y_low_min=0.0, y_low_max=0.12,
+                  y_high_min=20, y_high_max=1000, format_graph=0):
     """
         Permet de generer un graph diviser en deux suivant les paramètres données
     """
@@ -111,3 +111,10 @@ if __name__ == "__main__":
         generer_graph(sys.argv[1], sys.argv[2], sys.argv[3], 
                       sys.argv[4], sys.argv[5], sys.argv[6])
 
+
+
+
+
+
+
+    
