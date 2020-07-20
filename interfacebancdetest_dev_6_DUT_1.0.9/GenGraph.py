@@ -14,7 +14,7 @@ plt.rcParams["figure.figsize"] = (70,12)
 
 def generer_graph(chemin, chemin_graph='',
                   y_low_min=0.02, y_low_max=0.12,
-                  y_high_min=600, y_high_max=1000, format_graph=0):
+                  y_high_min=20, y_high_max=3000, format_graph=0):
     """
         Permet de generer un graph diviser en deux suivant les paramètres données
     """
@@ -65,17 +65,17 @@ def generer_graph(chemin, chemin_graph='',
     func.autofmt_xdate()
 
 
-    ax2.xaxis.set_major_locator(matplotlib.dates.MinuteLocator(interval=10))
+    ax2.xaxis.set_major_locator(matplotlib.dates.MinuteLocator(interval=60))
 
     # use a more precise date string for the x axis locations in the
     # toolbar
-    ax2.xaxis.set_major_formatter(matplotlib.dates.DateFormatter('%Y-%m-%d %H:%M:%S.%f'))
+    ax2.xaxis.set_major_formatter(matplotlib.dates.DateFormatter('%d/%m  %H:%M'))
 
     # hide the spines between ax and ax2
     ax.spines['bottom'].set_visible(False)
     ax2.spines['top'].set_visible(False)
     ax.xaxis.tick_top()
-    ax.tick_params(labeltop='false')  # don't put tick labels at the top
+    ax.tick_params(labeltop='False')  # don't put tick labels at the top
     ax2.xaxis.tick_bottom()
 
     diag = .015  # how big to make the diagonal lines in axes coordinates
@@ -110,11 +110,3 @@ if __name__ == "__main__":
     elif len(sys.argv) == 7:
         generer_graph(sys.argv[1], sys.argv[2], sys.argv[3], 
                       sys.argv[4], sys.argv[5], sys.argv[6])
-
-
-
-
-
-
-
-    
