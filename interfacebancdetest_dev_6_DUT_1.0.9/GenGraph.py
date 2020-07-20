@@ -69,7 +69,7 @@ def generer_graph(chemin, chemin_graph='',
 
     # use a more precise date string for the x axis locations in the
     # toolbar
-    ax2.xaxis.set_major_formatter(matplotlib.dates.DateFormatter('%d/%m  %H:%M'))
+    ax2.xaxis.set_major_formatter(matplotlib.dates.DateFormatter('%Y-%m-%d %H:%M:%S.%f'))
 
     # hide the spines between ax and ax2
     ax.spines['bottom'].set_visible(False)
