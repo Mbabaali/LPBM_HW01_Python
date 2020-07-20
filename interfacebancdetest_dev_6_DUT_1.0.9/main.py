@@ -158,7 +158,6 @@ def process_graph(list_argument_graph):
     Logger.warning('process_graph: chemin : {}  ;  low_min : {} ; low_max : {}  ; high_min : {} ; high_max : {}  ; taille : {} '.format(chemin, low_min, low_max, high_min, high_max, taille))
     GenGraph.generer_graph(chemin=chemin, y_low_min=low_min, y_low_max=low_max, y_high_min=high_min, y_high_max=high_max, format_graph=taille)
 
-
 class graph:
     """
     contient les paramètres à définir lors de la generation d'un graphe
@@ -1292,16 +1291,16 @@ class Graph(Screen):
 
 
 
-        self.label_y_low_min_uA = Label(text="20", font_size='25sp',size=(100,50), pos_hint={'center_x': 0.3, 'center_y':0.750})
+        self.label_y_low_min_uA = Label(text="60", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.750})
         self.add_widget(self.label_y_low_min_uA)
 
-        self.label_y_low_max_uA = Label(text="120", font_size='25sp',size=(100,50),pos_hint={'center_x': 0.3, 'center_y':0.580})
+        self.label_y_low_max_uA = Label(text="120", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.580})
         self.add_widget(self.label_y_low_max_uA)
 
-        self.label_y_high_min   = Label(text="600", font_size='25sp',size=(100,50), pos_hint={'center_x': 0.3, 'center_y':0.380})
+        self.label_y_high_min = Label(text="600", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.380})
         self.add_widget(self.label_y_high_min)
 
-        self.label_y_high_max  = Label(text="1000", font_size='25sp',size=(100,50), pos_hint={'center_x': 0.3, 'center_y':0.18})
+        self.label_y_high_max = Label(text="1000", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.18})
         self.add_widget(self.label_y_high_max)
 
 
@@ -1354,7 +1353,7 @@ class Graph(Screen):
 
 
     def increment_y_high_min(self):
-        if(passerelle.graph1.y_high_min<2500):
+        if(passerelle.graph1.y_high_min<1500):
             passerelle.graph1.y_high_min += 20
             self.label_y_high_min.text = str(passerelle.graph1.y_high_min)
         else : 
@@ -2534,4 +2533,3 @@ if __name__ == "__main__":
     MainApp().run()
 
     arduino1.close()
-
