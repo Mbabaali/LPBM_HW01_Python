@@ -539,12 +539,12 @@ class Voie1234(Screen):
         # Création de l'affiche dynamique de l'état de chaque équipements testés
         # Led rouge/verte-sleep/awake
         with self.canvas:
-            self.rect_dut_1 = Rectangle(pos=(135,640),size=(30,30),source="images/ledred.png")
-            self.rect_dut_2 = Rectangle(pos=(560,640),size=(30,30),source="images/ledred.png")
-            self.rect_dut_3 = Rectangle(pos=(985,640),size=(30,30),source="images/ledred.png")
-            self.rect_dut_4 = Rectangle(pos=(135,280),size=(30,30),source="images/ledred.png")
-            self.rect_dut_5 = Rectangle(pos=(560,280),size=(30,30),source="images/ledred.png")
-            self.rect_dut_6 = Rectangle(pos=(985,280),size=(30,30),source="images/ledred.png")
+            self.rect_dut_1 = Rectangle(pos_hint={'center_x': 0.075, 'center_y':0.82},size=(30,30),source="images/ledred.png")
+            self.rect_dut_2 = Rectangle(pos_hint={'center_x': 0.473, 'center_y':0.82},size=(30,30),source="images/ledred.png")
+            self.rect_dut_3 = Rectangle(pos_hint={'center_x': 0.786, 'center_y':0.82},size=(30,30),source="images/ledred.png")
+            self.rect_dut_4 = Rectangle(pos_hint={'center_x': 0.075, 'center_y':0.37},size=(30,30),source="images/ledred.png")
+            self.rect_dut_5 = Rectangle(pos_hint={'center_x': 0.473, 'center_y':0.37},size=(30,30),source="images/ledred.png")
+            self.rect_dut_6 = Rectangle(pos_hint={'center_x': 0.786, 'center_y':0.37},size=(30,30),source="images/ledred.png")
 ##############################################################################################
             
     def timer(self, dt): 
