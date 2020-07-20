@@ -65,7 +65,7 @@ def generer_graph(chemin, chemin_graph='',
     func.autofmt_xdate()
 
 
-    ax2.xaxis.set_major_locator(matplotlib.dates.MinuteLocator(interval=60))
+    ax2.xaxis.set_major_locator(matplotlib.dates.MinuteLocator(interval=10))
 
     # use a more precise date string for the x axis locations in the
     # toolbar
