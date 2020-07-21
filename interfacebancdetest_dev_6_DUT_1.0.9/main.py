@@ -1397,7 +1397,7 @@ class Manuel(Screen):
 class Setup2(Screen):
     pass
 
-# class afficherParametres(Screen):
+class afficherParametres(Screen):
 
 #     def __init__(self, **kwargs):
 #         super(afficherParametres, self).__init__(**kwargs)
@@ -1487,9 +1487,7 @@ class Setup2(Screen):
         # self.add_widget(self.label_nb_rep_cycle3)
 
 
-
-               
-
+    pass
 
         # Logger.warning('test: test __init__')
 
