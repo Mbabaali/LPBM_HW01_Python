@@ -1491,7 +1491,7 @@ class afficherParametres(Screen):
                
 
 
-        Logger.warning('test: test __init__')
+        # Logger.warning('test: test __init__')
 
     def refresh(self):
         self.label_sec_awake_1.text=str(passerelle.cycle1.time_awake_s)+" s."
