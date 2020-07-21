@@ -1485,8 +1485,6 @@ class afficherParametres(Screen):
 
 
 
-
-
         self.label_sec_awake_5 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-35, -175))
         self.add_widget(self.label_sec_awake_5)
 
@@ -1496,7 +1494,7 @@ class afficherParametres(Screen):
         self.label_h_awake_5 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-175, -175))
         self.add_widget(self.label_h_awake_5)
 
-        self.label_sec_sleep_5 = Label(text="25", font_size='25sp', size=(100, 50), pos=(-35, -200 ))
+        self.label_sec_sleep_5 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-35, -200 ))
         self.add_widget(self.label_sec_sleep_5)
 
         self.label_min_sleep_5 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-105, -200 ))
@@ -1529,6 +1527,12 @@ class afficherParametres(Screen):
 
         self.label_nb_rep_cycle3=Label(text="N/A3", font_size='25sp', size=(100, 50), pos=(330, -200))
         self.add_widget(self.label_nb_rep_cycle3)
+
+        self.label_nb_rep_cycle4=Label(text="N/A4", font_size='25sp', size=(100, 50), pos=(330, -250))
+        self.add_widget(self.label_nb_rep_cycle4)
+
+        self.label_nb_rep_cycle5=Label(text="N/A5", font_size='25sp', size=(100, 50), pos=(330, -300))
+        self.add_widget(self.label_nb_rep_cycle5)
 
 
 
