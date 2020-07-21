@@ -1412,13 +1412,13 @@ class afficherParametres(Screen):
         self.label_h_awake_1 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-175, 250))
         self.add_widget(self.label_h_awake_1)
         
-        self.label_sec_sleep_1 = Label(text="25", font_size='25sp', size=(100, 50), pos=(-35, 175))
+        self.label_sec_sleep_1 = Label(text="25", font_size='25sp', size=(100, 50), pos=(-35, 225))
         self.add_widget(self.label_sec_sleep_1)
 
-        self.label_min_sleep_1 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-105, 175))
+        self.label_min_sleep_1 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-105, 225))
         self.add_widget(self.label_min_sleep_1)
 
-        self.label_h_sleep_1 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-175, 175))
+        self.label_h_sleep_1 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-175, 225))
         self.add_widget(self.label_h_sleep_1)
 
 
@@ -1432,13 +1432,13 @@ class afficherParametres(Screen):
         self.label_h_awake_2 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-175, 150))
         self.add_widget(self.label_h_awake_2)
 
-        self.label_sec_sleep_2 = Label(text="25", font_size='25sp', size=(100, 50), pos=(-35, 75))
+        self.label_sec_sleep_2 = Label(text="25", font_size='25sp', size=(100, 50), pos=(-35, 125))
         self.add_widget(self.label_sec_sleep_2)
 
-        self.label_min_sleep_2 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-105, 75))
+        self.label_min_sleep_2 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-105, 125))
         self.add_widget(self.label_min_sleep_2)
 
-        self.label_h_sleep_2 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-175, 75))
+        self.label_h_sleep_2 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-175, 125))
         self.add_widget(self.label_h_sleep_2)
 
 
@@ -1452,26 +1452,26 @@ class afficherParametres(Screen):
         self.label_h_awake_3 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-175, 50))
         self.add_widget(self.label_h_awake_3)
 
-        self.label_sec_sleep_3 = Label(text="25", font_size='25sp', size=(100, 50), pos=(-35, 50))
+        self.label_sec_sleep_3 = Label(text="25", font_size='25sp', size=(100, 50), pos=(-35, 25))
         self.add_widget(self.label_sec_sleep_3)
 
-        self.label_min_sleep_3 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-105, 50))
+        self.label_min_sleep_3 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-105, 25))
         self.add_widget(self.label_min_sleep_3)
 
-        self.label_h_sleep_3 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-175, 50))
+        self.label_h_sleep_3 = Label(text="0", font_size='25sp', size=(100, 50), pos=(-175, 25))
         self.add_widget(self.label_h_sleep_3)
 
 
 
 
 
-        self.label_sec_awake_4 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-35, -25))
+        self.label_sec_awake_4 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-35, -50))
         self.add_widget(self.label_sec_awake_4)
 
-        self.label_min_awake_4 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-105, -25))
+        self.label_min_awake_4 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-105, -50))
         self.add_widget(self.label_min_awake_4)
 
-        self.label_h_awake_4 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-175, -25))
+        self.label_h_awake_4 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-175, -50))
         self.add_widget(self.label_h_awake_4)
 
         self.label_sec_sleep_4 = Label(text="25", font_size='25sp', size=(100, 50), pos=(-35, -75 ))
