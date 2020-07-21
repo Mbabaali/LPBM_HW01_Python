@@ -806,20 +806,20 @@ class Voie1234(Screen):
 
            
 
-            if(passerelle.update_alarm == 1):           
-                # self.alarmeon1.text = (str(passerelle.alarm_awake)+" A")
-                # self.alarmeoff1.text = (str(passerelle.alarm_sleep)+" µA")
-                # self.alarmeon2.text = (str(passerelle.alarm_awake)+" A")
-                # self.alarmeoff2.text = (str(passerelle.alarm_sleep)+" µA")
-                # self.alarmeon3.text = (str(passerelle.alarm_awake)+" A")
-                # self.alarmeoff3.text = (str(passerelle.alarm_sleep)+" µA")
-                # self.alarmeon4.text = (str(passerelle.alarm_awake)+" A")
-                # self.alarmeoff4.text = (str(passerelle.alarm_sleep)+" µA")
-                # self.alarmeon5.text = (str(passerelle.alarm_awake)+" A")
-                # self.alarmeoff5.text = (str(passerelle.alarm_sleep)+" µA")
-                # self.alarmeon6.text = (str(passerelle.alarm_awake)+" A")
-                # self.alarmeoff6.text = (str(passerelle.alarm_sleep)+" µA")
-                passerelle.update_alarm = 0
+            # if(passerelle.update_alarm == 1):           
+            #     self.alarmeon1.text = (str(passerelle.alarm_awake)+" A")
+            #     self.alarmeoff1.text = (str(passerelle.alarm_sleep)+" µA")
+            #     self.alarmeon2.text = (str(passerelle.alarm_awake)+" A")
+            #     self.alarmeoff2.text = (str(passerelle.alarm_sleep)+" µA")
+            #     self.alarmeon3.text = (str(passerelle.alarm_awake)+" A")
+            #     self.alarmeoff3.text = (str(passerelle.alarm_sleep)+" µA")
+            #     self.alarmeon4.text = (str(passerelle.alarm_awake)+" A")
+            #     self.alarmeoff4.text = (str(passerelle.alarm_sleep)+" µA")
+            #     self.alarmeon5.text = (str(passerelle.alarm_awake)+" A")
+            #     self.alarmeoff5.text = (str(passerelle.alarm_sleep)+" µA")
+            #     self.alarmeon6.text = (str(passerelle.alarm_awake)+" A")
+            #     self.alarmeoff6.text = (str(passerelle.alarm_sleep)+" µA")
+            #     passerelle.update_alarm = 0
 
             if(statut=='0'):
 
@@ -1252,20 +1252,12 @@ class Voie1234(Screen):
 
 
         if(passerelle.graph1.flagGraph):
-
             p1 = Process(target=process_graph, args=(list_argument_graph_1,))
-
             p2 = Process(target=process_graph, args=(list_argument_graph_2,))
-
             p3 = Process(target=process_graph, args=(list_argument_graph_3,))
-
             p4 = Process(target=process_graph, args=(list_argument_graph_4,))
-
             p5 = Process(target=process_graph, args=(list_argument_graph_5,))
-
             p6 = Process(target=process_graph, args=(list_argument_graph_6,))
-
-
 
             p1.start()   
             p2.start()
@@ -1291,16 +1283,16 @@ class Graph(Screen):
 
 
 
-        self.label_y_low_min_uA = Label(text="60", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.750})
+        self.label_y_low_min_uA = Label(text="60", font_size='25sp', size=(100, 50), pos=(-170, 105))
         self.add_widget(self.label_y_low_min_uA)
 
-        self.label_y_low_max_uA = Label(text="120", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.580})
+        self.label_y_low_max_uA = Label(text="120", font_size='25sp', size=(100, 50), pos=(-170, 20))
         self.add_widget(self.label_y_low_max_uA)
 
-        self.label_y_high_min = Label(text="600", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.380})
+        self.label_y_high_min = Label(text="600", font_size='25sp', size=(100, 50), pos=(-170, -65))
         self.add_widget(self.label_y_high_min)
 
-        self.label_y_high_max = Label(text="1000", font_size='25sp', size=(100, 50), pos_hint={'center_x': 0.3, 'center_y':0.18})
+        self.label_y_high_max = Label(text="1000", font_size='25sp', size=(100, 50), pos=(-170, -150))
         self.add_widget(self.label_y_high_max)
 
 
