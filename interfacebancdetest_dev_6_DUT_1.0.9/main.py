@@ -1602,6 +1602,8 @@ class afficherParametres(Screen):
         self.label_nb_rep_cycle1.text=str(passerelle.cycle1.nb_repetition)+" rep"
         self.label_nb_rep_cycle2.text=str(passerelle.cycle2.nb_repetition)+" rep"
         self.label_nb_rep_cycle3.text=str(passerelle.cycle3.nb_repetition)+" rep"
+        self.label_nb_rep_cycle4.text=str(passerelle.cycle4.nb_repetition)+" rep"
+        self.label_nb_rep_cycle5.text=str(passerelle.cycle5.nb_repetition)+" rep"
 
 
         if(passerelle.etat_start==1):
