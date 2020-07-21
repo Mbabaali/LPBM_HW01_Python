@@ -1399,11 +1399,11 @@ class Setup2(Screen):
 
 class afficherParametres(Screen):
 
-#     def __init__(self, **kwargs):
-#         super(afficherParametres, self).__init__(**kwargs)
+    def __init__(self, **kwargs):
+        super(afficherParametres, self).__init__(**kwargs)
         
 
-        # self.label_sec_awake_1 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-35, 120))
+        self.label_sec_awake_1 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-35, 120))
         # self.add_widget(self.label_sec_awake_1)
 
         # self.label_min_awake_1 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-105, 120))
@@ -1487,9 +1487,11 @@ class afficherParametres(Screen):
         # self.add_widget(self.label_nb_rep_cycle3)
 
 
-    pass
 
-        # Logger.warning('test: test __init__')
+               
+
+
+        Logger.warning('test: test __init__')
 
     def refresh(self):
         self.label_sec_awake_1.text=str(passerelle.cycle1.time_awake_s)+" s."
