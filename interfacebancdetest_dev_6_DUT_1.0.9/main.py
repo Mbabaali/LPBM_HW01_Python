@@ -636,13 +636,13 @@ class Voie1234(Screen):
                 #Logger.warning('On commence à verifier les valeurs pour l alarme off')
                 flag_cpt_off=[False, False, False, False, False, False]
 
-                for i in passerelle.dut:
-                     if(i.A_mA>alarm_sleep_mA):
-                        Logger.warning("alarme: seuil dépassé")
-                        i.cptalarmeoff+=1
-                        flag_cpt_off[passerelle.dut.index(i)]=True
-                        print((";".join([date, str(i.A_mA), "mA", "Sleep"])), file=(i.fic_err))
-                        Logger.warning("écriture dans le fichier  L628")
+                # for i in passerelle.dut:
+                #      if(i.A_mA>alarm_sleep_mA):
+                #         Logger.warning("alarme: seuil dépassé")
+                #         i.cptalarmeoff+=1
+                #         flag_cpt_off[passerelle.dut.index(i)]=True
+                #         print((";".join([date, str(i.A_mA), "mA", "Sleep"])), file=(i.fic_err))
+                #         Logger.warning("écriture dans le fichier  L628")
 
                 if(flag_cpt_off[0]==True):
                     self.cptalarmeoff1.text=str(passerelle.dut[0].cptalarmeoff)
@@ -685,13 +685,13 @@ class Voie1234(Screen):
                 flag_cpt_on=[False, False, False, False, False, False]
 
 
-                for i in passerelle.dut:
-                    if(i.A_mA>alarm_awake_mA):
-                        i.cptalarmeon+=1
-                        Logger.warning('index : {}'.format(passerelle.dut.index(i)))
-                        flag_cpt_on[passerelle.dut.index(i)]=True
-                        print((";".join([date, str(i.A_mA), "mA", "Awake"])), file=(i.fic_err))
-                        Logger.warning("Ecriture dans le fichier error i.A_mA>alarm_awake_mA")
+                # for i in passerelle.dut:
+                #     if(i.A_mA>alarm_awake_mA):
+                #         i.cptalarmeon+=1
+                #         Logger.warning('index : {}'.format(passerelle.dut.index(i)))
+                #         flag_cpt_on[passerelle.dut.index(i)]=True
+                #         print((";".join([date, str(i.A_mA), "mA", "Awake"])), file=(i.fic_err))
+                #         Logger.warning("Ecriture dans le fichier error i.A_mA>alarm_awake_mA")
 
                 Logger.warning("flag cpt_on : {}".format(flag_cpt_on))
                 if(flag_cpt_on[0]==True):
