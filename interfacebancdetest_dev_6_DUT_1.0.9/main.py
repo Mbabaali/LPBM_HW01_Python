@@ -1397,10 +1397,10 @@ class Manuel(Screen):
 class Setup2(Screen):
     pass
 
-class afficherParametres(Screen):
+# class afficherParametres(Screen):
 
-    def __init__(self, **kwargs):
-        super(afficherParametres, self).__init__(**kwargs)
+#     def __init__(self, **kwargs):
+#         super(afficherParametres, self).__init__(**kwargs)
         
 
         # self.label_sec_awake_1 = Label(text="N/A", font_size='25sp', size=(100, 50), pos=(-35, 120))
