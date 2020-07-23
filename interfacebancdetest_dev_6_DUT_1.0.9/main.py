@@ -72,12 +72,12 @@ file4='/data_dut_4_'
 file55='/data_dut_5_'
 file66='/data_dut_6_'
 
-file5='/data_dut_1_err_'
-file6='/data_dut_2_err_'
-file7='/data_dut_3_err_'
-file8='/data_dut_4_err_'
-file555='/data_dut_5_err_'
-file666='/data_dut_6_err_'
+file5='/data_dut_1_Graph_'
+file6='/data_dut_2_Graph_'
+file7='/data_dut_3_Graph_'
+file8='/data_dut_4_Graph_'
+file555='/data_dut_5_Graph_'
+file666='/data_dut_6_Graph_'
 
 
 extension='.csv'
@@ -127,12 +127,12 @@ print((";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box 
 print((";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out55)
 print((";".join(["date-time", "Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out66)
 
-print((";".join(["date-time","Value", "Unit", "State"])), file=out5)
-print((";".join(["date-time","Value", "Unit", "State"])), file=out6)
-print((";".join(["date-time","Value", "Unit", "State"])), file=out7)
-print((";".join(["date-time","Value", "Unit", "State"])), file=out8)
-print((";".join(["date-time","Value", "Unit", "State"])), file=out555)
-print((";".join(["date-time","Value", "Unit", "State"])), file=out666)
+print((";".join(["date-time","Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out5)
+print((";".join(["date-time","Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out6)
+print((";".join(["date-time","Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out7)
+print((";".join(["date-time","Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out8)
+print((";".join(["date-time","Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out555)
+print((";".join(["date-time","Value", "Unit", "Power cosumption", "Unit", "Box state", "Alarm"])), file=out666)
 
 class cycle:
     def __init__(self, time_awake, time_awake_s, time_awake_m, time_awake_h, time_sleep, time_sleep_s, time_sleep_m, time_sleep_h):
@@ -163,12 +163,12 @@ class graph:
     contient les paramètres à définir lors de la generation d'un graphe
     """
     def __init__(self):
-        self.y_low_min_uA=60
-        self.y_low_max_uA=120
-        self.y_low_min=0.06
-        self.y_low_max=0.120
-        self.y_high_min=600
-        self.y_high_max=1000
+        self.y_low_min_uA=0
+        self.y_low_max_uA=200
+        self.y_low_min=0
+        self.y_low_max=0.200
+        self.y_high_min=0
+        self.y_high_max=1500
         self.flagGraph=True
         self.setTaille=0
 
@@ -636,13 +636,13 @@ class Voie1234(Screen):
                 #Logger.warning('On commence à verifier les valeurs pour l alarme off')
                 flag_cpt_off=[False, False, False, False, False, False]
 
-                # for i in passerelle.dut:
-                #      if(i.A_mA>alarm_sleep_mA):
-                #         Logger.warning("alarme: seuil dépassé")
-                #         i.cptalarmeoff+=1
-                #         flag_cpt_off[passerelle.dut.index(i)]=True
-                #         print((";".join([date, str(i.A_mA), "mA", "Sleep"])), file=(i.fic_err))
-                #         Logger.warning("écriture dans le fichier  L628")
+                for i in passerelle.dut:
+                     if(i.A_mA>alarm_sleep_mA):
+                        Logger.warning("alarme: seuil dépassé")
+                        i.cptalarmeoff+=1
+                        flag_cpt_off[passerelle.dut.index(i)]=True
+                        #print((";".join([date, str(i.A_mA), "mA", "Sleep"])), file=(i.fic_err))
+                        Logger.warning("écriture dans le fichier  L628")
 
                 if(flag_cpt_off[0]==True):
                     self.cptalarmeoff1.text=str(passerelle.dut[0].cptalarmeoff)
@@ -685,12 +685,12 @@ class Voie1234(Screen):
                 flag_cpt_on=[False, False, False, False, False, False]
 
 
-                # for i in passerelle.dut:
-                #     if(i.A_mA>alarm_awake_mA):
-                #         i.cptalarmeon+=1
-                #         Logger.warning('index : {}'.format(passerelle.dut.index(i)))
-                #         flag_cpt_on[passerelle.dut.index(i)]=True
-                #         print((";".join([date, str(i.A_mA), "mA", "Awake"])), file=(i.fic_err))
+                for i in passerelle.dut:
+                    if(i.A_mA>alarm_awake_mA):
+                        i.cptalarmeon+=1
+                        Logger.warning('index : {}'.format(passerelle.dut.index(i)))
+                        flag_cpt_on[passerelle.dut.index(i)]=True
+                        print((";".join([date, str(i.A_mA), "mA", "Awake"])), file=(i.fic_err))
                 #         Logger.warning("Ecriture dans le fichier error i.A_mA>alarm_awake_mA")
 
                 Logger.warning("flag cpt_on : {}".format(flag_cpt_on))
@@ -799,8 +799,10 @@ class Voie1234(Screen):
                 for i in passerelle.dut :
                     if(statut == '0'):
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Sleep"])), file=(i.fic))
+                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA) "mW","Sleep"])), file=(i.fic))
                     if(statut == '1'):
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Awake"])),  file=(i.fic))
+                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])), file=(i.fic))
                 passerelle.timer_acquisition=time.time()
 
 
@@ -1216,6 +1218,13 @@ class Voie1234(Screen):
         out66.close()
         Logger.warning('fermerBanc: out66 fermé')
 
+        out5.close()
+        out6.close()
+        out7.close()
+        out8.close()
+        out555.close()
+        out666.close()
+
         Logger.warning('y low min : {}'.format(passerelle.graph1.y_low_min))
         Logger.warning('y low max : {}'.format(passerelle.graph1.y_low_max))
         Logger.warning('y high min : {}'.format(passerelle.graph1.y_high_min))
@@ -1231,22 +1240,22 @@ class Voie1234(Screen):
         list_argument_graph.append(passerelle.graph1.setTaille)
 
         list_argument_graph_1=list(list_argument_graph)
-        list_argument_graph_1.insert(0, chemin1)
+        list_argument_graph_1.insert(0, chemin5)
 
         list_argument_graph_2=list(list_argument_graph)
-        list_argument_graph_2.insert(0, chemin2)
+        list_argument_graph_2.insert(0, chemin6)
 
         list_argument_graph_3=list(list_argument_graph)
-        list_argument_graph_3.insert(0, chemin3)
+        list_argument_graph_3.insert(0, chemin7)
 
         list_argument_graph_4=list(list_argument_graph)
-        list_argument_graph_4.insert(0, chemin4)
+        list_argument_graph_4.insert(0, chemin8)
 
         list_argument_graph_5=list(list_argument_graph)
-        list_argument_graph_5.insert(0, chemin55)
+        list_argument_graph_5.insert(0, chemin555)
 
         list_argument_graph_6=list(list_argument_graph)
-        list_argument_graph_6.insert(0, chemin66)
+        list_argument_graph_6.insert(0, chemin666)
 
 
 
@@ -1273,6 +1282,13 @@ class Voie1234(Screen):
             p5.join()
             p6.join()
 
+        os.remove(chemin5)
+        os.remove(chemin6)
+        os.remove(chemin7)
+        os.remove(chemin8)
+        os.remove(chemin555)
+        os.remove(chemin666)
+
         exit()
 
 
@@ -1283,22 +1299,22 @@ class Graph(Screen):
 
 
 
-        self.label_y_low_min_uA = Label(text="60", font_size='25sp', size=(100, 50), pos=(-170, 105))
+        self.label_y_low_min_uA = Label(text="0", font_size='25sp', size=(100, 50), pos=(-170, 105))
         self.add_widget(self.label_y_low_min_uA)
 
-        self.label_y_low_max_uA = Label(text="120", font_size='25sp', size=(100, 50), pos=(-170, 20))
+        self.label_y_low_max_uA = Label(text="200", font_size='25sp', size=(100, 50), pos=(-170, 20))
         self.add_widget(self.label_y_low_max_uA)
 
-        self.label_y_high_min = Label(text="600", font_size='25sp', size=(100, 50), pos=(-170, -65))
+        self.label_y_high_min = Label(text="0", font_size='25sp', size=(100, 50), pos=(-170, -65))
         self.add_widget(self.label_y_high_min)
 
-        self.label_y_high_max = Label(text="1000", font_size='25sp', size=(100, 50), pos=(-170, -150))
+        self.label_y_high_max = Label(text="1500", font_size='25sp', size=(100, 50), pos=(-170, -150))
         self.add_widget(self.label_y_high_max)
 
 
     def increment_y_low_min(self):
-        if(passerelle.graph1.y_low_min_uA<1000):
-            passerelle.graph1.y_low_min_uA += 10
+        if(passerelle.graph1.y_low_min_uA<3000):
+            passerelle.graph1.y_low_min_uA += 100
             self.label_y_low_min_uA.text = str(passerelle.graph1.y_low_min_uA)
         else : 
             passerelle.graph1.y_low_min_uA =0
@@ -1311,10 +1327,10 @@ class Graph(Screen):
 
     def decrement_y_low_min(self):
         if(passerelle.graph1.y_low_min_uA>0):
-            passerelle.graph1.y_low_min_uA -= 10
+            passerelle.graph1.y_low_min_uA -= 100
             self.label_y_low_min_uA.text = str(passerelle.graph1.y_low_min_uA)
         else : 
-            passerelle.graph1.y_low_min_uA =1000
+            passerelle.graph1.y_low_min_uA =3000
             self.label_y_low_min_uA.text = str(passerelle.graph1.y_low_min_uA)
 
         passerelle.graph1.y_low_min=float(passerelle.graph1.y_low_min_uA/1000)

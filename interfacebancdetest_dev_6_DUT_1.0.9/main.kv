@@ -799,6 +799,31 @@
                 
                 allow_no_selection: False
                 on_press: root.graphOff()
+            
+            ToggleButton:
+                text: 'normal'
+                pos: 450, 150
+                size_hint: 0.133, 0.1
+                state: 'down'
+                group: 'taille'
+                allow_no_selection: False
+                on_press: root.setSize(0)
+            ToggleButton:
+                text: 'large'
+                pos: 556, 150
+                size_hint: 0.133, 0.1
+                group: 'taille'
+                
+                allow_no_selection: False
+                on_press: root.setSize(1)
+            ToggleButton:
+                text: 'très large'
+                pos: 662, 150
+                size_hint: 0.133 , 0.1
+                group: 'taille'
+                
+                allow_no_selection: False
+                on_press: root.setSize(2)
 
 
             ActionButton:
