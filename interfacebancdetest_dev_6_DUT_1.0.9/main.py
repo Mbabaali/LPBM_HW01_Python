@@ -167,7 +167,7 @@ class graph:
         self.y_low_max_uA=200
         self.y_low_min=0
         self.y_low_max=0.200
-        self.y_high_min=0
+        self.y_high_min=1
         self.y_high_max=1500
         self.flagGraph=True
         self.setTaille=0
@@ -799,7 +799,7 @@ class Voie1234(Screen):
                 for i in passerelle.dut :
                     if(statut == '0'):
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Sleep"])), file=(i.fic))
-                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA) "mW","Sleep"])), file=(i.fic))
+                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
                     if(statut == '1'):
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Awake"])),  file=(i.fic))
                         print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])), file=(i.fic))
@@ -1305,7 +1305,7 @@ class Graph(Screen):
         self.label_y_low_max_uA = Label(text="200", font_size='25sp', size=(100, 50), pos=(-170, 20))
         self.add_widget(self.label_y_low_max_uA)
 
-        self.label_y_high_min = Label(text="0", font_size='25sp', size=(100, 50), pos=(-170, -65))
+        self.label_y_high_min = Label(text="1", font_size='25sp', size=(100, 50), pos=(-170, -65))
         self.add_widget(self.label_y_high_min)
 
         self.label_y_high_max = Label(text="1500", font_size='25sp', size=(100, 50), pos=(-170, -150))
