@@ -799,10 +799,10 @@ class Voie1234(Screen):
                 for i in passerelle.dut :
                     if(statut == '0'):
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Sleep"])), file=(i.fic))
-                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic))
+                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic_err))
                     if(statut == '1'):
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Awake"])),  file=(i.fic))
-                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])), file=(i.fic))
+                        print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])), file=(i.fic_err))
                 passerelle.timer_acquisition=time.time()
 
 
@@ -1205,18 +1205,14 @@ class Voie1234(Screen):
         pause = pause_code.encode()
 
         arduino1.write(pause)
+
+        Logger.warning('FERMETURE DES FICHIERS')
         out1.close()
-        Logger.warning('fermerBanc: out1 fermé')
         out2.close()
-        Logger.warning('fermerBanc: out2 fermé')
         out3.close()
-        Logger.warning('fermerBanc: out3 fermé')
         out4.close()
-        Logger.warning('fermerBanc: out4 fermé')
         out55.close()
-        Logger.warning('fermerBanc: out55 fermé')
         out66.close()
-        Logger.warning('fermerBanc: out66 fermé')
 
         out5.close()
         out6.close()
@@ -1224,6 +1220,9 @@ class Voie1234(Screen):
         out8.close()
         out555.close()
         out666.close()
+
+        
+        Logger.warning('FICHIERS FERMES')
 
         Logger.warning('y low min : {}'.format(passerelle.graph1.y_low_min))
         Logger.warning('y low max : {}'.format(passerelle.graph1.y_low_max))
