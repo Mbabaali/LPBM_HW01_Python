@@ -611,14 +611,13 @@ class Voie1234(Screen):
 ################################################################################################################################################
             if(statut=='0' and passerelle.flag_alamarOff_init==False):
 
-                Logger.warning('init : initialisé')
+                Logger.info('init : initialisé')
                 passerelle.flag_alamarOff_init=True
                 passerelle.timer_delai_init=time.time()
 
 
             if(passerelle.flag_seuil==False and statut == '0' and passerelle.flag_alamarOff_init==True):
                 a=time.time()-passerelle.timer_delai_init
-                Logger.warning('init : passerelle.flag_seuil=False and statut == 0 and passerelle.flag_alamarOff_init==True')
 
                 if((passerelle.dut[0].A_mA<alarm_sleep_mA) and (passerelle.dut[1].A_mA<alarm_sleep_mA) and (passerelle.dut[2].A_mA<alarm_sleep_mA) and (passerelle.dut[3].A_mA<alarm_sleep_mA)
                 and (passerelle.dut[4].A_mA<alarm_sleep_mA) and (passerelle.dut[5].A_mA<alarm_sleep_mA)):
@@ -641,17 +640,13 @@ class Voie1234(Screen):
                         Logger.warning("alarme: seuil dépassé")
                         i.cptalarmeoff+=1
                         flag_cpt_off[passerelle.dut.index(i)]=True
-                        #print((";".join([date, str(i.A_mA), "mA", "Sleep"])), file=(i.fic_err))
-                        Logger.warning("écriture dans le fichier  L628")
 
                 if(flag_cpt_off[0]==True):
                     self.cptalarmeoff1.text=str(passerelle.dut[0].cptalarmeoff)
-                    #Logger.warning("maj : channel 1")
                     flag_cpt_off[0]=False
 
                 if(flag_cpt_off[1]==True):
                     self.cptalarmeoff2.text=str(passerelle.dut[1].cptalarmeoff)
-                    #Logger.warning("maj : channel 2 : valeur du compteur : {}".format(passerelle.dut[1].cptalarmeoff))
                     flag_cpt_off[1]=False
 
                 if(flag_cpt_off[2]==True):
@@ -690,38 +685,37 @@ class Voie1234(Screen):
                         i.cptalarmeon+=1
                         Logger.warning('index : {}'.format(passerelle.dut.index(i)))
                         flag_cpt_on[passerelle.dut.index(i)]=True
-                        print((";".join([date, str(i.A_mA), "mA", "Awake"])), file=(i.fic_err))
                 #         Logger.warning("Ecriture dans le fichier error i.A_mA>alarm_awake_mA")
 
                 Logger.warning("flag cpt_on : {}".format(flag_cpt_on))
                 if(flag_cpt_on[0]==True):
                     self.cptalarmeon1.text=str(passerelle.dut[0].cptalarmeon)
-                    Logger.warning("maj : channel 1")
+                    # Logger.warning("maj : channel 1")
                     flag_cpt_on[0]=False
 
                 if(flag_cpt_on[1]==True):
                     self.cptalarmeon2.text=str(passerelle.dut[1].cptalarmeon)
-                    Logger.warning("maj : channel 2")
+                    # Logger.warning("maj : channel 2")
                     flag_cpt_on[1]=False
 
                 if(flag_cpt_on[2]==True):
                     self.cptalarmeon3.text=str(passerelle.dut[2].cptalarmeon)
-                    Logger.warning("maj : channel 3")
+                    # Logger.warning("maj : channel 3")
                     flag_cpt_on[2]=False
 
                 if(flag_cpt_on[3]==True):
                     self.cptalarmeon4.text=str(passerelle.dut[3].cptalarmeon)
-                    Logger.warning("maj : channel 4")
+                    # Logger.warning("maj : channel 4")
                     flag_cpt_on[2]=False
                 
                 if(flag_cpt_on[4]==True):
                     self.cptalarmeon5.text=str(passerelle.dut[2].cptalarmeon)
-                    Logger.warning("maj : channel 5")
+                    # Logger.warning("maj : channel 5")
                     flag_cpt_on[4]=False
 
                 if(flag_cpt_on[5]==True):
                     self.cptalarmeon6.text=str(passerelle.dut[5].cptalarmeon)
-                    Logger.warning("maj : channel 6")
+                    # Logger.warning("maj : channel 6")
                     flag_cpt_on[5]=False
 
             if(passerelle.dut[0].U =='0'):
@@ -757,10 +751,10 @@ class Voie1234(Screen):
                 self.courant4.text = passerelle.dut[3].A + "  mA"
             
             if(passerelle.dut[4].U=='1'):    
-                self.courant5.text = passerelle.dut[3].A + "  mA"
+                self.courant5.text = passerelle.dut[4].A + "  mA"
             
             if(passerelle.dut[5].U=='1'):    
-                self.courant6.text = passerelle.dut[3].A + "  mA"
+                self.courant6.text = passerelle.dut[5].A + "  mA"
                 
 
 
@@ -795,22 +789,22 @@ class Voie1234(Screen):
             #if flag_timer>=passerelle.f_acquisition :
                 #Si on a bien reçu une valeur pendat ce tour de boucle, et que la période correspond à celle voulu par l'user, alors on écrit dans les fichiers
             if flag_ecriture_fic==True and flag_timer>=passerelle.f_acquisition :
-                Logger.warning('timer: ecriture dans les fichiers ')
+                Logger.info('timer: ecriture dans les fichiers ')
                 for i in passerelle.dut :
                     if(statut == '0'):
-                        Logger.warning('timer:  statut = 0')
+                        Logger.info('timer:  statut = 0')
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Sleep"])), file=(i.fic))
-                        Logger.warning('timer:  ifich ')
+                        Logger.info('timer:  ifich ')
                         print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic_err))
-                        Logger.warning('timer:  ifich_Graph')
+                        Logger.info('timer:  ifich_Graph')
                     if(statut == '1'):
-                        Logger.warning('timer: statut = 1')
+                        Logger.info('timer: statut = 1')
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Awake"])),  file=(i.fic))
                         Logger.warning('timer: ifich ')
                         print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])), file=(i.fic_err))
-                        Logger.warning('timer: ifich_graph ')
+                        Logger.info('timer: ifich_graph ')
                 passerelle.timer_acquisition=time.time()
-                Logger.warning('timer: fin de la boucle for i in passerelle.dut :')
+                Logger.info('timer: fin de la boucle for i in passerelle.dut :')
 
 
            
