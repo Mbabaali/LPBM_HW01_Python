@@ -286,7 +286,7 @@ class passerelle(Screen):
     W6offMax=0
     U6offMax=0
 
-    updateMax=False
+    updateMax=False #prend true lorsqu'une des valeures max d'un DUT doit être mise à jour 
 
     etat_start=1 #prends true lorsque que l'on commence l'acquistion avec l'acc à 12v false si l'on commence l'acquisition avec l'acc à 0 v
     f_acquisition=1 #frequence d'acquisition de l'équiepement mesuré 
@@ -294,7 +294,12 @@ class passerelle(Screen):
     flag_seuil=False
     flag_delai=False
     timer_delai_init=0
-    nb_screen=0
+    nb_screen_ecran_DUT=0
+    nb_screen_param=0
+
+    flag_alamarOff_init=False
+
+    timer_acquisition=time.time()
 
 
     graph1=graph()
@@ -1128,6 +1133,8 @@ class Voie1234(Screen):
               if (msg =='ok\n'):
                   Logger.warning('liaison à l\'arduino : communication ok')
                   ok=True
+                  #on soustrait f_acquisition pour écrire dans le fichier directement au start de l'acquisiiton
+                  passerelle.timer_acquisition=time.time()-passerelle.f_acquisition 
               else : 
                   Logger.warning('liaison à l\'arduino: en attente de la communication...')
                   Logger.warning('startacq: date : {} ; ligne n°{}: valeur de msg : {}'.format(str(datetime.now()),inspect.currentframe().f_lineno, msg))
