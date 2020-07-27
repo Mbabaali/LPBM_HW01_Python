@@ -346,111 +346,63 @@ class Voie1234(Screen):
         # Labels courant et conso Dut1
         self.courant1 = Label(text="0 A", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.24, 'center_y':0.88})
         self.add_widget(self.courant1)
-        # self.puissance1 = Label(text="puissance1", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.24, 'center_y':0.80})
-        # self.add_widget(self.puissance1)
         
         # Labels courant et conso Dut2
         self.courant2 = Label(text="0 A", font_size='30sp', size=(100, 50),  pos_hint={'center_x': 0.57, 'center_y':0.88})
         self.add_widget(self.courant2)
-        # self.puissance2 = Label(text="puissance2", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.57, 'center_y':0.80})
-        # self.add_widget(self.puissance2)
 
         # Labels courant et conso Dut3
         self.courant3 = Label(text="0 A", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.88})
         self.add_widget(self.courant3)
-        # self.puissance3 = Label(text="puissance3", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.80})
-        # self.add_widget(self.puissance3)
 
         # Labels courant et conso Dut4
         self.courant4 = Label(text="0 A", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.24, 'center_y':0.43})
         self.add_widget(self.courant4)
-        # self.puissance4 = Label(text="puissance4", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.24, 'center_y':0.35})
-        # self.add_widget(self.puissance4)
 
         # Labels courant et conso Dut5
         self.courant5 = Label(text="0 A", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.57, 'center_y':0.43})
         self.add_widget(self.courant5)
-        # self.puissance5 = Label(text="puissance5", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.57, 'center_y':0.35})
-        # self.add_widget(self.puissance5)
 
         # Labels courant et conso Dut6
         self.courant6 = Label(text="0 A", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.43})
         self.add_widget(self.courant6)
-        # self.puissance6 = Label(text="puissance6", font_size='30sp', size=(100, 50), pos_hint={'center_x': 0.9, 'center_y':0.35})
-        # self.add_widget(self.puissance6)
 
         
         
 ################################################################################################
         # Labels update des alarmes.
         # Alarme Channel 1
-        # self.alarmeon1 = Label(text="1.1A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.25, 'center_y':0.623})
-        # self.add_widget(self.alarmeon1)
-        # self.alarmeoff1 = Label(text="111uA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.305, 'center_y':0.623})
-        # self.add_widget(self.alarmeoff1)
-        
-        #Label compteur alarme Channel 1
         self.cptalarmeon1 = Label(text="0", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05+0.03, 'center_y':0.52})
         self.add_widget(self.cptalarmeon1)
         self.cptalarmeoff1 = Label(text="0", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.305-0.045, 'center_y':0.52})
         self.add_widget(self.cptalarmeoff1)
 
         
-        # # Alarme Channel 2
-        # self.alarmeon2 = Label(text="2.2A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.585, 'center_y':0.623})
-        # self.add_widget(self.alarmeon2)
-        # self.alarmeoff2 = Label(text="222uA", font_size='20sp', pos_hint={'center_x': 0.640, 'center_y':0.623})
-        # self.add_widget(self.alarmeoff2)
-        
-        #Label compteur alarme Channel 2
+        # Alarme Channel 2
         self.cptalarmeon2 = Label(text="0", font_size='20sp', pos_hint={'center_x': 0.39+0.03, 'center_y':0.52})
         self.add_widget(self.cptalarmeon2)
         self.cptalarmeoff2 = Label(text="0", font_size='20sp', pos_hint={'center_x': 0.640-0.045, 'center_y':0.52})
         self.add_widget(self.cptalarmeoff2)
 
 
-        # # Alarme Channel 3
-        # self.alarmeon3 = Label(text="3.3A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.917, 'center_y':0.623})
-        # self.add_widget(self.alarmeon3)
-        # self.alarmeoff3 = Label(text="333uA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.980, 'center_y':0.623})
-        # self.add_widget(self.alarmeoff3)
-        
         #Label compteur alarme Channel 3
         self.cptalarmeon3 = Label(text="0", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.73+0.03, 'center_y':0.52})
         self.add_widget(self.cptalarmeon3)
         self.cptalarmeoff3 = Label(text="0", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.980-0.045, 'center_y':0.52})
         self.add_widget(self.cptalarmeoff3)
-
-        # # Alarme Channel 4
-        # self.alarmeon4 = Label(text="4.4A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.25, 'center_y':0.15})
-        # self.add_widget(self.alarmeon4)
-        # self.alarmeoff4 = Label(text="444uA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.305, 'center_y':0.15})
-        # self.add_widget(self.alarmeoff4)
-        
+       
         #Label compteur alarme Channel 4
         self.cptalarmeon4 = Label(text="0", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05+0.03, 'center_y':0.05})
         self.add_widget(self.cptalarmeon4)
         self.cptalarmeoff4 = Label(text="0", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.305-0.045, 'center_y':0.05})
         self.add_widget(self.cptalarmeoff4)
 
-        # # Alarme Channel 5
-        # self.alarmeon5 = Label(text="5.5A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.585, 'center_y':0.15})
-        # self.add_widget(self.alarmeon5)
-        # self.alarmeoff5 = Label(text="444uA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.640, 'center_y':0.15})
-        # self.add_widget(self.alarmeoff5)
-        
         #Label compteur alarme Channel 5
         self.cptalarmeon5 = Label(text="0", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39+0.03, 'center_y':0.05})
         self.add_widget(self.cptalarmeon5)
         self.cptalarmeoff5 = Label(text="0", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.640-0.045, 'center_y':0.05})
         self.add_widget(self.cptalarmeoff5)
 
-        # # Alarme Channel 6
-        # self.alarmeon6 = Label(text="6.6A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.917, 'center_y':0.15})
-        # self.add_widget(self.alarmeon6)
-        # self.alarmeoff6 = Label(text="666uA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.980, 'center_y':0.15})
-        # self.add_widget(self.alarmeoff6)
-        
         #Label compteur alarme Channel 6
         self.cptalarmeon6 = Label(text="0", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73+0.03, 'center_y':0.05})
         self.add_widget(self.cptalarmeon6)
@@ -460,63 +412,38 @@ class Voie1234(Screen):
         #Label value max channel 1
         self.maxAOn1 = Label(text="0A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05+0.03, 'center_y':0.623})
         self.add_widget(self.maxAOn1)
-        # self.maxWOn1 = Label(text="1W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.52})
-        # self.add_widget(self.maxWOn1)
         self.maxAoff1 = Label(text="0mA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16+0.1, 'center_y':0.623})
         self.add_widget(self.maxAoff1)
-        # self.maxWoff1 = Label(text="1mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16, 'center_y':0.52})
-        # self.add_widget(self.maxWoff1)
 
         #Label value max channel 2
         self.maxAOn2 = Label(text="0A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39+0.03, 'center_y':0.623})
         self.add_widget(self.maxAOn2)
-        # self.maxWOn2 = Label(text="2W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.52})
-        # self.add_widget(self.maxWOn2)
         self.maxAoff2 = Label(text="0mA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.5+0.1, 'center_y':0.623})
         self.add_widget(self.maxAoff2)
-        # self.maxWoff2 = Label(text="2MW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.5, 'center_y':0.52})
-        # self.add_widget(self.maxWoff2)
 
         #Label value max channel 3
         self.maxAOn3 = Label(text="0A", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.73+0.03, 'center_y':0.623})
         self.add_widget(self.maxAOn3)
-        # self.maxWOn3 = Label(text="3W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.52})
-        # self.add_widget(self.maxWOn3)
         self.maxAoff3 = Label(text="0mA", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.84+0.1, 'center_y':0.623})
         self.add_widget(self.maxAoff3)
-        # self.maxWoff3 = Label(text="3mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.84, 'center_y':0.52})
-        # self.add_widget(self.maxWoff3)
 
         #Label value max channel 4
         self.maxAOn4 = Label(text="0A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05+0.03, 'center_y':0.15})
         self.add_widget(self.maxAOn4)
-        # self.maxWOn4 = Label(text="4W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.05, 'center_y':0.05})
-        # self.add_widget(self.maxWOn4)
         self.maxAoff4 = Label(text="0mA", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.16+0.1, 'center_y':0.15})
         self.add_widget(self.maxAoff4)
-        # self.maxWoff4 = Label(text="4mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.16, 'center_y':0.05})
-        # self.add_widget(self.maxWoff4)
 
         #Label value max channel 5
         self.maxAOn5 = Label(text="0A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39+0.03, 'center_y':0.15})
         self.add_widget(self.maxAOn5)
-        # self.maxWOn5 = Label(text="5W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.39, 'center_y':0.05})
-        # self.add_widget(self.maxWOn5)
         self.maxAoff5 = Label(text="0mA", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.5+0.1, 'center_y':0.15})
         self.add_widget(self.maxAoff5)
-        # self.maxWoff5 = Label(text="5mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.5, 'center_y':0.05})
-        # self.add_widget(self.maxWoff5)
 
         #Label value max channel 6
         self.maxAOn6 = Label(text="0A", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73+0.03, 'center_y':0.15})
         self.add_widget(self.maxAOn6)
-        # self.maxWOn6 = Label(text="6W", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.73, 'center_y':0.05})
-        # self.add_widget(self.maxWOn6)
         self.maxAoff6 = Label(text="0mA", font_size='20sp', size=(100, 50),  pos_hint={'center_x': 0.84+0.1, 'center_y':0.15})
         self.add_widget(self.maxAoff6)
-        # self.maxWoff6 = Label(text="6mW", font_size='20sp', size=(100, 50), pos_hint={'center_x': 0.84, 'center_y':0.05})
-        # self.add_widget(self.maxWoff6)
-
 
        
 
@@ -563,7 +490,7 @@ class Voie1234(Screen):
             if inbox=='nope':
                 #Logger.warning('timer: rien reçu durant cette boucle')
                 pass
-            
+
             elif(inbox.count(':')!=19):
                 statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6 ,bullshit= 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
                 Logger.warning("timer: Bug du double bus")
@@ -603,8 +530,7 @@ class Voie1234(Screen):
                 else:
                    i.A_mA=0
                    i.W_mA=0
-                   # Logger.warning("conversion mA: Problème de conversion : valeur de U : {}".format(i.U))
-                   # Logger.warning("conversion mA: Problème de conversion sur la list : {}".format(passerelle.dut.index(i)))
+
 ################################################################################################################################################
 ######################################REGLAGE DE L'ALARME#######################################################################################
 ################################################################################################################################################
@@ -627,10 +553,8 @@ class Voie1234(Screen):
 
                 if((a>25) and (statut=='0')):
                     passerelle.flag_seuil=True
-                    #Logger.warning('delai depassé (25 secondes)')
 
             if passerelle.flag_seuil==True and statut=='0':
-                #Logger.warning('On commence à verifier les valeurs pour l\'alarme off')
                 flag_cpt_off=[False, False, False, False]
 
                 for i in passerelle.dut:
@@ -641,32 +565,26 @@ class Voie1234(Screen):
 
                 if(flag_cpt_off[0]==True):
                     self.cptalarmeoff1.text=str(passerelle.dut[0].cptalarmeoff)
-                    #Logger.warning("maj : channel 1")
                     flag_cpt_off[0]=False
 
                 if(flag_cpt_off[1]==True):
                     self.cptalarmeoff2.text=str(passerelle.dut[1].cptalarmeoff)
-                    #Logger.warning("maj : channel 2 : valeur du compteur : {}".format(passerelle.dut[1].cptalarmeoff))
                     flag_cpt_off[1]=False
 
                 if(flag_cpt_off[2]==True):
                     self.cptalarmeoff3.text=str(passerelle.dut[2].cptalarmeoff)
-                    #Logger.warning("maj : channel 3")
                     flag_cpt_off[2]=False
 
                 if(flag_cpt_off[3]==True):
                     self.cptalarmeoff4.text=str(passerelle.dut[3].cptalarmeoff)
-                    #Logger.warning("maj : channel 4")
                     flag_cpt_off[3]=False
                 
                 if(flag_cpt_off[4]==True):
                     self.cptalarmeoff5.text=str(passerelle.dut[4].cptalarmeoff)
-                    #Logger.warning("maj : channel 3")
                     flag_cpt_off[4]=False
 
                 if(flag_cpt_off[5]==True):
                     self.cptalarmeoff6.text=str(passerelle.dut[5].cptalarmeoff)
-                    #Logger.warning("maj : channel 4")
                     flag_cpt_off[5]=False
 
 
@@ -810,28 +728,14 @@ class Voie1234(Screen):
            
 
             if(passerelle.update_alarm == 1):           
-                self.alarmeon1.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff1.text = (str(passerelle.alarm_sleep)+" µA")
-                self.alarmeon2.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff2.text = (str(passerelle.alarm_sleep)+" µA")
-                self.alarmeon3.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff3.text = (str(passerelle.alarm_sleep)+" µA")
-                self.alarmeon4.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff4.text = (str(passerelle.alarm_sleep)+" µA")
-                self.alarmeon5.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff5.text = (str(passerelle.alarm_sleep)+" µA")
-                self.alarmeon6.text = (str(passerelle.alarm_awake)+" A")
-                self.alarmeoff6.text = (str(passerelle.alarm_sleep)+" µA")
                 passerelle.update_alarm = 0
 
             if(statut=='0'):
-
                 for i in passerelle.dut:
                     if(i.AoffMax<i.A_mA):
                         i.AoffMax=i.A_mA
                         i.WoffMax=i.W_mA
-                        passerelle.updateMax=True
-       
+                        passerelle.updateMax=True      
 
             if(statut=='1'):
                 for i in passerelle.dut:
@@ -839,14 +743,9 @@ class Voie1234(Screen):
                         i.AonMax=i.A_mA
                         i.WonMax=i.W_mA
                         passerelle.updateMax=True
-        
-
 
             #Affichage des Max
             if(passerelle.updateMax):
-
- 
-
                 self.maxAOn1.text=(str(passerelle.dut[0].AonMax)+" mA")
                 self.maxAOn2.text=(str(passerelle.dut[1].AonMax)+" mA")
                 self.maxAOn3.text=(str(passerelle.dut[2].AonMax)+" mA")
@@ -896,15 +795,11 @@ class Voie1234(Screen):
 
 
     def printscreen(self):
-
         chemin_screen=adresseUSB+date_titre+'_'+str(passerelle.nb_screen)+".png"
         Logger.warning(chemin_screen)
 
         self.export_to_png(chemin_screen)
         passerelle.nb_screen+=1
-    
-        
-                
 
 
     def startacq(self):
