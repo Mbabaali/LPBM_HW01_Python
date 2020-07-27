@@ -533,11 +533,13 @@ class Voie1234(Screen):
             
     def timer(self, dt): 
         statut=0
+        flag_ecriture_fic=False
         if(passerelle.start_stop == 1):
-            # A1_mA, A2_mA, A3_mA, A4_mA=0,0,0,0
-            # W1_mA, W2_mA, W3_mA, W4_mA=0,0,0,0
-            A1_mA, A2_mA, A3_mA, A4_mA, A5_mA, A6_mA = 0,0,0,0,0,0
-            W1_mA, W2_mA, W3_mA, W4_mA, W5_mA, W6_mA =0,0,0,0,0,0
+            # On réinitialise tous les valeures des dut à 0 
+            for i in passerelle.dut :
+                i.A_mA=0
+                i.W_mA=0
+
             date = datetime.now().strftime("%Y-%m-%d %H:%M:%S.%f")
             ####################################################################################
             #Récupération des données Serial
@@ -545,21 +547,28 @@ class Voie1234(Screen):
             inbox_code = arduino1.readline()
             inbox = inbox_code.decode()
             inbox =str(inbox)
-            #Logger.warning('timer: valeur : {}'.format(inbox))
-            #Logger.warning('timer: nombre de deux points : {}'.format(inbox.count(':')))
-            # if(inbox.count(':')!=13):
-            #     statut,U1,W1,A1,U2,W2,A2,U3,W3,A3,U4,W4,A4,bullshit=0,0,0,0,0,0,0,0,0,0,0,0,0,0
-            #     Logger.warning("timer: Bug du double bus")
-            #     Logger.warning("timer : {}".format(inbox))
-            # elif (inbox[0]=='d'):
-            #     statut,U1,W1,A1,U2,W2,A2,U3,W3,A3,U4,W4,A4,bullshit=0,0,0,0,0,0,0,0,0,0,0,0,0,0
-            #     Logger.warning("debug arduino: {}".format(inbox))
-            # else:   
-            #     statut,U1,W1,A1,U2,W2,A2,U3,W3,A3,U4,W4,A4,bullshit = inbox.split(":")
-            if(inbox.count(':')!=19):
+            
+
+            '''
+                on Récupère La trame sur le port serial (l'arduino) pour ne pas ralentir le programme, on verifie si le buffer est plein (in waiting)
+                si ce n'est pas le cas, on réutilise simplement les valuers du tour de boucle precedent
+            '''
+            if arduino1.inWaiting()>0:
+                inbox=arduino1.readline()
+                flag_ecriture_fic=True
+                #si le buffer est plein, on met le flag_ecriture à true pour ecrire dans les fichier .csv lors de ce tour de boucle
+            else:
+                inbox='nope'
+            #On récupere ce que l'arduino envoie... si elle n'a rien envoyé, on ne fait rien (pass)
+            if inbox=='nope':
+                #Logger.warning('timer: rien reçu durant cette boucle')
+                pass
+            
+            elif(inbox.count(':')!=19):
                 statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6 ,bullshit= 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
                 Logger.warning("timer: Bug du double bus")
                 Logger.warning("timer : {}".format(inbox))
+
             elif (inbox[0]=='d'):
                 statut, U1,W1,A1, U2,W2,A2, U3,W3,A3, U4,W4,A4, U5,W5,A5, U6,W6,A6,bullshit = 0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0,0,0, 0
                 Logger.warning("debug arduino: {}".format(inbox))
