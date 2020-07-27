@@ -1134,6 +1134,7 @@ class Voie1234(Screen):
               if (msg =='ok\n'):
                   Logger.warning('liaison à l\'arduino : communication ok')
                   ok=True
+                  passerelle.timer_acquisition=time.time()-passerelle.f_acquisition
               else : 
                   Logger.warning('liaison à l\'arduino: en attente de la communication...')
                   Logger.warning('startacq: date : {} ; ligne n°{}: valeur de msg : {}'.format(str(datetime.now()),inspect.currentframe().f_lineno, msg))
