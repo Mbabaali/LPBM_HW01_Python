@@ -798,11 +798,17 @@ class Voie1234(Screen):
                 Logger.warning('timer: ecriture dans les fichiers ')
                 for i in passerelle.dut :
                     if(statut == '0'):
+                        Logger.warning('timer: ecriture dans les fichiers:  statut = 0')
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Sleep"])), file=(i.fic))
+                        Logger.warning('timer: ecriture dans les fichiers: ifich ')
                         print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic_err))
+                        Logger.warning('timer: ecriture dans les fichiers ifich_Graph')
                     if(statut == '1'):
+                        Logger.warning('timer: ecriture dans les fichiers:  statut = 1')
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Awake"])),  file=(i.fic))
+                        Logger.warning('timer: ecriture dans les fichiers: ifich ')
                         print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])), file=(i.fic_err))
+                        Logger.warning('timer: ecriture dans les fichiers: ifich_graph ')
                 passerelle.timer_acquisition=time.time()
 
 
