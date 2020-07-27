@@ -75,7 +75,7 @@ def generer_graph(chemin, chemin_graph='',
     ax.spines['bottom'].set_visible(False)
     ax2.spines['top'].set_visible(False)
     ax.xaxis.tick_top()
-    ax.tick_params(labeltop='False')  # don't put tick labels at the top
+    ax.tick_params(labeltop='off')  # don't put tick labels at the top
     ax2.xaxis.tick_bottom()
 
     diag = .015  # how big to make the diagonal lines in axes coordinates

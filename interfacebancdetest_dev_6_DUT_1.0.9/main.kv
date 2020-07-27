@@ -666,8 +666,8 @@
                     ActionButton:
                         text: 'exit'
                         on_release: 
-                            #Factory.MyPopup().open()
-                            root.fermerBanc_schedule()  
+                            Factory.MyPopup().open()
+                            root.fermerBanc() 
                         
                                     
 
@@ -799,7 +799,7 @@
                 
                 allow_no_selection: False
                 on_press: root.graphOff()
-            
+
             ToggleButton:
                 text: 'normal'
                 pos_hint: {'center_x': .65, 'center_y':.35}
@@ -997,9 +997,6 @@
             #     on_release: Factory.MyPopup().open()
 
     
-
-
-
 <afficherParametres>:
     name: "afficherParametres"
     canvas.before:
@@ -1155,8 +1152,9 @@
                 text: 'Cycle 5 : '
                 font_size: "25dp"
                 pos: 90, -280
-            
-            
+
+
+
 
 
 
@@ -1455,16 +1453,13 @@
                 ActionPrevious:
                     title: 'Operating cycle Mode (ON/OFF) n°2'
                     with_previous: False
-                # ActionOverflow:
+                ActionOverflow:
                 # ActionButton:
                 #     text: ' '
                 #     icon: "images/parrotparrot.png"
                 ActionButton:
-                    text: 'Back'
-                    on_release: root.manager.current="setCycle1"
-                ActionButton:
                     text: 'Validation Cycle 2'
-                    on_release: root.validationCycle2()              
+                    on_release: root.validationCycle2()#root.manager.current = "setCourantMax"
 
         FloatLayout:
             Button:
@@ -1652,10 +1647,6 @@
                 # ActionButton:
                 #     text: ' '
                 #     icon: "images/parrotparrot.png"
-
-                ActionButton:
-                    text: 'Back'
-                    on_release: root.manager.current="setCycle2"
                 ActionButton:
                     text: 'Validation Cycle 3'
                     on_release: root.validationCycle3()#root.manager.current = "setCourantMax"
@@ -1841,9 +1832,6 @@
                 # ActionButton:
                 #     text: ' '
                 #     icon: "images/parrotparrot.png"
-                ActionButton:
-                    text: 'Back'
-                    on_release: root.manager.current="setCycle3"
                 ActionButton:
                     text: 'Validation Cycle 4'
                     on_release: root.validationCycle4()#root.manager.current = "setCourantMax"
@@ -2035,9 +2023,6 @@
                 # ActionButton:
                 #     text: ' '
                 #     icon: "images/parrotparrot.png"
-                ActionButton:
-                    text: 'Back'
-                    on_release: root.manager.current="setCycle4"
                 ActionButton:
                     text: 'Validation Cycle 5'
                     on_release: root.validationCycle5()#root.manager.current = "setCourantMax"
@@ -2369,22 +2354,7 @@
 #####################SCREEN Courant Max ##########################################
 ############################################################################
 <SetCourantMax>:
-    name: "setCourantMax" 
-    BoxLayout:
-        orientation: 'vertical'                      
-        ActionBar:
-            ActionView:
-                use_separator: True
-                ActionPrevious:
-                    title: 'Régler le courant Max'
-                    with_previous: False
-                ActionOverflow:
-                # ActionButton:
-                #     text: ' '
-                #     icon: "images/parrotparrot.png"
-                ActionButton:
-                    text: 'Validation Courant Max'
-                    on_release: root.manager.current = "setup2" 
+    name: "setCourantMax"  
     Label:
         id: label_text
         text: 'Max Current Per Unit'
@@ -2414,7 +2384,22 @@
             font_size: 30
             on_press: root.decrementCourantMax()
     
-
+    BoxLayout:
+        orientation: 'vertical'                      
+        ActionBar:
+            ActionView:
+                use_separator: True
+                ActionPrevious:
+                    title: 'Régler le courant Max'
+                    with_previous: False
+                ActionOverflow:
+                # ActionButton:
+                #     text: ' '
+                #     icon: "images/parrotparrot.png"
+                ActionButton:
+                    text: 'Validation Courant Max'
+                    color: (1,1,0,1)
+                    on_release: root.manager.current = "setup2"
 
 
 
