@@ -1305,7 +1305,10 @@ class Graph(Screen):
 
 
 
-
+class SaveOperatingMode(Screen):
+    def __init__(self, **kwargs):
+        super(SaveOperatingMode, self).__init__(**kwargs) 
+        
             
 class Apropos(Screen):
     pass
@@ -1452,12 +1455,7 @@ class afficherParametres(Screen):
 
         self.label_nb_rep_cycle5=Label(text="N/A5", font_size='25sp', size=(100, 50), pos=(330, -300))
         self.add_widget(self.label_nb_rep_cycle5)
-
-
-
-               
-
-
+            
         Logger.warning('test: test __init__')
 
     def refresh(self):
