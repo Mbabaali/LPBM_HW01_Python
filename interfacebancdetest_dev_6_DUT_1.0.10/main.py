@@ -621,15 +621,15 @@ class Voie1234(Screen):
 
                 if((passerelle.dut[0].A_mA<alarm_sleep_mA) and (passerelle.dut[1].A_mA<alarm_sleep_mA) and (passerelle.dut[2].A_mA<alarm_sleep_mA) and (passerelle.dut[3].A_mA<alarm_sleep_mA)
                 and (passerelle.dut[4].A_mA<alarm_sleep_mA) and (passerelle.dut[5].A_mA<alarm_sleep_mA)):
-                    Logger.warning('passerelle.dut[0].A_mA<alarm_sleep_mA')
+                    # Logger.warning('passerelle.dut[0].A_mA<alarm_sleep_mA')
                     timer_print=time.time()-passerelle.timer_delai_init
-                    Logger.warning('timer delai: {}'.format(timer_print) )
+                    # Logger.warning('timer delai: {}'.format(timer_print) )
                     passerelle.flag_seuil=True
                     #Si tous les Duts sont en dessous de la valeur de l'alarme, on active le flag seuil
 
                 if((a>25) and (statut=='0')):
                     passerelle.flag_seuil=True
-                    Logger.warning('delai depassé (25 secondes)')
+                    # Logger.warning('delai depassé (25 secondes)')
 
             if passerelle.flag_seuil==True and statut=='0':
                 #Logger.warning('On commence à verifier les valeurs pour l alarme off')
@@ -637,7 +637,7 @@ class Voie1234(Screen):
 
                 for i in passerelle.dut:
                      if(i.A_mA>alarm_sleep_mA):
-                        Logger.warning("alarme: seuil dépassé")
+                        # Logger.warning("alarme: seuil dépassé")
                         i.cptalarmeoff+=1
                         flag_cpt_off[passerelle.dut.index(i)]=True
 
@@ -683,11 +683,11 @@ class Voie1234(Screen):
                 for i in passerelle.dut:
                     if(i.A_mA>alarm_awake_mA):
                         i.cptalarmeon+=1
-                        Logger.warning('index : {}'.format(passerelle.dut.index(i)))
+                        # Logger.warning('index : {}'.format(passerelle.dut.index(i)))
                         flag_cpt_on[passerelle.dut.index(i)]=True
                 #         Logger.warning("Ecriture dans le fichier error i.A_mA>alarm_awake_mA")
 
-                Logger.warning("flag cpt_on : {}".format(flag_cpt_on))
+                # Logger.warning("flag cpt_on : {}".format(flag_cpt_on))
                 if(flag_cpt_on[0]==True):
                     self.cptalarmeon1.text=str(passerelle.dut[0].cptalarmeon)
                     # Logger.warning("maj : channel 1")
@@ -789,40 +789,22 @@ class Voie1234(Screen):
             #if flag_timer>=passerelle.f_acquisition :
                 #Si on a bien reçu une valeur pendat ce tour de boucle, et que la période correspond à celle voulu par l'user, alors on écrit dans les fichiers
             if flag_ecriture_fic==True and flag_timer>=passerelle.f_acquisition :
-                Logger.info('timer: ecriture dans les fichiers ')
+                # Logger.info('timer: ecriture dans les fichiers ')
                 for i in passerelle.dut :
                     if(statut == '0'):
-                        Logger.info('timer:  statut = 0')
+                        # Logger.info('timer:  statut = 0')
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Sleep"])), file=(i.fic))
-                        Logger.info('timer:  ifich ')
+                        # Logger.info('timer:  ifich ')
                         print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Sleep"])), file=(i.fic_err))
-                        Logger.info('timer:  ifich_Graph')
+                        # Logger.info('timer:  ifich_Graph')
                     if(statut == '1'):
-                        Logger.info('timer: statut = 1')
+                        # Logger.info('timer: statut = 1')
                         print((";".join([date, str(i.A_mA).replace('.' ,','), "mA", str(i.W_mA).replace('.' ,','), "mW","Awake"])),  file=(i.fic))
-                        Logger.warning('timer: ifich ')
+                        # Logger.warning('timer: ifich ')
                         print((";".join([date, str(i.A_mA), "mA", str(i.W_mA), "mW","Awake"])), file=(i.fic_err))
-                        Logger.info('timer: ifich_graph ')
+                        # Logger.info('timer: ifich_graph ')
                 passerelle.timer_acquisition=time.time()
-                Logger.info('timer: fin de la boucle for i in passerelle.dut :')
 
-
-           
-
-            # if(passerelle.update_alarm == 1):           
-            #     self.alarmeon1.text = (str(passerelle.alarm_awake)+" A")
-            #     self.alarmeoff1.text = (str(passerelle.alarm_sleep)+" µA")
-            #     self.alarmeon2.text = (str(passerelle.alarm_awake)+" A")
-            #     self.alarmeoff2.text = (str(passerelle.alarm_sleep)+" µA")
-            #     self.alarmeon3.text = (str(passerelle.alarm_awake)+" A")
-            #     self.alarmeoff3.text = (str(passerelle.alarm_sleep)+" µA")
-            #     self.alarmeon4.text = (str(passerelle.alarm_awake)+" A")
-            #     self.alarmeoff4.text = (str(passerelle.alarm_sleep)+" µA")
-            #     self.alarmeon5.text = (str(passerelle.alarm_awake)+" A")
-            #     self.alarmeoff5.text = (str(passerelle.alarm_sleep)+" µA")
-            #     self.alarmeon6.text = (str(passerelle.alarm_awake)+" A")
-            #     self.alarmeoff6.text = (str(passerelle.alarm_sleep)+" µA")
-            #     passerelle.update_alarm = 0
 
             if(statut=='0'):
 
@@ -1025,69 +1007,40 @@ class Voie1234(Screen):
 
         Logger.warning('startacq: amperage_max  : {}'.format(amperage_max_list))
         
-        #envoi de la trame
-        #arduino1.write(str("s"))
+        
         trame_bus=''
         trame_bus+='s'
-        #Logger.warning("bus: s")
 
         for chiffre in time_awake_list_1:
-            #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
 
         for chiffre in time_sleep_list_1:
-            #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
 
         for chiffre in time_awake_list_2:
-            #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
 
         for chiffre in time_sleep_list_2:
-            #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
 
         for chiffre in time_awake_list_3:
-            #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
 
         for chiffre in time_sleep_list_3:
-            #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
         
         for chiffre in time_awake_list_4:
-            #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
 
         for chiffre in time_sleep_list_4:
-            #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
 
         for chiffre in time_awake_list_5:
-            #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
 
         for chiffre in time_sleep_list_5:
-            #arduino1.write(str(chiffre))
             trame_bus+=str(chiffre)
-            #Logger.warning('bus: {}'.format(chiffre))
 
-        # for chiffre in f_acquisition_list:
-        #     #arduino1.write(str(chiffre))
-        #     trame_bus+=str(chiffre)
-        #     #Logger.warning('bus: {}'.format(chiffre))
-
-
-        #arduino1.write(str(passerelle.etat_start))
         trame_bus+=str(passerelle.etat_start)
         Logger.warning('bus: {}'.format(passerelle.etat_start))
 
