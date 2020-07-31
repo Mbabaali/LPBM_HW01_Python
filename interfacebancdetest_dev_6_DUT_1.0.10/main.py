@@ -881,19 +881,6 @@ class Voie1234(Screen):
         passerelle.flag_delai=False
         passerelle.timer_delai_init=0
 
-        out1.open()
-        out2.open()
-        out3.open()
-        out4.open()
-        out55.open()
-        out66.open()
-
-        out5.open()
-        out6.open()
-        out7.open()
-        out8.open()
-        out555.open()
-        out666.open()
 
         passerelle.cycle1.time_awake=passerelle.cycle1.time_awake_s+passerelle.cycle1.time_awake_m*60+passerelle.cycle1.time_awake_h*3600
         passerelle.cycle1.time_sleep=passerelle.cycle1.time_sleep_s+passerelle.cycle1.time_sleep_m*60+passerelle.cycle1.time_sleep_h*3600
