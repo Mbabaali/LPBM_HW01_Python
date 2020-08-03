@@ -881,24 +881,7 @@ class Voie1234(Screen):
         passerelle.flag_delai=False
         passerelle.timer_delai_init=0
 
-        # try :   
-        #     out1 = open(chemin1, 'w')
-        #     out2 = open(chemin2, 'w')
-        #     out3 = open(chemin3, 'w')
-        #     out4 = open(chemin4, 'w')
-        #     out55= open(chemin55, 'w')
-        #     out66= open(chemin66, 'w')
 
-        #     out5   = open(chemin5, 'w')
-        #     out6   = open(chemin6, 'w')
-        #     out7   = open(chemin7, 'w')
-        #     out8   = open(chemin8, 'w')
-        #     out555 = open(chemin555, 'w')
-        #     out666 = open(chemin666, 'w')
-    
-        #     Logger.info('ouverture fichier: fichier ouvert')
-        # except IOError :
-        #     Logger.warning('ouverture fichier: impossible d\'ouvrir les fichiers')  
 
 
         passerelle.cycle1.time_awake=passerelle.cycle1.time_awake_s+passerelle.cycle1.time_awake_m*60+passerelle.cycle1.time_awake_h*3600
@@ -1134,20 +1117,6 @@ class Voie1234(Screen):
         self.rect_dut_4.source = "images/ledred.png"
         self.rect_dut_5.source = "images/ledred.png"
         self.rect_dut_6.source = "images/ledred.png"
-
-        out1.close()
-        out2.close()
-        out3.close()
-        out4.close()
-        out55.close()
-        out66.close()
-
-        out5.close()
-        out6.close()
-        out7.close()
-        out8.close()
-        out555.close()
-        out666.close()
 
 
         self.courant1.text = "0  A"
