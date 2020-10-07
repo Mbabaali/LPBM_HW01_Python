@@ -24,10 +24,18 @@ from kivy.uix.textinput import TextInput
   
 # This layout allows you to set relative coordinates for children.  
 from kivy.uix.relativelayout import RelativeLayout 
+
+# VKeyboard is an onscreen keyboard 
+# for Kivy. Its operation is intended 
+# to be transparent to the user.  
+from kivy.uix.vkeyboard import VKeyboard 
   
 # Create the widget class 
 class textinp(Widget): 
     pass
+
+class Test(VKeyboard): 
+    player = VKeyboard() 
   
 # Create the app class 
 class MainApp(App): 
