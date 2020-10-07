@@ -6,7 +6,6 @@ from kivy.uix.vkeyboard import VKeyboard
 from kivy.uix.textinput import TextInput
 import os
 
-from connected import Connected
 
 class Login(Screen):
     def do_login(self, loginText, passwordText):
