@@ -1,53 +1,24 @@
-from kivy.app import App
-from kivy.properties import StringProperty
-from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
-from kivy.core.window import Window
-from kivy.uix.vkeyboard import VKeyboard
-from kivy.uix.textinput import TextInput
-import os
-
-
-class Login(Screen):
-    def do_login(self, loginText, passwordText):
-        app = App.get_running_app()
-
-        app.username = loginText
-        app.password = passwordText
-
-        self.manager.transition = SlideTransition(direction="left")
-
-        app.config.read(app.get_application_config())
-        app.config.write()
-
-    def resetForm(self):
-        self.ids['login'].text = ""
-        self.ids['password'].text = ""
-
-class LoginApp(App):
-    username = StringProperty(None)
-    password = StringProperty(None)
-
-    def build(self):
-        manager = ScreenManager()
-
-        manager.add_widget(Login(name='login'))
-
-        return manager
-
-    def get_application_config(self):
-        if(not self.username):
-            return super(LoginApp, self).get_application_config()
-
-        conf_directory = self.user_data_dir + '/' + self.username
-
-        if(not os.path.exists(conf_directory)):
-            os.makedirs(conf_directory)
-
-        return super(LoginApp, self).get_application_config(
-            '%s/config.cfg' % (conf_directory)
-        )
-
-
-
-if __name__ == '__main__':
-    LoginApp().run()
+# import kivy module   
+import kivy   
+           
+# base Class of your App inherits from the App class.   
+# app:always refers to the instance of your application   
+from kivy.app import App 
+  
+# VKeyboard is an onscreen keyboard 
+# for Kivy. Its operation is intended 
+# to be transparent to the user.  
+from kivy.uix.vkeyboard import VKeyboard 
+  
+# Create the vkeyboard 
+class Test(VKeyboard): 
+    player = VKeyboard() 
+  
+# Create the App class 
+class VkeyboardApp(App): 
+    def build(self): 
+        return Test() 
+  
+# run the App 
+if __name__ == '__main__': 
+    VkeyboardApp().run()
