@@ -3,6 +3,7 @@ from kivy.core.window import Window
 from kivy.uix.vkeyboard import VKeyboard
 from kivy.animation import Animation
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.app import App
 
 class KeyboardA(VKeyboard):
     def place(self):
