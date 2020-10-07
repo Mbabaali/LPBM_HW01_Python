@@ -1,24 +1,35 @@
-# import kivy module   
-import kivy   
-           
-# base Class of your App inherits from the App class.   
-# app:always refers to the instance of your application   
-from kivy.app import App 
-  
-# VKeyboard is an onscreen keyboard 
-# for Kivy. Its operation is intended 
-# to be transparent to the user.  
-from kivy.uix.vkeyboard import VKeyboard 
-  
-# Create the vkeyboard 
-class Test(VKeyboard): 
-    player = VKeyboard() 
-  
-# Create the App class 
-class VkeyboardApp(App): 
-    def build(self): 
-        return Test() 
-  
-# run the App 
-if __name__ == '__main__': 
-    VkeyboardApp().run()
+
+from kivy.core.window import Window
+from kivy.uix.vkeyboard import VKeyboard
+from kivy.animation import Animation
+from kivy.uix.screenmanager import ScreenManager, Screen
+
+class KeyboardA(VKeyboard):
+    def place(self):
+        self.center_x = Window.center_x
+        self.top = 0
+        Animation(y=100, t='out_elastic', d=.4).start(self)
+
+class KeyboardB(VKeyboard):
+     def place(self):
+        self.opacity = 0
+        Animation(opacity=1).start(self)
+
+class MyApp(App):
+     def build(self):
+         sm = ScreenManger()
+         sm.add_widget(Screen(name='a'))
+         sm.add_widget(Screen(name='b'))
+         return sm
+
+     def get_keyboard(self, **kwargs):
+         if self.root.current == 'a':
+             kb = KeyboardA(**kwargs)
+
+         else:
+             kb = KeyboardB(**kwargs)
+
+         kb.place()
+         return kb
+
+Window.set_vkeyboard_class(app.get_keyboard)
