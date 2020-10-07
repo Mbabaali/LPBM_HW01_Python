@@ -35,6 +35,9 @@ from kivy.uix.textinput import TextInput
 # is one on top of another or in 
 # horizontal fashion that is one after another. 
 from kivy.uix.boxlayout import BoxLayout 
+from kivy.config import Config
+
+Config.set('kivy', 'keyboard_mode', 'systemandmulti')
   
 # Create the App class 
 class TutorialApp(App): 
