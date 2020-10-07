@@ -15,7 +15,6 @@ class Login(Screen):
         app.password = passwordText
 
         self.manager.transition = SlideTransition(direction="left")
-        self.manager.current = 'connected'
 
         app.config.read(app.get_application_config())
         app.config.write()
@@ -32,7 +31,6 @@ class LoginApp(App):
         manager = ScreenManager()
 
         manager.add_widget(Login(name='login'))
-        manager.add_widget(Connected(name='connected'))
 
         return manager
 
