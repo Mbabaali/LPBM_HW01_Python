@@ -1,36 +1,74 @@
-import kivy
-from kivy.app import App
-from kivy.core.window import Window
-from kivy.uix.vkeyboard import VKeyboard
-from kivy.animation import Animation
-from kivy.uix.screenmanager import ScreenManager, Screen
-
-class KeyboardA(VKeyboard):
-    def place(self):
-        self.center_x = Window.center_x
-        self.top = 0
-        Animation(y=100, t='out_elastic', d=.4).start(self)
-
-class KeyboardB(VKeyboard):
-     def place(self):
-        self.opacity = 0
-        Animation(opacity=1).start(self)
-
-class MyApp(App):
-     def build(self):
-         sm = ScreenManger()
-         sm.add_widget(Screen(name='a'))
-         sm.add_widget(Screen(name='b'))
-         return sm
-
-     def get_keyboard(self, **kwargs):
-         if self.root.current == 'a':
-             kb = KeyboardA(**kwargs)
-
-         else:
-             kb = KeyboardB(**kwargs)
-
-         kb.place()
-         return kb
-
-Window.set_vkeyboard_class(MyApp.get_keyboard)
+# Program to Show how to use textinput (UX widget) in kivy  
+  
+# import kivy module     
+import kivy   
+       
+# base Class of your App inherits from the App class.     
+# app:always refers to the instance of your application    
+from kivy.app import App  
+     
+# this restrict the kivy version i.e   
+# below this kivy version you cannot   
+# use the app or software   
+kivy.require('1.9.0')  
+    
+# The Label widget is for rendering text.   
+from kivy.uix.label import Label  
+    
+# module consist the floatlayout   
+# to work with FloatLayout first   
+# you have to import it   
+from kivy.uix.floatlayout import FloatLayout  
+  
+# Scatter is used to build interactive 
+# widgets that can be translated, 
+# rotated and scaled with two or more 
+# fingers on a multitouch system. 
+from kivy.uix.scatter import Scatter 
+  
+# The TextInput widget provides a 
+# box for editable plain text 
+from kivy.uix.textinput import TextInput 
+  
+# BoxLayout arranges widgets in either 
+# in vertical fashion that 
+# is one on top of another or in 
+# horizontal fashion that is one after another. 
+from kivy.uix.boxlayout import BoxLayout 
+  
+# Create the App class 
+class TutorialApp(App): 
+      
+    def build(self): 
+  
+        b = BoxLayout(orientation ='vertical') 
+  
+        # Adding the text input 
+        t = TextInput(font_size = 50, 
+                      size_hint_y = None, 
+                      height = 100) 
+          
+        f = FloatLayout() 
+  
+        # By this you are abel to move the 
+        # Text on the screen to anywhere you want 
+        s = Scatter() 
+  
+        l = Label(text ="Hello !", 
+                  font_size = 50) 
+  
+        f.add_widget(s) 
+        s.add_widget(l) 
+  
+        b.add_widget(t) 
+        b.add_widget(f) 
+  
+        # Binding it with the label 
+        t.bind(text = l.setter('text')) 
+  
+          
+        return b 
+  
+# Run the App 
+if __name__ == "__main__": 
+    TutorialApp().run() 
