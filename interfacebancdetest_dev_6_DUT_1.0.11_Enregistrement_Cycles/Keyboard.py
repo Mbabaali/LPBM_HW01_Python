@@ -1,35 +1,28 @@
-from kivy.core.window import Window
-from kivy.uix.vkeyboard import VKeyboard
-from kivy.animation import Animation
-from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.app import App
+from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition, SlideTransition, NoTransition
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.actionbar import ActionBar
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.gridlayout import GridLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
+from kivy.core.window import Window
+from kivy.core.image import Image
+from kivy.graphics import Color, Rectangle
+from kivy.uix.label import Label
+from kivy.graphics import Line
+from kivy.clock import Clock
+from kivy.uix.widget import Widget
+from kivy.logger import Logger
+from kivy.uix.popup import Popup
 
-class KeyboardA(VKeyboard):
-    def place(self):
-        self.center_x = Window.center_x
-        self.top = 0
-        Animation(y=100, t='out_elastic', d=.4).start(self)
+from kivy.uix.vkeyboard import VKeyboard
+from kivy.uix.textinput import TextInput
 
-class KeyboardB(VKeyboard):
-     def place(self):
-        self.opacity = 0
-        Animation(opacity=1).start(self)
 
-class MyApp(App):
-     def build(self):
-         sm = ScreenManger()
-         sm.add_widget(Screen(name='a'))
-         sm.add_widget(Screen(name='b'))
-         return sm
 
-     def get_keyboard(self, **kwargs):
-         if self.root.current == 'a':
-             kb = KeyboardA(**kwargs)
+from kivy.event import EventDispatcher
 
-         else:
-             kb = KeyboardB(**kwargs)
-
-         kb.place()
-         return kb
-
-Window.set_vkeyboard_class(app.get_keyboard)
+from kivy.properties import ObjectProperty
+from kivy.properties import NumericProperty
+from kivy.properties import StringProperty 
