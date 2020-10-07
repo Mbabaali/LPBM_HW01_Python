@@ -34,19 +34,21 @@ from kivy.uix.vkeyboard import VKeyboard
 class textinp(Widget): 
     pass
 
-class Test(VKeyboard): 
+# Create the vkeyboard 
+class Keyboard(VKeyboard): 
     player = VKeyboard() 
 
 # Create the App class 
 class VkeyboardApp(App): 
     def build(self): 
-        return Test() 
+        return Keyboard() 
   
 # Create the app class 
 class MainApp(App): 
   
     # Building text input 
     def build(self): 
+        textinp = Keyboard()
         return textinp() 
   
     # Arranging that what you write will be shown to you 
@@ -58,4 +60,3 @@ class MainApp(App):
 # Run the App 
 if __name__ == "__main__": 
     MainApp().run() 
-    VkeyboardApp().run()
