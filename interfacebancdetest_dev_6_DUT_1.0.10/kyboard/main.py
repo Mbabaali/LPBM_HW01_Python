@@ -36,6 +36,11 @@ class textinp(Widget):
 
 class Test(VKeyboard): 
     player = VKeyboard() 
+
+# Create the App class 
+class VkeyboardApp(App): 
+    def build(self): 
+        return Test() 
   
 # Create the app class 
 class MainApp(App): 
@@ -53,3 +58,4 @@ class MainApp(App):
 # Run the App 
 if __name__ == "__main__": 
     MainApp().run() 
+    VkeyboardApp().run()
