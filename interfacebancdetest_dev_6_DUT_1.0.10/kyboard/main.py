@@ -7,48 +7,27 @@ import kivy
 # base Class of your App inherits from the App class.     
 # app:always refers to the instance of your application    
 from kivy.app import App  
-     
-# this restrict the kivy version i.e   
-# below this kivy version you cannot   
-# use the app or software   
-kivy.require('1.9.0') 
-  
-# Widgets are elements 
-# of a graphical user interface 
-# that form part of the User Experience. 
+
+from kivy.uix.vkeyboard import VKeyboard 
 from kivy.uix.widget import Widget 
-  
-# The TextInput widget provides a 
-# box for editable plain text 
-from kivy.uix.textinput import TextInput 
-  
-# This layout allows you to set relative coordinates for children.  
+from kivy.uix.textinput import TextInput  
 from kivy.uix.relativelayout import RelativeLayout 
 
-# VKeyboard is an onscreen keyboard 
-# for Kivy. Its operation is intended 
-# to be transparent to the user.  
-from kivy.uix.vkeyboard import VKeyboard 
+keyboard = Window.request_keyboard(
+    self._keyboard_close, self)
+if keyboard.widget:
+    vkeyboard = self._keyboard.widget
+    vkeyboard.layout = 'numeric.json'
   
 # Create the widget class 
 class textinp(Widget): 
     pass
-
-# Create the vkeyboard 
-class Keyboard(VKeyboard): 
-    player = VKeyboard() 
-
-# Create the App class 
-class VkeyboardApp(App): 
-    def build(self): 
-        return Keyboard() 
   
 # Create the app class 
 class MainApp(App): 
   
     # Building text input 
     def build(self): 
-        textinp = Keyboard()
         return textinp() 
   
     # Arranging that what you write will be shown to you 
