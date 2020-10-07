@@ -21,10 +21,16 @@ from kivy.uix.widget import Widget
 from kivy.logger import Logger
 from kivy.uix.popup import Popup
 
+from kivy.uix.vkeyboard import VKeyboard
+from kivy.uix.textinput import TextInput
+
+
+
 from kivy.event import EventDispatcher
 
 from kivy.properties import ObjectProperty
 from kivy.properties import NumericProperty
+from kivy.properties import StringProperty 
 
 import glob,os
 import serial
@@ -37,6 +43,7 @@ import signal
 import inspect
 import GenGraph
 from multiprocessing import Process
+from connected import Connected
 
 global alarmawake
 
@@ -2551,6 +2558,47 @@ class SetNombreDeCycle(Screen):
             
 class RootScreen(ScreenManager):
     pass
+
+
+class SaveOperatingMode(Screen):
+    def do_login(self, nameOperatingCycle):
+        app = App.get_running_app()
+
+        app.username = nameOperatingCycle
+
+        self.manager.transition = SlideTransition(direction="left")
+        self.manager.current = 'connected'
+
+        app.config.read(app.get_application_config())
+        app.config.write()
+
+    def resetForm(self):
+        self.ids['login'].text = ""
+
+
+class LoginApp(App):
+    username = StringProperty(None)
+
+    def build(self):
+        manager = ScreenManager()
+
+        manager.add_widget(Login(name='login'))
+        manager.add_widget(Connected(name='connected'))
+
+        return manager
+
+    def get_application_config(self):
+        if(not self.username):
+            return super(LoginApp, self).get_application_config()
+
+        conf_directory = self.user_data_dir + '/' + self.username
+
+        if(not os.path.exists(conf_directory)):
+            os.makedirs(conf_directory)
+
+        return super(LoginApp, self).get_application_config(
+            '%s/config.cfg' % (conf_directory)
+        )
 
 
 
