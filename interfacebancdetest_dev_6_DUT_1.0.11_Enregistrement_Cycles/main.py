@@ -29,7 +29,7 @@ from kivy.event import EventDispatcher
 from kivy.base import runTouchApp
 from kivy.lang import Builder
 
-runTouchApp(Builder.load_string('TextInput:'))
+
 
 from kivy.properties import ObjectProperty
 from kivy.properties import NumericProperty
