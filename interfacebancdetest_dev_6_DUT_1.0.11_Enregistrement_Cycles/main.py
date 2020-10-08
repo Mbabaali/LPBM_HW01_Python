@@ -2600,10 +2600,10 @@ class Keyboard1(VKeyboard):
 
 class SaveCycle(Screen):
     cycles_name = ObjectProperty(None)
-    Config.set('kivy', 'keyboard_mode', 'systemandmulti')
 
     def build(self):
-        return Keyboard1()
+        Keyboard2 = Keyboard1()
+        return Keyboard2()
 
     def reset(self):
         self.cycles_name.text = ""
