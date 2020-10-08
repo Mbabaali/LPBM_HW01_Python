@@ -2602,9 +2602,9 @@ class SaveCycle(Screen):
     cycles_name = ObjectProperty(None)
     Config.set('kivy', 'keyboard_mode', 'systemandmulti')
 
-    def return_keyboard(self):
+    def build(self):
         return Keyboard1()
-        
+
     def reset(self):
         self.cycles_name.text = ""
 
