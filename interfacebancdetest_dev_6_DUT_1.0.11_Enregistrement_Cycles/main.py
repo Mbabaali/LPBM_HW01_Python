@@ -2596,18 +2596,12 @@ class SetNombreDeCycle(Screen):
 
 class Keyboard1(VKeyboard): 
     player = VKeyboard()
-    Keyboard1 = Window.request_keyboard(
-        self._keyboard_close, self)
-
-    if keyboard.widget:
-        vkeyboard = self._keyboard.widget
-        vkeyboard.layout = 'numeric.json'
 
 
 
 class SaveCycle(Screen):
     cycles_name = ObjectProperty(None)
-    
+    Keyboard1().callback()
 
     def reset(self):
         self.cycles_name.text = ""
