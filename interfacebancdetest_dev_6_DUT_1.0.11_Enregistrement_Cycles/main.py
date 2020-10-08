@@ -2601,10 +2601,6 @@ class Keyboard1(VKeyboard):
 class SaveCycle(Screen):
     cycles_name = ObjectProperty(None)
 
-    def build(self):
-        Keyboard2 = Keyboard1()
-        return Keyboard2()
-
     def reset(self):
         self.cycles_name.text = ""
 
