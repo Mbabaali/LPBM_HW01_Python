@@ -21,6 +21,8 @@ from kivy.uix.widget import Widget
 from kivy.logger import Logger
 from kivy.uix.popup import Popup
 
+from kivy.config import Config
+
 from kivy.event import EventDispatcher
 
 from kivy.properties import ObjectProperty
