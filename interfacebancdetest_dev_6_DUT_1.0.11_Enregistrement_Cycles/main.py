@@ -2594,7 +2594,7 @@ class SetNombreDeCycle(Screen):
 
 class SaveCycle(Screen):
     cycles_name = ObjectProperty(None)
-
+    Config.set('kivy', 'keyboard_mode', 'systemandmulti')
 
     def reset(self):
         self.cycles_name.text = ""
