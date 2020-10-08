@@ -43,7 +43,7 @@ from multiprocessing import Process
 global alarmawake
 
 # On défini le clavier comme étant le clavier virtuel
-Config.set('kivy', 'keyboard_mode', 'systemandmulti')
+Config.set('kivy', 'keyboard_mode', 'multi')
 
 
 date = str(datetime.now())
@@ -2611,7 +2611,7 @@ class SaveCycle(Screen):
     def reset(self):
         self.email.text = ""
         self.password.text = ""
-        
+
 
 class RootScreen(ScreenManager):
     pass
