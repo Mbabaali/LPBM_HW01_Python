@@ -20,6 +20,7 @@ from kivy.clock import Clock
 from kivy.uix.widget import Widget
 from kivy.logger import Logger
 from kivy.uix.popup import Popup
+from kivy.uix.vkeyboard import VKeyboard
 
 from kivy.config import Config
 
@@ -2592,10 +2593,18 @@ class SetNombreDeCycle(Screen):
             passerelle.update_nobmre_de_cycle = 1
 
 
+
+class Keyboard1(VKeyboard): 
+    player = VKeyboard()
+
+
 class SaveCycle(Screen):
     cycles_name = ObjectProperty(None)
     Config.set('kivy', 'keyboard_mode', 'systemandmulti')
 
+    def return_keyboard(self):
+        return Keyboard1()
+        
     def reset(self):
         self.cycles_name.text = ""
 
