@@ -2,22 +2,13 @@
   
 # import kivy module     
 import kivy   
-       
-# base Class of your App inherits from the App class.     
-# app:always refers to the instance of your application    
 from kivy.app import App  
-
-kivy.require('1.9.0')  
- 
 from kivy.uix.label import Label  
-    
-
 from kivy.uix.floatlayout import FloatLayout  
-  
 from kivy.uix.scatter import Scatter 
 from kivy.uix.textinput import TextInput 
-  
 from kivy.uix.boxlayout import BoxLayout 
+from kivy.uix.vkeyboard import VKeyboard 
 from kivy.config import Config
 
 Config.set('kivy', 'keyboard_mode', 'systemandmulti')
