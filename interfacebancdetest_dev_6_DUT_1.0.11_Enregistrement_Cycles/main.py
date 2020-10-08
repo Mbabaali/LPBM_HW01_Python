@@ -2593,24 +2593,11 @@ class SetNombreDeCycle(Screen):
 
 
 class SaveCycle(Screen):
-    email = ObjectProperty(None)
-    password = ObjectProperty(None)
-
-    def loginBtn(self):
-        if db.validate(self.email.text, self.password.text):
-            MainWindow.current = self.email.text
-            self.reset()
-            sm.current = "main"
-        else:
-            invalidLogin()
-
-    def createBtn(self):
-        self.reset()
-        sm.current = "create"
+    cycles_name = ObjectProperty(None)
+    
 
     def reset(self):
-        self.email.text = ""
-        self.password.text = ""
+        self.cycles_name.text = ""
 
 
 class RootScreen(ScreenManager):

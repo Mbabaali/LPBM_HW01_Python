@@ -2470,7 +2470,7 @@
 
 <SaveCycle>:
     name: "saveCycle"
-    email: email
+    cycles_name: cycles_name
 
     FloatLayout:
 
@@ -2481,21 +2481,12 @@
             pos_hint: {'center_x': 0.15, 'center_y':0.7}
 
         TextInput:
-            id: email
+            id: cycles_name
             multiline: False
             font_size: "35dp"
             size_hint: 0.7, 0.063
             pos_hint: {'x': 0.28, 'y':0.67}
 
-
-        Button:
-            text: "Save"
-            font_size: "35dp"
-            size_hint: .06, 0.1
-            pos_hint:{"center_x":0.1,"center_y":0.05}
-            # on_release:
-            #     root.manager.transition.direction = "up"
-            #     root.loginBtn()
 
         # Button:
         #     pos_hint:{"x":0.3,"y":0.3}
