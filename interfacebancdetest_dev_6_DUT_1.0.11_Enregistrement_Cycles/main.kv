@@ -2478,21 +2478,21 @@
             text:"Operation Name: "
             font_size: "35dp"
             size_hint: 0.06, 0.1
-            pos_hint: {'center_x': 0.24, 'center_y':0.8}
+            pos_hint: {'center_x': 0.15, 'center_y':0.7}
 
         TextInput:
             id: email
             multiline: False
             font_size: "35dp"
-            size_hint: 0.06, 0.3
-            pos_hint: {'center_x': 0.54, 'center_y':0.5}
+            size_hint: 0.2, 0.063
+            pos_hint: {'center_x': 0.54, 'center_y':0.7}
 
 
         Button:
-            pos_hint:{"x":0.2,"y":0.05}
+            text: "Save"
+            font_size: "35dp"
             size_hint: 0.6, 0.2
-            font_size: (root.width**2 + root.height**2) / 13**4
-            text: "Login"
+            pos_hint:{"x":0.2,"y":0.05}
             # on_release:
             #     root.manager.transition.direction = "up"
             #     root.loginBtn()
