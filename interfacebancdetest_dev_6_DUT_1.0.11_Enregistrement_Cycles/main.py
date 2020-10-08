@@ -2601,7 +2601,7 @@ class Keyboard1(VKeyboard):
 
 class SaveCycle(Screen):
     cycles_name = ObjectProperty(None)
-    Keyboard1().callback()
+    Keyboard1().player.callback()
 
     def reset(self):
         self.cycles_name.text = ""
