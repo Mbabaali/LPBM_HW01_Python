@@ -2598,9 +2598,15 @@ class Keyboard1(VKeyboard):
     player = VKeyboard()
 
 
+class VkeyboardApp(App): 
+    def build(self): 
+        return Keyboard1() 
+
+
 class SaveCycle(Screen):
     cycles_name = ObjectProperty(None)
-
+    VkeyboardApp().run() 
+    
     def reset(self):
         self.cycles_name.text = ""
 
