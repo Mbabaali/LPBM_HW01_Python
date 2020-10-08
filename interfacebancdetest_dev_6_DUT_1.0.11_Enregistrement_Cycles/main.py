@@ -49,7 +49,7 @@ from multiprocessing import Process
 global alarmawake
 
 # On défini le clavier comme étant le clavier virtuel
-Config.set('kivy', 'keyboard_mode', 'systemandmulti')
+Config.set('kivy', 'keyboard_mode', 'systemanddock')
 
 
 date = str(datetime.now())
