@@ -2592,12 +2592,6 @@ class SetNombreDeCycle(Screen):
             passerelle.update_nobmre_de_cycle = 1
 
 
-
-
-class RootScreen(ScreenManager):
-    pass
-
-
 class SaveCycle(Screen):
     email = ObjectProperty(None)
     password = ObjectProperty(None)
@@ -2617,6 +2611,13 @@ class SaveCycle(Screen):
     def reset(self):
         self.email.text = ""
         self.password.text = ""
+        
+
+class RootScreen(ScreenManager):
+    pass
+
+
+
 
 
 class MainApp(App):
