@@ -2621,7 +2621,7 @@ class SaveCycle(Screen):
         app.config.read(app.get_application_config())
         app.config.write()
 
-        cycles_saved.append(loginText)
+        passerelle.cycles_saved.append(loginText)
 
     def resetForm(self):
         self.ids['login'].text = ""
