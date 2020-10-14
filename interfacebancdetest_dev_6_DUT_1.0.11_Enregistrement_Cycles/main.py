@@ -2606,7 +2606,9 @@ class Keyboard1(VKeyboard):
 
 class SaveCycle(Screen):
     cycles_name = ObjectProperty(None)
-    VKeyboard.docked = False
+    Keyboard1.docked = False
+
+    Logger.warning('Keyboard1.docked = False')
 
     def reset(self):
         self.cycles_name.text = ""
