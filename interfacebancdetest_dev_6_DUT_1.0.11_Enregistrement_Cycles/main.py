@@ -2625,11 +2625,7 @@ class SaveCycle(Screen):
 
         Logger.warning('passerelle.cycles_saved.append(loginText)')
         
-
-        for k in range(0, len(passerelle.cycles_saved)):
-            Logger.info('len(passerelle.cycles_saved): {}'.format(len(passerelle.cycles_saved)))
-            Logger.info('Cycles saved: {} '.format(passerelle.cycles_saved[k]))
-            Logger.info('k = {}'.format(k))
+        Logger.info('Cycles saved: {} '.format(passerelle.cycles_saved))
 
     def resetForm(self):
         self.ids['login'].text = ""
