@@ -333,6 +333,8 @@ class passerelle(Screen):
     dut.append(Dut(out4, out8))
     dut.append(Dut(out55, out555))
     dut.append(Dut(out66, out666))
+
+    cycles_saved = []
     # uA1=0
     # uW1=0
     # uA2=0
@@ -2610,8 +2612,19 @@ class SaveCycle(Screen):
 
     Logger.warning('Keyboard1.docked = False')
 
-    def build(self):
-        return Keyboard1()
+    def do_login(self, loginText):
+        app = App.get_running_app()
+
+        app.username = loginText
+        self.manager.current = 'saveCycle'
+
+        app.config.read(app.get_application_config())
+        app.config.write()
+
+        cycles_saved.append(loginText)
+
+    def resetForm(self):
+        self.ids['login'].text = ""
 
     def reset(self):
         self.cycles_name.text = ""

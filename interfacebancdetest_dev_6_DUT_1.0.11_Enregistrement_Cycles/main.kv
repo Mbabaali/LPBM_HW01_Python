@@ -2470,7 +2470,6 @@
 
 <SaveCycle>:
     name: "saveCycle"
-    cycles_name: cycles_name
 
     FloatLayout:
 
@@ -2481,7 +2480,7 @@
             pos_hint: {'center_x': 0.15, 'center_y':0.7}
 
         TextInput:
-            id: cycles_name
+            id: loginText
             multiline: True
             font_size: "35dp"
             size_hint: 0.7, 0.126
@@ -2491,14 +2490,12 @@
             
 
 
-        # Button:
-        #     pos_hint:{"x":0.3,"y":0.3}
-        #     size_hint: 0.4, 0.1
-        #     font_size: (root.width**2 + root.height**2) / 17**4
-        #     text: "Don't have an Account? Create One"
-        #     on_release:
-        #         root.manager.transition.direction = "right"
-        #         root.createBtn()
+        Button:
+            text: '-'
+            size_hint: 0.06, 0.1
+            pos_hint: {'center_x': 0.40, 'center_y':0.5}
+            font_size: 30
+            on_press: root.do_login(loginText)
 
 
 
