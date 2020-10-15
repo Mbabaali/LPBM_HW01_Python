@@ -1,6 +1,8 @@
 from kivy.app import App
 from kivy.properties import StringProperty
+from kivy.core.window import Window
 from kivy.config import Config
+from kivy.uix.scatter import Scatter
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
 import os
 
