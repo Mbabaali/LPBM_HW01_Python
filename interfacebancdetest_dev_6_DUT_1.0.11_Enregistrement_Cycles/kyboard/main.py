@@ -5,6 +5,8 @@ import os
 
 from connected import Connected
 
+Config.set('kivy', 'keyboard_mode', 'systemandmulti')
+
 class Login(Screen):
     def do_login(self, loginText, passwordText):
         app = App.get_running_app()

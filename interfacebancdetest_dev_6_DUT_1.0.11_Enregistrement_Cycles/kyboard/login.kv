@@ -1,43 +1,28 @@
 #:include connected.kv
 
 <Login>:
-    BoxLayout
+    BoxLayout:
         id: login_layout
         orientation: 'vertical'
         padding: [10,50,10,50]
         spacing: 50
 
-        Label:
-            text: 'Welcome'
-            font_size: 32
 
         BoxLayout:
             orientation: 'vertical'
 
             Label:
                 text: 'Login'
-                font_size: 18
-                halign: 'left'
-                text_size: root.width-20, 20
+                font_size: "35dp"
+                size_hint: 0.06, 0.1
+                pos_hint: {'center_x': 0.15, 'center_y':0.7}
 
             TextInput:
                 id: login
-                multiline:False
-                font_size: 28
-
-        BoxLayout:
-            orientation: 'vertical'
-            Label:
-                text: 'Password'
-                halign: 'left'
-                font_size: 18
-                text_size: root.width-20, 20
-
-            TextInput:
-                id: password
-                multiline:False
-                password:True
-                font_size: 28
+                multiline: True
+                font_size: "35dp"
+                size_hint: 0.7, 0.126
+                pos_hint: {'x': 0.28, 'y':0.64}
 
         Button:
             text: 'Connexion'
