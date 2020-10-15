@@ -1,31 +1,23 @@
-#:include connected.kv
-
 <Login>:
     BoxLayout:
-        id: login_layout
         orientation: 'vertical'
-        padding: [10,50,10,50]
-        spacing: 50
 
+        Label:
+            text: 'Login'
+            font_size: "35dp"
+            size_hint: 0.06, 0.1
+            pos_hint: {'center_x': 0.15, 'center_y':0.7}
 
-        BoxLayout:
-            orientation: 'vertical'
-
-            Label:
-                text: 'Login'
-                font_size: "35dp"
-                size_hint: 0.06, 0.1
-                pos_hint: {'center_x': 0.15, 'center_y':0.7}
-
-            TextInput:
-                id: login
-                multiline: True
-                font_size: "35dp"
-                size_hint: 0.7, 0.126
-                pos_hint: {'x': 0.28, 'y':0.64}
+        TextInput:
+            id: login
+            multiline: True
+            font_size: "35dp"
+            size_hint: 0.7, 0.126
+            pos_hint: {'x': 0.28, 'y':0.64}
 
         Button:
-            text: 'Connexion'
-            font_size: 24
-
-            on_press: root.do_login(login.text, password.text)
+            text: 'Save'
+            size_hint: 0.06, 0.1
+            pos_hint: {'center_x': 0.40, 'center_y':0.5}
+            font_size: 30
+            on_press: root.do_login(loginText)
