@@ -16,10 +16,10 @@ class Login(Screen):
         app.username = loginText
 
         self.manager.transition = SlideTransition(direction="left")
-        self.manager.current = 'connected'
 
         app.config.read(app.get_application_config())
         app.config.write()
+
 
     def resetForm(self):
         self.ids['login'].text = ""
@@ -32,20 +32,24 @@ class LoginApp(App):
 
         manager.add_widget(Login(name='login'))
 
+        
+
         return manager
 
     def get_application_config(self):
-        if(not self.username):
-            return super(LoginApp, self).get_application_config()
+        print(username)
+        # if(not self.username):
 
-        conf_directory = self.user_data_dir + '/' + self.username
+        #     return super(LoginApp, self).get_application_config()
 
-        if(not os.path.exists(conf_directory)):
-            os.makedirs(conf_directory)
+        # conf_directory = self.user_data_dir + '/' + self.username
 
-        return super(LoginApp, self).get_application_config(
-            '%s/config.cfg' % (conf_directory)
-        )
+        # if(not os.path.exists(conf_directory)):
+        #     os.makedirs(conf_directory)
+
+        # return super(LoginApp, self).get_application_config(
+        #     '%s/config.cfg' % (conf_directory)
+        # )
 
 if __name__ == '__main__':
     LoginApp().run()
