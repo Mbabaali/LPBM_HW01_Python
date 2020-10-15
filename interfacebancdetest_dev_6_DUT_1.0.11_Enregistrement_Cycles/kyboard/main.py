@@ -1,6 +1,5 @@
 from kivy.app import App
 from kivy.properties import StringProperty
-from kivy.core.window import Window
 from kivy.config import Config
 from kivy.uix.scatter import Scatter
 from kivy.uix.screenmanager import ScreenManager, Screen, SlideTransition
@@ -16,6 +15,7 @@ class Login(Screen):
         app.username = loginText
 
         self.manager.transition = SlideTransition(direction="left")
+        self.manager.current = 'connected'
 
         app.config.read(app.get_application_config())
         app.config.write()
