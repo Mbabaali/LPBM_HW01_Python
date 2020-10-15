@@ -132,6 +132,8 @@ from kivy.uix.bubble import Bubble
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.image import Image
 
+Config.set('kivy', 'keyboard_mode', 'systemandmulti')
+
 from kivy.properties import StringProperty, NumericProperty, \
     BooleanProperty, AliasProperty, OptionProperty, \
     ListProperty, ObjectProperty, VariableListProperty, ColorProperty
