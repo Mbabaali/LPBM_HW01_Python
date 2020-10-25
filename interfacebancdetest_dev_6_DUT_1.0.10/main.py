@@ -43,7 +43,6 @@ import signal
 import inspect
 import GenGraph
 from multiprocessing import Process
-from connected import Connected
 
 global alarmawake
 
