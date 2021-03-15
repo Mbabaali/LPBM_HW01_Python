@@ -2473,24 +2473,24 @@
 <accChoice>:
     name:'accChoice'
 
-    GridLayout:
-        cols: 3
-        spacing: '8dp'
-        size_hint: .5, None
-        height: self.minimum_height
 
         Label:
-            text: 'Sleep with ACC'
+            id: label_text
+            text: 'ACC With VBATT'
+            font_size: "30dp"
+            pos_hint: {'center_x': 0.5, 'center_y':0.7}
         
         CheckBox:
             size_hint_y: None
             height: '48dp'
             group: 'g2'
+            pos_hint: {'center_x': 0.62, 'center_y':0.5}
 
         CheckBox:
             size_hint_y: None
             height: '48dp'
             group: 'g2'
+            pos_hint: {'center_x': 0.40, 'center_y':0.5}
 
     BoxLayout:
         orientation: 'vertical'                      
