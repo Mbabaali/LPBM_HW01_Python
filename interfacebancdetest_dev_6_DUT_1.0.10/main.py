@@ -1818,6 +1818,7 @@ class SetCycle2(Screen):
         
         self.label_nb_cycle = Label(text="1", font_size='40sp', size=(100, 50), pos_hint={'center_x': 0.37, 'center_y':0.24})
         self.add_widget(self.label_nb_cycle)
+    
 
     def incrementtimeawake_s(self):
         if(passerelle.cycle2.time_awake_s<60):
