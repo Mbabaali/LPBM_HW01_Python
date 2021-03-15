@@ -28,7 +28,6 @@
     SetCourantMax:
     SetNombreDeCycle:
     afficherParametres:
-    AccChoice:
     Graph:
 
 
@@ -42,7 +41,7 @@
             pos: 0, 0
             size: 800, 480
             source: "images/screenparrot.png"
-    # Label pour afficher le nom du dispositifdddd
+    # Label pour afficher le nom du dispositif
     Label:
         id: label_text
         text: "VBRC-4800 Test Bench"
@@ -2385,14 +2384,29 @@
                 #     icon: "images/parrotparrot.png"
                 ActionButton:
                     text: 'Validation Courant Max'
-                    on_release: root.manager.current = "accChoice" 
+                    on_release: root.manager.current = "setup2" 
     Label:
         id: label_text
         text: 'Max Current Per Unit'
         font_size: "30dp"
         pos_hint: {'center_x': 0.5, 'center_y':0.7}
 
-   
+    FloatLayout:
+        Label:
+            text:'Sleep mode with VBATT'
+            font_size: "35dp"
+            size_hint: 0.06, 0.1
+            pos_hint: {'center_x': 0.64, 'center_y':0.65}
+
+        CheckBox:
+            size_hint_y: None
+            height: '48dp'
+            pos_hint: {'center_x': 0.64, 'center_y':0.65}
+        
+        CheckBox:
+            size_hint_y: None
+            height: '48dp'
+            pos_hint: {'center_x': 0.74, 'center_y':0.65}
 
     FloatLayout:
         # Bouton +/- pour courant max
@@ -2470,41 +2484,8 @@
 
 
 
-<AccChoice>:
-    name:'accChoice'
 
 
-        Label:
-            id: label_text
-            text: 'ACC With VBATT'
-            font_size: "30dp"
-            pos_hint: {'center_x': 0.5, 'center_y':0.7}
-        
-        CheckBox:
-            size_hint_y: None
-            height: '48dp'
-            group: 'g2'
-            pos_hint: {'center_x': 0.62, 'center_y':0.5}
-
-        CheckBox:
-            size_hint_y: None
-            height: '48dp'
-            group: 'g2'
-            pos_hint: {'center_x': 0.40, 'center_y':0.5}
-
-    BoxLayout:
-        orientation: 'vertical'                      
-        ActionBar:
-            ActionView:
-                use_separator: True
-
-                ActionPrevious:
-                    title: 'ACC Configuration'
-                    with_previous: False
-
-                ActionButton:
-                    text: 'Validation'
-                    on_release: root.manager.current = "setup2"
 
 
 

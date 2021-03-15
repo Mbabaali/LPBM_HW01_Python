@@ -2554,8 +2554,7 @@ class SetNombreDeCycle(Screen):
             self.label_nobmre_de_cycle.text = str(passerelle.nobmre_de_cycle)
             passerelle.update_nobmre_de_cycle = 1
 
-class AccChoice(Screen):
-    pass
+
             
 class RootScreen(ScreenManager):
     pass
