@@ -28,6 +28,7 @@
     SetCourantMax:
     SetNombreDeCycle:
     afficherParametres:
+    accChoice:
     Graph:
 
 
@@ -2384,7 +2385,7 @@
                 #     icon: "images/parrotparrot.png"
                 ActionButton:
                     text: 'Validation Courant Max'
-                    on_release: root.manager.current = "setup2" 
+                    on_release: root.manager.current = "accChoice" 
     Label:
         id: label_text
         text: 'Max Current Per Unit'
@@ -2414,23 +2415,6 @@
             pos_hint: {'center_x': 0.4, 'center_y':0.5}
             font_size: 30
             on_press: root.decrementCourantMax()
-
-        
-        Label:
-            text:'Sleep mode with VBATT'
-            font_size: "35dp"
-            size_hint: 0.06, 0.1
-            pos_hint: {'center_x': 0.64, 'center_y':0.65}
-
-        CheckBox:
-            size_hint_y: None
-            height: '35dp'
-            group: 'g2'
-        
-        CheckBox:
-            size_hint_y: None
-            height: '35dp'
-            group: 'g2'
     
 
 
@@ -2486,8 +2470,41 @@
 
 
 
+<accChoice>:
+    name:'accChoice'
 
+    GridLayout:
+        cols: 3
+        spacing: '8dp'
+        size_hint: .5, None
+        height: self.minimum_height
 
+        Label:
+            text: 'Sleep with ACC'
+        
+        CheckBox:
+            size_hint_y: None
+            height: '48dp'
+            group: 'g2'
+
+        CheckBox:
+            size_hint_y: None
+            height: '48dp'
+            group: 'g2'
+
+    BoxLayout:
+        orientation: 'vertical'                      
+        ActionBar:
+            ActionView:
+                use_separator: True
+
+                ActionPrevious:
+                    title: 'ACC Configuration'
+                    with_previous: False
+
+                ActionButton:
+                    text: 'Validation'
+                    on_release: root.manager.current = "Setup2"
 
 
 
